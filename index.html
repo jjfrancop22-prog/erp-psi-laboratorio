@@ -116,10 +116,57 @@ AJUSTE V1.0.5 - 03/07/2026
 
 
 <!-- ==========================================================
- ERP PSI ENTERPRISE V7.0 PRODUCTION FINAL CLEAN
+ ERP PSI ENTERPRISE V7.1 DASHBOARD PRODUCTION FINAL CLEAN
  Ajuste visual:
- - Encabezado final seteado a V7.0 Production Final.
+ - Encabezado final seteado a V7.0 Production Final · Dashboard V7.1.
  - No modifica Firebase, Firestore, ERP_DATA_MASTER, Queue, Realtime ni CRUD.
+========================================================== -->
+
+
+<!-- ==========================================================
+ AJUSTE PRODUCCIÓN LAB CLOUD
+ Fecha: 2026-07-06
+ Cambio: colección de laboratorio ajustada a erp_laboratorio
+ Motivo: colección existente en Firestore.
+ No modifica erp_muestras, Firebase config, Queue, Realtime ni datos.
+========================================================== -->
+
+
+<!-- ==========================================================
+ AJUSTE LAB CLOUD ANTI-LOOP
+ Cambio:
+ - Evita bucle Realtime Cloud -> Local -> Save -> Cloud.
+ - El guardado local provocado por lectura Cloud no dispara commit.
+ - Mantiene colección erp_laboratorio.
+========================================================== -->
+
+
+<!-- ==========================================================
+ AJUSTE EXCEL FACTURACIÓN OFICIAL
+ Orden:
+ 1) FECHA ascendente.
+ 2) CÓDIGO OT ascendente dentro de cada fecha.
+ Columnas: formato completo solicitado por usuario.
+ No modifica datos ni sincronización.
+========================================================== -->
+
+
+<!-- ==========================================================
+ AJUSTE EXCEL FACTURACIÓN FORMATO OFICIAL USUARIO
+ Exporta exactamente con columnas:
+ FECHA, CODIGO, MATRIZ, GRUPO, CLIENTE, SUCURSAL, MES/FRECUENCIA,
+ TIPO_SERVICIO, DQO, TENSOACTIVOS, STATUS, ESTADO, COTIZACIÓN,
+ FACTURA, FECHA FACTURA, SUBTOTAL, SEMANA, MES, ANIO.
+ Orden: FECHA ASC + CODIGO ASC dentro de cada fecha.
+========================================================== -->
+
+
+<!-- ==========================================================
+ AJUSTE EXCEL FACTURACIÓN FECHA FINAL
+ Fecha de exportación:
+ - FECHA y FECHA FACTURA salen como texto dd/mm/aaaa.
+ - El orden se calcula por fecha real ascendente.
+ - Dentro de cada fecha, CODIGO ascendente.
 ========================================================== -->
 
 <!DOCTYPE html>
@@ -127,7 +174,7 @@ AJUSTE V1.0.5 - 03/07/2026
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ERP PSI Enterprise V7.0 Production Final</title>
+<title>ERP PSI Enterprise V7.0 Production Final · Dashboard V7.1 · Lab Cloud Commit erp_laboratorio FIX · Fechas DMY</title>
 <style>
 :root{--bg:#0f1117;--surface:#1a1d27;--surface2:#22263a;--border:#2e3350;--accent:#4f8ef7;--green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--cyan:#06b6d4;--text:#e2e8f0;--muted:#94a3b8;--card:#1e2235}
 *{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;min-height:100vh}.hdr{background:linear-gradient(135deg,#1a1d27,#16213e);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.hdr h1{font-size:18px}.sub{color:var(--muted);font-size:11px;margin-top:4px}.badge{background:#334155;color:#fff;padding:4px 10px;border-radius:18px;font-size:11px;font-weight:700}nav{background:var(--surface);border-bottom:1px solid var(--border);display:flex;overflow-x:auto}nav button{background:none;border:none;color:var(--muted);padding:13px 18px;cursor:pointer;font-weight:600;border-bottom:3px solid transparent;white-space:nowrap}nav button.active{color:var(--accent);border-bottom-color:var(--accent)}section{display:none;padding:20px 24px}section.active{display:block}.btn{border:none;border-radius:8px;padding:8px 13px;font-weight:700;cursor:pointer;color:#fff;display:inline-flex;gap:6px;align-items:center}.btn:hover{opacity:.86}.btn-p{background:var(--accent)}.btn-s{background:var(--green)}.btn-d{background:var(--red)}.btn-w{background:var(--yellow);color:#111}.btn-g{background:var(--surface2);border:1px solid var(--border);color:var(--text)}.btn-mini{padding:5px 9px;font-size:11px}.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:14px;margin-bottom:22px}.kc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;position:relative;overflow:hidden}.kc:before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--c,var(--accent))}.kc .lbl{color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-size:11px;margin-bottom:8px}.kc .val{font-size:34px;font-weight:900;color:var(--c,var(--text))}.blue{--c:var(--accent)}.green{--c:var(--green)}.yellow{--c:var(--yellow)}.red{--c:var(--red)}.cyan{--c:var(--cyan)}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:14px}input,select{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:7px;outline:none}input:focus,select:focus{border-color:var(--accent)}.twrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;background:#11131b}table{width:100%;border-collapse:collapse}th{background:var(--surface2);color:var(--muted);text-transform:uppercase;font-size:11px;letter-spacing:1px;text-align:left;padding:11px 12px;border-bottom:2px solid var(--border);white-space:nowrap}td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle}tr:last-child td{border-bottom:none}.chip{display:inline-block;padding:3px 9px;border-radius:10px;font-size:10px;font-weight:900;white-space:nowrap}.m-res{background:rgba(239,68,68,.18);color:#fca5a5}.m-nat{background:rgba(34,197,94,.15);color:#86efac}.m-con{background:rgba(6,182,212,.15);color:#67e8f9}.m-sue{background:rgba(245,158,11,.15);color:#fcd34d}.s-pen,.s-esp{background:rgba(245,158,11,.18);color:#fcd34d}.s-det{background:rgba(239,68,68,.2);color:#fca5a5}.s-ok{background:rgba(34,197,94,.15);color:#86efac}.s-pro{background:rgba(79,142,247,.15);color:#93c5fd}.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:50;align-items:center;justify-content:center}.modal-bg.open{display:flex}.modal{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px;width:min(760px,96vw);max-height:92vh;overflow:auto}.modal h2{font-size:16px;margin-bottom:16px}.fg{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fgr{display:flex;flex-direction:column;gap:5px}.fgr.full{grid-column:1/-1}.fgr label{font-size:10px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.8px}.act{display:flex;justify-content:flex-end;gap:8px;margin-top:18px;padding-top:14px;border-top:1px solid var(--border)}.toast{position:fixed;right:20px;bottom:20px;z-index:100;background:var(--surface2);border:1px solid var(--accent);border-radius:10px;padding:12px 16px;opacity:0;transform:translateY(10px);transition:.2s}.toast.show{opacity:1;transform:translateY(0)}.danger-note{display:inline-flex;gap:8px;align-items:center;background:rgba(239,68,68,.11);border:1px solid rgba(239,68,68,.35);color:#fca5a5;border-radius:20px;padding:8px 14px;margin-bottom:16px;font-weight:800}.empty{color:var(--muted);text-align:center;padding:24px!important}.small{font-size:11px;color:var(--muted)}@media(max-width:700px){.fg{grid-template-columns:1fr}.fgr.full{grid-column:1}.hdr{padding:14px}section{padding:14px}.kpi-grid{grid-template-columns:repeat(2,1fr)}}
@@ -354,7 +401,7 @@ window.PSI_ANTI_ZERO_GUARD = function(localCount, cloudCount){
 </script>
 </head>
 <body>
-<div class="hdr"><div style="display:flex;align-items:center;gap:14px"><img class="psi-logo-img" src="data:image/jpeg;base64,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3NawSvJsWadxpWdjau2xz/ax8f7FrdR7mxiZrj5LmnbJG9hktkjD9khXvImU7Ls/PevJfD/yTbeNvHZ7toLqC8Xa7EdBSWyVmv8A83DUa4n90gtEbXR4My3q6hx+DNc6tsIHiWRh+v6wWtQe5tYrLhx80LXGO0st8r/2vC2G1+5r22NwN6zZqp29rKa0ti+10j/2L38JOp0uzFvzlNy8+L6JEJ4420c9cbMkposRxWCkk5GGzxcB2n9qSZR8jgoYmrbjd6501TNUVtZUyc3veZZZXnvJ5kleiuGtgTImyubJdWX2/ubzLa2v4bCfZC1h0+UqZ8H5UZb5fsH4G4Is9qeG7vFp6VgmcPGQ+mflKyVRR2RYQ7XaZpkeGwoeij6836HnNltskZ15jPiqBhx+H7bJoXVl31p+Xe2LTiO8PR08VcjJ3Y4y0yvkgu92a7E18i0cKutiAhif60UHMNPi4ucOwhT8NAOSxoB0XjqyZzmqdrdR1NODlwR6L6vf6HIANGgGgCyiLUcyEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQH/2Q==" alt="PSI Productos y Servicios Industriales"><div><h1>ERP PSI PRODUCTOS Y SERVICIOS INDUSTRIALES C.LTDA</h1><div class="sub" id="headerSub">Sistema Integrado de Gestión de Laboratorio · ERP PSI Enterprise V7.0 Production Final</div></div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-s" onclick="openModal()">＋ Nueva Muestra</button><button class="btn btn-p" onclick="psiEnterpriseCloudDashboard()">☁️ Cloud Dashboard Enterprise</button><button class="btn btn-g" onclick="psiCodeAuditRC11A()">🧪 Code Audit RC1.1A</button><button class="btn btn-g" onclick="psiDataIntegrityAuditRC11B()">🧬 Data Integrity RC1.1B</button><button class="btn btn-g" onclick="psiSyncAuditRC11C()">🔄 Sync Audit RC1.1C</button><button class="btn btn-g" onclick="psiPerformanceAuditRC11D()">⚡ Performance Audit RC1.1D</button><button class="btn btn-p" onclick="document.getElementById('importFile').click()">⬆ Importar Excel</button><button class="btn btn-g psi-cloud-hidden" onclick="diagnostic()">🔎 Diagnóstico</button><button class="btn btn-g psi-cloud-hidden" onclick="psiPreFirebaseCheck()">🛡️ Pre-Firebase</button><button class="btn btn-p psi-cloud-hidden" onclick="psiCloudLogin()">☁️ Cloud Login</button><button class="btn btn-g psi-cloud-hidden" onclick="psiFirestoreSafeTest()">☁️ Firestore Test</button><button class="btn btn-p psi-cloud-hidden" onclick="psiSyncOneDevInfo()">🔁 TX Sync PROD</button><button class="btn btn-s psi-cloud-hidden" onclick="psiRealtimeStatus()">🔴 Realtime ON</button><button class="btn btn-g psi-cloud-hidden" onclick="psiCloudCenter()">☁️ Centro Cloud</button><button class="btn btn-p psi-cloud-hidden" onclick="psiSyncManager()">🧭 Gestor Sync PROD</button><button class="btn btn-w psi-cloud-hidden" onclick="psiTxCenter()">🧾 TX Center</button><button class="btn btn-p psi-cloud-hidden" onclick="psiAuditCenter()">📜 Audit Center</button><button class="btn btn-s psi-cloud-hidden" onclick="psiDashboardSmartCenter()">📊 Dash Smart</button><button class="btn btn-w psi-cloud-hidden" onclick="psiQueueCenter()">📥 Queue Center</button><button class="btn btn-p psi-cloud-hidden" onclick="psiCloudEngineCenter()">⚙️ Cloud Engine</button><button class="btn btn-w psi-cloud-hidden" onclick="psiCloudReadSafeTest()">🛡️ Read Safe</button><input id="importFile" type="file" accept=".xlsx,.xls,.csv,.json" style="display:none" onchange="importExcelFile(event)"><button class="btn btn-g" onclick="exportExcel()">⬇ Excel</button><button class="btn btn-w" onclick="downloadTemplate()">📄 Plantilla</button><button class="btn btn-w" onclick="backupJSON()">💾 Respaldo</button><button class="btn btn-d psi-cloud-hidden" onclick="resetBlank()">🧹 Dejar ERP vacío</button><span class="role-pill">👤 Rol <select id="erpRoleSelect" onchange="setERPUserRole(this.value)"><option>CALIDAD</option><option>LABORATORIO</option><option>FACTURACION</option><option>GERENCIA</option><option>ADMIN</option></select></span><span class="badge">ERP PSI ENTERPRISE V7.0 · PRODUCTION FINAL</span><span class="badge" id="cloudStatusBadge" style="background:rgba(34,197,94,.18);border:1px solid rgba(34,197,94,.35)">🧾 TX listo</span></div></div>
+<div class="hdr"><div style="display:flex;align-items:center;gap:14px"><img class="psi-logo-img" src="data:image/jpeg;base64,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3NawSvJsWadxpWdjau2xz/ax8f7FrdR7mxiZrj5LmnbJG9hktkjD9khXvImU7Ls/PevJfD/yTbeNvHZ7toLqC8Xa7EdBSWyVmv8A83DUa4n90gtEbXR4My3q6hx+DNc6tsIHiWRh+v6wWtQe5tYrLhx80LXGO0st8r/2vC2G1+5r22NwN6zZqp29rKa0ti+10j/2L38JOp0uzFvzlNy8+L6JEJ4420c9cbMkposRxWCkk5GGzxcB2n9qSZR8jgoYmrbjd6501TNUVtZUyc3veZZZXnvJ5kleiuGtgTImyubJdWX2/ubzLa2v4bCfZC1h0+UqZ8H5UZb5fsH4G4Is9qeG7vFp6VgmcPGQ+mflKyVRR2RYQ7XaZpkeGwoeij6836HnNltskZ15jPiqBhx+H7bJoXVl31p+Xe2LTiO8PR08VcjJ3Y4y0yvkgu92a7E18i0cKutiAhif60UHMNPi4ucOwhT8NAOSxoB0XjqyZzmqdrdR1NODlwR6L6vf6HIANGgGgCyiLUcyEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQH/2Q==" alt="PSI Productos y Servicios Industriales"><div><h1>ERP PSI PRODUCTOS Y SERVICIOS INDUSTRIALES C.LTDA</h1><div class="sub" id="headerSub">Sistema Integrado de Gestión de Laboratorio · ERP PSI Enterprise V7.0 Production Final · Dashboard V7.1 · Lab Cloud Commit erp_laboratorio FIX · Fechas DMY</div></div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-s" onclick="openModal()">＋ Nueva Muestra</button><button class="btn btn-p" onclick="psiEnterpriseCloudDashboard()">☁️ Cloud Dashboard Enterprise</button><button class="btn btn-g" onclick="psiLabCloudCommitStatus()">🏥 Lab Cloud Status</button><button class="btn btn-w" onclick="psiSeedLabCloudFromLocal()">⬆ Subir Lab a Cloud</button><button class="btn btn-g" onclick="psiCodeAuditRC11A()">🧪 Code Audit RC1.1A</button><button class="btn btn-g" onclick="psiDataIntegrityAuditRC11B()">🧬 Data Integrity RC1.1B</button><button class="btn btn-g" onclick="psiSyncAuditRC11C()">🔄 Sync Audit RC1.1C</button><button class="btn btn-g" onclick="psiPerformanceAuditRC11D()">⚡ Performance Audit RC1.1D</button><button class="btn btn-p" onclick="document.getElementById('importFile').click()">⬆ Importar Excel</button><button class="btn btn-g psi-cloud-hidden" onclick="diagnostic()">🔎 Diagnóstico</button><button class="btn btn-g psi-cloud-hidden" onclick="psiPreFirebaseCheck()">🛡️ Pre-Firebase</button><button class="btn btn-p psi-cloud-hidden" onclick="psiCloudLogin()">☁️ Cloud Login</button><button class="btn btn-g psi-cloud-hidden" onclick="psiFirestoreSafeTest()">☁️ Firestore Test</button><button class="btn btn-p psi-cloud-hidden" onclick="psiSyncOneDevInfo()">🔁 TX Sync PROD</button><button class="btn btn-s psi-cloud-hidden" onclick="psiRealtimeStatus()">🔴 Realtime ON</button><button class="btn btn-g psi-cloud-hidden" onclick="psiCloudCenter()">☁️ Centro Cloud</button><button class="btn btn-p psi-cloud-hidden" onclick="psiSyncManager()">🧭 Gestor Sync PROD</button><button class="btn btn-w psi-cloud-hidden" onclick="psiTxCenter()">🧾 TX Center</button><button class="btn btn-p psi-cloud-hidden" onclick="psiAuditCenter()">📜 Audit Center</button><button class="btn btn-s psi-cloud-hidden" onclick="psiDashboardSmartCenter()">📊 Dash Smart</button><button class="btn btn-w psi-cloud-hidden" onclick="psiQueueCenter()">📥 Queue Center</button><button class="btn btn-p psi-cloud-hidden" onclick="psiCloudEngineCenter()">⚙️ Cloud Engine</button><button class="btn btn-w psi-cloud-hidden" onclick="psiCloudReadSafeTest()">🛡️ Read Safe</button><input id="importFile" type="file" accept=".xlsx,.xls,.csv,.json" style="display:none" onchange="importExcelFile(event)"><button class="btn btn-g" onclick="exportExcel()">⬇ Excel</button><button class="btn btn-w" onclick="downloadTemplate()">📄 Plantilla</button><button class="btn btn-w" onclick="backupJSON()">💾 Respaldo</button><button class="btn btn-d psi-cloud-hidden" onclick="resetBlank()">🧹 Dejar ERP vacío</button><span class="role-pill">👤 Rol <select id="erpRoleSelect" onchange="setERPUserRole(this.value)"><option>CALIDAD</option><option>LABORATORIO</option><option>FACTURACION</option><option>GERENCIA</option><option>ADMIN</option></select></span><span class="badge">ERP PSI ENTERPRISE V7.1 DASHBOARD · PRODUCTION FINAL · LAB CLOUD FIX · FACT FECHA RAW</span><span class="badge" id="cloudStatusBadge" style="background:rgba(34,197,94,.18);border:1px solid rgba(34,197,94,.35)">🧾 TX listo</span></div></div>
 <div class="module-shell">
   <button class="btn module-btn" data-module-target="control" onclick="showTab('dashboard')">🔬 INGRESO DE MUESTRA</button>
   <button class="btn module-btn" data-module-target="informes" onclick="showTab('informes')">📄 INGRESO AL LABORATORIO</button>
@@ -4124,7 +4171,7 @@ async function psiCloudEngineCenter(){
     {ok:true, text:'Anti-Cero: activo'}
   ];
   if(typeof psiSafeModal === 'function'){
-    psiSafeModal('⚙️ ERP PSI ENTERPRISE V7.0 · PRODUCTION FINAL', lines, 'Cloud Engine consolida Auth, Firestore, Realtime, Queue, TX, Auditoría y Dashboard. No borra ni reemplaza datos; solo orquesta y registra estado Enterprise.');
+    psiSafeModal('⚙️ ERP PSI ENTERPRISE V7.1 DASHBOARD · PRODUCTION FINAL · LAB CLOUD FIX · FACT FECHA RAW', lines, 'Cloud Engine consolida Auth, Firestore, Realtime, Queue, TX, Auditoría y Dashboard. No borra ni reemplaza datos; solo orquesta y registra estado Enterprise.');
   }else{
     alert(lines.map(function(l){return (l.ok?'✅ ':'❌ ')+l.text;}).join('\n'));
   }
@@ -4675,7 +4722,7 @@ async function psiCloudEngineCenter(){
 (function(){
   'use strict';
   var SOURCE_COLLECTION='erp_muestras';
-  var LAB_DETAIL_COLLECTION='erp_lab_detalle';
+  var LAB_DETAIL_COLLECTION='erp_laboratorio';
   var LAB_STATUS_DOC='laboratorio_live_v641';
   window.PSI_LAB_LIVE_LAST_ERROR='sin errores';
   window.PSI_LAB_LIVE_CACHE=[];
@@ -4827,13 +4874,13 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 
 
-<!-- FASE 2.1.2: bloque temporal eliminado: ERP PSI ERP PSI ENTERPRISE V7.0 · PRODUCTION FINAL.5 -->
+<!-- FASE 2.1.2: bloque temporal eliminado: ERP PSI ERP PSI ENTERPRISE V7.1 DASHBOARD · PRODUCTION FINAL · LAB CLOUD FIX · FACT FECHA RAW.5 -->
 
 
 
 <script>
 /* ==========================================================
-   ERP PSI ERP PSI ENTERPRISE V7.0 · PRODUCTION FINAL LIMPIEZA
+   ERP PSI ERP PSI ENTERPRISE V7.1 DASHBOARD · PRODUCTION FINAL · LAB CLOUD FIX · FACT FECHA RAW LIMPIEZA
    Objetivo:
    - No subir a ciegas.
    - Leer SERVER y listar IDs faltantes reales.
@@ -4993,7 +5040,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <script>
 /* ==========================================================
-   ERP PSI ERP PSI ENTERPRISE V7.0 · PRODUCTION FINAL
+   ERP PSI ERP PSI ENTERPRISE V7.1 DASHBOARD · PRODUCTION FINAL · LAB CLOUD FIX · FACT FECHA RAW
    Limpieza Enterprise de interfaz temporal:
    - Oculta/elimina botones V6.4.x, Startup 1.5x, CRUD 1.4x.
    - Conserva un único acceso: Cloud Verify Enterprise.
@@ -5039,7 +5086,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <script>
 /* ==========================================================
-   ERP PSI ENTERPRISE V7.0 PRODUCTION FINAL · SPRINT 2.1.1
+   ERP PSI ENTERPRISE V7.1 DASHBOARD PRODUCTION FINAL · SPRINT 2.1.1
    CLOUD ENGINE ÚNICO
    Objetivo:
    - Un solo acceso técnico: Cloud Engine Enterprise.
@@ -5247,7 +5294,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <script>
 /* ==========================================================
-   ERP PSI ENTERPRISE V7.0 PRODUCTION FINAL · SPRINT 2.1.3B
+   ERP PSI ENTERPRISE V7.1 DASHBOARD PRODUCTION FINAL · SPRINT 2.1.3B
    WRITE VERIFY ENGINE
    Objetivo:
    - Verifica SERVER con lectura paginada.
@@ -5387,7 +5434,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 <script>
-/* === ERP PSI ENTERPRISE V7.0 PRODUCTION FINAL · Sprint 2.1.3C Firestore Inspector === */
+/* === ERP PSI ENTERPRISE V7.1 DASHBOARD PRODUCTION FINAL · Sprint 2.1.3C Firestore Inspector === */
 (function(){
   var VERSION='SPRINT_2_1_3C_FIRESTORE_INSPECTOR';
   var COLLECTION='erp_muestras';
@@ -5454,7 +5501,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 <script>
-/* === ERP PSI ENTERPRISE V7.0 PRODUCTION FINAL · Sprint 2.2 Integración Enterprise === */
+/* === ERP PSI ENTERPRISE V7.1 DASHBOARD PRODUCTION FINAL · Sprint 2.2 Integración Enterprise === */
 (function(){
   var VERSION='SPRINT_2_2_INTEGRACION_ENTERPRISE';
   var COLLECTION='erp_muestras';
@@ -5554,7 +5601,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 <script>
-/* === ERP PSI ENTERPRISE V7.0 PRODUCTION FINAL · Sprint 2.3.1D Auto Recovery Bootstrap ===
+/* === ERP PSI ENTERPRISE V7.1 DASHBOARD PRODUCTION FINAL · Sprint 2.3.1D Auto Recovery Bootstrap ===
    Objetivo: sincronización inicial segura desde Firestore antes de activar Realtime.
    - Cloud es fuente de verdad para computadoras nuevas o navegadores vacíos.
    - Descarga documentos de erp_muestras por páginas.
@@ -7496,7 +7543,7 @@ document.addEventListener('DOMContentLoaded', function(){
   function render(){var bg=document.getElementById('psiF52CBg'); if(!bg)return; bg.innerHTML=html(); bind();}
   function bind(){var b=document.getElementById('psiF52CStart'); if(b)b.onclick=start; b=document.getElementById('psiF52CStop'); if(b)b.onclick=stop; b=document.getElementById('psiF52CVal'); if(b)b.onclick=revalidate; b=document.getElementById('psiF52CClose'); if(b)b.onclick=function(){var bg=document.getElementById('psiF52CBg'); if(bg)bg.remove();};}
   function openPanel(){var old=document.getElementById('psiF52CBg'); if(old)old.remove();var bg=document.createElement('div');bg.id='psiF52CBg';bg.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:100050;display:flex;align-items:center;justify-content:center;padding:16px';document.body.appendChild(bg);state.local=arr().length;render();revalidate();}
-  function install(){try{var hdr=document.querySelector('.hdr > div:last-child')||document.querySelector('.hdr');if(hdr&&!document.getElementById('psiF52CBtn')){var b=document.createElement('button');b.id='psiF52CBtn';b.className='btn btn-s';b.type='button';b.textContent='⚡ Event Commit 5.2C';b.onclick=openPanel;hdr.appendChild(b);}}catch(e){}try{var sub=document.getElementById('headerSub');if(sub)sub.textContent='Sistema Integrado de Gestión de Laboratorio · ERP PSI Enterprise V7.0 · Production Final';}catch(e){} }
+  function install(){try{var hdr=document.querySelector('.hdr > div:last-child')||document.querySelector('.hdr');if(hdr&&!document.getElementById('psiF52CBtn')){var b=document.createElement('button');b.id='psiF52CBtn';b.className='btn btn-s';b.type='button';b.textContent='⚡ Event Commit 5.2C';b.onclick=openPanel;hdr.appendChild(b);}}catch(e){}try{var sub=document.getElementById('headerSub');if(sub)sub.textContent='Sistema Integrado de Gestión de Laboratorio · ERP PSI Enterprise V7.0 · Production Final · Dashboard V7.1';}catch(e){} }
   window.PSI_UNIVERSAL_EVENT_COMMIT_52C={open:openPanel,start:start,stop:stop,revalidate:revalidate,state:state};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(install,700);setTimeout(install,1800);});else{setTimeout(install,700);setTimeout(install,1800);}
 })();
@@ -7592,7 +7639,7 @@ document.addEventListener('DOMContentLoaded', function(){
     document.getElementById('psiF52DClose').onclick=function(){bg.remove();};
     state.local=getRows().length;render();
   }
-  function install(){try{var hdr=document.querySelector('.hdr > div:last-child')||document.querySelector('.hdr');if(hdr&&!document.getElementById('psiF52DBtn')){var b=document.createElement('button');b.id='psiF52DBtn';b.className='btn btn-p';b.type='button';b.textContent='☁️ Cloud Commit 5.2D';b.onclick=openPanel;hdr.appendChild(b);}}catch(e){}try{var sub=document.getElementById('headerSub');if(sub)sub.textContent='Sistema Integrado de Gestión de Laboratorio · ERP PSI Enterprise V7.0 · Production Final';}catch(e){} }
+  function install(){try{var hdr=document.querySelector('.hdr > div:last-child')||document.querySelector('.hdr');if(hdr&&!document.getElementById('psiF52DBtn')){var b=document.createElement('button');b.id='psiF52DBtn';b.className='btn btn-p';b.type='button';b.textContent='☁️ Cloud Commit 5.2D';b.onclick=openPanel;hdr.appendChild(b);}}catch(e){}try{var sub=document.getElementById('headerSub');if(sub)sub.textContent='Sistema Integrado de Gestión de Laboratorio · ERP PSI Enterprise V7.0 · Production Final · Dashboard V7.1';}catch(e){} }
   window.PSI_UNIVERSAL_CLOUD_COMMIT_52D={open:openPanel,activate:activate,commit:commit,revalidate:revalidate,state:state};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
 })();
@@ -7757,7 +7804,7 @@ document.addEventListener('DOMContentLoaded', function(){
     var hdr=document.querySelector('.hdr > div:last-child')||document.querySelector('.hdr');
     if(hdr && !document.getElementById('psiF52DRealBtn')){var b=document.createElement('button');b.id='psiF52DRealBtn';b.className='btn btn-p';b.type='button';b.textContent='☁️ Cloud Commit 5.2D REAL';b.onclick=openPanel;hdr.appendChild(b);}
     var old=document.getElementById('psiF52DBtn'); if(old){old.textContent='☁️ Cloud Commit 5.2D REAL'; old.onclick=openPanel;}
-    try{var sub=document.getElementById('headerSub'); if(sub)sub.textContent='Sistema Integrado de Gestión de Laboratorio · ERP PSI Enterprise V7.0 Production Final';}catch(e){}
+    try{var sub=document.getElementById('headerSub'); if(sub)sub.textContent='Sistema Integrado de Gestión de Laboratorio · ERP PSI Enterprise V7.0 Production Final · Dashboard V7.1 · Lab Cloud Commit erp_laboratorio FIX · Fechas DMY';}catch(e){}
     setTimeout(function(){activate();},1600);
   }
   window.PSI_UNIVERSAL_CLOUD_COMMIT_52D1={open:openPanel,activate:activate,revalidate:revalidate,state:state,logs:logLoad};
@@ -7924,7 +7971,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   function install(){
     cleanMainHeader();
-    try{var sub=document.getElementById('headerSub'); if(sub) sub.textContent='Sistema Integrado de Gestión de Laboratorio · ERP PSI Enterprise V7.0 Production Final';}catch(e){}
+    try{var sub=document.getElementById('headerSub'); if(sub) sub.textContent='Sistema Integrado de Gestión de Laboratorio · ERP PSI Enterprise V7.0 Production Final · Dashboard V7.1 · Lab Cloud Commit erp_laboratorio FIX · Fechas DMY';}catch(e){}
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){setTimeout(install,800);setTimeout(install,2200);setTimeout(install,4200);});
   else {setTimeout(install,500);setTimeout(install,2000);setTimeout(install,4200);}
@@ -8121,7 +8168,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <!--
 ==========================================================
- ERP PSI ENTERPRISE V7.0 · PRODUCTION FINAL.1B DATA INTEGRITY AUDIT ENGINE
+ ERP PSI ENTERPRISE V7.1 DASHBOARD · PRODUCTION FINAL · LAB CLOUD FIX · FACT FECHA RAW.1B DATA INTEGRITY AUDIT ENGINE
  Alcance: SOLO LECTURA. No modifica DATA, localStorage, IndexedDB, Firebase, Firestore, Queue,
  Transaction Manager, Realtime, CRUD ni motores Cloud.
 ==========================================================
@@ -8457,7 +8504,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 <script>
 /* ==========================================================
- ERP PSI ENTERPRISE V7.0 · PRODUCTION FINAL.1C SYNC AUDIT ENGINE
+ ERP PSI ENTERPRISE V7.1 DASHBOARD · PRODUCTION FINAL · LAB CLOUD FIX · FACT FECHA RAW.1C SYNC AUDIT ENGINE
  Alcance: auditoría SOLO LECTURA del flujo de sincronización.
  No ejecuta set(), add(), update(), delete(), commit(), queue retry, persistencia local ni render operativo.
 ========================================================== */
@@ -8914,6 +8961,1933 @@ document.addEventListener('DOMContentLoaded', function(){
       </div>
     `;
   };
+})();
+</script>
+
+
+<!-- ==========================================================
+ ERP PSI ENTERPRISE V7.1 DASHBOARD · LAB CLOUD COMMIT PRODUCTION · erp_laboratorio
+ Alcance:
+ - Agrega sincronización Cloud propia para el módulo Ingreso al Laboratorio.
+ - Colección Firestore: erp_laboratorio.
+ - No modifica erp_muestras.
+ - No modifica el flujo de Ingreso de Muestras.
+ - Mantiene INFORMES local como caché operativa y lo replica/lee desde Cloud.
+========================================================== -->
+<script>
+(function(){
+  if(window.PSI_LAB_CLOUD_COMMIT_V70) return;
+  window.PSI_LAB_CLOUD_COMMIT_V70 = true;
+
+  var LAB_COLLECTION = 'erp_laboratorio';
+  var LAB_STATUS_DOC = 'lab_cloud_commit_v70';
+  var labUnsub = null;
+  var labWriteEnabled = false;
+  var labApplyingCloud = false;
+  var labLastCloudSignature = '';
+  var labCommitTimer = null;
+
+  function nowISO(){ return new Date().toISOString(); }
+  function norm(v){ return String(v == null ? '' : v).trim(); }
+  function up(v){ return norm(v).toUpperCase(); }
+
+  function labDocId(i){
+    i = i || {};
+    var id = norm(i.id);
+    if(id) return id.replace(/[\/#?[\]]/g,'_');
+    var codigo = norm(i.codigo || i.ot || i.OT || 'SIN_CODIGO');
+    var grupo = norm(i.grupo || i.matriz || 'SIN_GRUPO');
+    return (codigo + '_' + grupo).replace(/[\/#?[\]\s]+/g,'_').slice(0,180);
+  }
+
+  function labKey(i){
+    i = i || {};
+    if(typeof informeKey === 'function'){
+      try { return String(informeKey(i)); } catch(e){}
+    }
+    return up(i.codigo || '') + '|' + up(i.grupo || '');
+  }
+
+  function calcLab(i){
+    var o = Object.assign({}, i || {});
+    try {
+      if(typeof calcInforme === 'function') o = calcInforme(o);
+    } catch(e){}
+    o.id = o.id || labDocId(o);
+    o.ingreso_laboratorio_oficial = true;
+    o.updatedAt = o.updatedAt || nowISO();
+    return o;
+  }
+
+  async function labCloud(){
+    try { await (window.PSI_CLOUD_READY || Promise.resolve(false)); } catch(e){}
+    if(!window.PSI_FIRESTORE_DB && window.firebase && firebase.firestore){
+      try { window.PSI_FIRESTORE_DB = firebase.firestore(); } catch(e){}
+    }
+    if(!window.PSI_FIREBASE_AUTH && window.firebase && firebase.auth){
+      try { window.PSI_FIREBASE_AUTH = firebase.auth(); } catch(e){}
+    }
+    var db = window.PSI_FIRESTORE_DB;
+    var user = window.PSI_FIREBASE_AUTH && window.PSI_FIREBASE_AUTH.currentUser;
+    if(!db) throw new Error('Firestore no disponible');
+    if(!user) throw new Error('Usuario no autenticado. Use Cloud Login.');
+    return {db:db,user:user};
+  }
+
+  async function commitOneInformeCloud(informe, action){
+    try{
+      var c = await labCloud();
+      var doc = calcLab(informe);
+      var id = labDocId(doc);
+      doc.id = doc.id || id;
+      doc.labCloudUpdatedAt = nowISO();
+      doc.labCloudAction = action || 'SAVE';
+      doc.labCloudUser = c.user ? (c.user.email || c.user.uid || '') : '';
+      doc.labCloudSource = 'ERP_PSI_ENTERPRISE_V7_0_PRODUCTION_FINAL';
+      await c.db.collection(LAB_COLLECTION).doc(id).set(doc, {merge:true});
+      try{
+        await c.db.collection('erp_status').doc(LAB_STATUS_DOC).set({
+          active:true,
+          collection:LAB_COLLECTION,
+          lastAction:action || 'SAVE',
+          lastDocId:id,
+          lastCodigo:doc.codigo || '',
+          updatedAt:nowISO(),
+          user:doc.labCloudUser
+        }, {merge:true});
+      }catch(_e){}
+      return {ok:true,id:id};
+    }catch(e){
+      console.error('LAB CLOUD COMMIT ERROR', e);
+      try{ if(typeof toast === 'function') toast('⚠️ Laboratorio guardado local; Cloud pendiente: '+(e.message || e)); }catch(_e){}
+      return {ok:false,error:e.message || String(e)};
+    }
+  }
+
+  async function deleteInformeCloud(id, oldRecord){
+    try{
+      var c = await labCloud();
+      var docId = labDocId(oldRecord || {id:id});
+      await c.db.collection(LAB_COLLECTION).doc(docId).delete();
+      try{
+        await c.db.collection('erp_status').doc(LAB_STATUS_DOC).set({
+          active:true,
+          collection:LAB_COLLECTION,
+          lastAction:'DELETE',
+          lastDocId:docId,
+          updatedAt:nowISO(),
+          user:c.user ? (c.user.email || c.user.uid || '') : ''
+        }, {merge:true});
+      }catch(_e){}
+      return true;
+    }catch(e){
+      console.error('LAB CLOUD DELETE ERROR', e);
+      try{ if(typeof toast === 'function') toast('⚠️ Eliminado local; eliminación Cloud pendiente: '+(e.message || e)); }catch(_e){}
+      return false;
+    }
+  }
+
+  async function readLabCloudAll(){
+    var c = await labCloud();
+    var snap = await c.db.collection(LAB_COLLECTION).get({source:'server'});
+    var arr = [];
+    snap.forEach(function(d){
+      var data = d.data() || {};
+      data.id = data.id || d.id;
+      arr.push(calcLab(data));
+    });
+    return arr;
+  }
+
+  function labSignature(arr){
+    try{
+      return JSON.stringify((arr||[]).map(function(x){
+        return {
+          id:String(x.id||''),
+          codigo:String(x.codigo||''),
+          grupo:String(x.grupo||''),
+          updatedAt:String(x.updatedAt||x.labCloudUpdatedAt||''),
+          estado:String(x.estado_laboratorio||x.estado_informe||'')
+        };
+      }).sort(function(a,b){return (a.id||a.codigo).localeCompare(b.id||b.codigo);}));
+    }catch(e){ return String((arr||[]).length); }
+  }
+
+  function replaceInformesFromCloud(arr){
+    if(!Array.isArray(arr)) arr = [];
+    if(arr.length > 0){
+      var sig = labSignature(arr);
+      if(sig === labLastCloudSignature){
+        labWriteEnabled = true;
+        return;
+      }
+      labLastCloudSignature = sig;
+      labApplyingCloud = true;
+      try{
+        INFORMES = arr.map(calcLab);
+        try{ 
+          if(typeof saveInformes === 'function') {
+            var prev = labWriteEnabled;
+            labWriteEnabled = false;
+            saveInformes(true);
+            labWriteEnabled = prev;
+          }
+        }catch(e){}
+        try{ if(typeof renderAll === 'function') renderAll(); }catch(e){}
+        try{ 
+          if(typeof toast === 'function' && !window.__PSI_LAB_CLOUD_TOAST_SHOWN){
+            window.__PSI_LAB_CLOUD_TOAST_SHOWN = true;
+            toast('☁️ Laboratorio sincronizado desde Cloud: '+arr.length+' registros');
+            setTimeout(function(){ window.__PSI_LAB_CLOUD_TOAST_SHOWN = false; }, 15000);
+          }
+        }catch(e){}
+      }finally{
+        labApplyingCloud = false;
+        labWriteEnabled = true;
+      }
+    }
+  }
+
+  async function loadLabCloudOnce(){
+    try{
+      var arr = await readLabCloudAll();
+      replaceInformesFromCloud(arr);
+      labWriteEnabled = true;
+      return arr.length;
+    }catch(e){
+      console.warn('LAB CLOUD LOAD WARN', e);
+      labWriteEnabled = true; // permite que el usuario pueda guardar y subir si trabaja online.
+      return 0;
+    }
+  }
+
+  function startLabRealtime(){
+    try{
+      if(labUnsub) return;
+      if(!window.PSI_FIRESTORE_DB) return;
+      labUnsub = window.PSI_FIRESTORE_DB.collection(LAB_COLLECTION).onSnapshot(function(snap){
+        if(!snap || snap.empty){
+          labWriteEnabled = true;
+          return;
+        }
+        var arr = [];
+        snap.forEach(function(d){
+          var data = d.data() || {};
+          data.id = data.id || d.id;
+          arr.push(calcLab(data));
+        });
+        replaceInformesFromCloud(arr);
+        labWriteEnabled = true;
+      }, function(err){
+        console.warn('LAB REALTIME ERROR', err);
+        labWriteEnabled = true;
+      });
+    }catch(e){
+      console.warn('LAB REALTIME START ERROR', e);
+      labWriteEnabled = true;
+    }
+  }
+
+  function scheduleCommitAllInformes(reason){
+    if(labApplyingCloud) return;
+    if(!labWriteEnabled) return;
+    clearTimeout(labCommitTimer);
+    labCommitTimer = setTimeout(async function(){
+      var arr = Array.isArray(window.INFORMES) ? window.INFORMES : (typeof INFORMES !== 'undefined' ? INFORMES : []);
+      arr = Array.isArray(arr) ? arr : [];
+      for(var k=0;k<arr.length;k++){
+        await commitOneInformeCloud(arr[k], reason || 'SAVE_ALL');
+      }
+    }, 600);
+  }
+
+  // Wrapper de saveInformes: cada cambio operativo del módulo laboratorio se replica a erp_laboratorio.
+  try{
+    if(typeof window.saveInformes === 'function' && !window.saveInformes.__labCloudWrapped){
+      var originalSaveInformes = window.saveInformes;
+      var wrappedSaveInformes = function(silent){
+        var ok = originalSaveInformes.apply(this, arguments);
+        if(ok && !labApplyingCloud) scheduleCommitAllInformes('SAVE_INFORMES');
+        return ok;
+      };
+      wrappedSaveInformes.__labCloudWrapped = true;
+      window.saveInformes = wrappedSaveInformes;
+      try{ saveInformes = wrappedSaveInformes; }catch(_e){}
+    }
+  }catch(e){ console.warn('No se pudo envolver saveInformes', e); }
+
+  // Wrapper del guardado oficial de laboratorio para commit inmediato del registro editado/nuevo.
+  try{
+    if(typeof window.saveInformeManual === 'function' && !window.saveInformeManual.__labCloudWrapped){
+      var originalSaveInformeManual = window.saveInformeManual;
+      var wrappedSaveInformeManual = function(){
+        var beforeKeys = new Set((Array.isArray(INFORMES)?INFORMES:[]).map(function(x){return String(x.id||'');}));
+        var beforeCount = (Array.isArray(INFORMES)?INFORMES.length:0);
+        var result = originalSaveInformeManual.apply(this, arguments);
+        setTimeout(function(){
+          try{
+            var arr = Array.isArray(INFORMES)?INFORMES:[];
+            var chosen = null;
+            for(var i=0;i<arr.length;i++){
+              if(!beforeKeys.has(String(arr[i].id||''))){ chosen = arr[i]; break; }
+            }
+            if(!chosen && arr.length){ chosen = arr[arr.length-1]; }
+            if(chosen) commitOneInformeCloud(chosen, beforeCount === arr.length ? 'UPDATE_LAB' : 'CREATE_LAB');
+          }catch(e){ console.error(e); }
+        }, 100);
+        return result;
+      };
+      wrappedSaveInformeManual.__labCloudWrapped = true;
+      window.saveInformeManual = wrappedSaveInformeManual;
+      try{ saveInformeManual = wrappedSaveInformeManual; }catch(_e){}
+    }
+  }catch(e){ console.warn('No se pudo envolver saveInformeManual', e); }
+
+  // Wrapper de eliminación para borrar también el detalle en Cloud.
+  try{
+    if(typeof window.deleteInforme === 'function' && !window.deleteInforme.__labCloudWrapped){
+      var originalDeleteInforme = window.deleteInforme;
+      var wrappedDeleteInforme = function(id){
+        var old = null;
+        try{ old = (Array.isArray(INFORMES)?INFORMES:[]).find(function(x){return String(x.id)===String(id);}); }catch(e){}
+        var result = originalDeleteInforme.apply(this, arguments);
+        setTimeout(function(){
+          try{
+            var still = (Array.isArray(INFORMES)?INFORMES:[]).some(function(x){return String(x.id)===String(id);});
+            if(old && !still) deleteInformeCloud(id, old);
+          }catch(e){ console.error(e); }
+        }, 100);
+        return result;
+      };
+      wrappedDeleteInforme.__labCloudWrapped = true;
+      window.deleteInforme = wrappedDeleteInforme;
+      try{ deleteInforme = wrappedDeleteInforme; }catch(_e){}
+    }
+  }catch(e){ console.warn('No se pudo envolver deleteInforme', e); }
+
+  window.psiLabCloudCommitStatus = async function(){
+    try{
+      var cloud = await readLabCloudAll();
+      alert('LAB CLOUD COMMIT V7.0\n\nColección: '+LAB_COLLECTION+'\nRegistros Cloud Lab: '+cloud.length+'\nRegistros Local Lab: '+((Array.isArray(INFORMES)?INFORMES.length:0))+'\nRealtime: '+(labUnsub?'activo':'pendiente')+'\nWrite: '+(labWriteEnabled?'activo':'en espera'));
+    }catch(e){ alert('Lab Cloud Status: '+(e.message||e)); }
+  };
+
+  window.psiSeedLabCloudFromLocal = async function(){
+    if(!confirm('Se subirán los registros locales del módulo Laboratorio a erp_laboratorio. NO toca erp_muestras. ¿Continuar?')) return;
+    labWriteEnabled = true;
+    var arr = Array.isArray(INFORMES)?INFORMES:[];
+    for(var i=0;i<arr.length;i++) await commitOneInformeCloud(arr[i], 'SEED_LOCAL_LAB');
+    alert('Laboratorio subido a Cloud: '+arr.length+' registros.');
+  };
+
+  // Arranque: leer Cloud Lab y activar Realtime sin bloquear el ERP.
+  setTimeout(async function(){
+    try{
+      await loadLabCloudOnce();
+      startLabRealtime();
+    }catch(e){
+      console.warn('LAB CLOUD INIT WARN', e);
+    }
+  }, 1800);
+
+})();
+</script>
+
+
+<!-- ==========================================================
+ ERP PSI V7.0 · EXPORTACIÓN FACTURACIÓN ORDENADA
+ Alcance:
+ - Agrega botón de descarga Excel en módulo Facturación.
+ - Respeta filtros actuales.
+ - Ordena Fecha de Orden ascendente.
+ - Dentro de cada fecha, ordena Código OT de menor a mayor.
+ - No modifica Firebase, Firestore, ERP_DATA_MASTER, Queue, Realtime ni datos.
+========================================================== -->
+<script>
+(function(){
+  if(window.exportFacturacionExcelOrdenadoV70) return;
+
+  function psiFactNumCodigo(v){
+    var s = String(v == null ? '' : v).trim();
+    var n = parseFloat(s.replace(/[^\d.-]/g,''));
+    return isNaN(n) ? Number.MAX_SAFE_INTEGER : n;
+  }
+
+  function psiFactDateValue(v){
+    var s = String(v == null ? '' : v).trim();
+    if(!s) return 8640000000000000;
+    var m = s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
+    if(m){
+      var d = new Date(Number(m[3]), Number(m[2])-1, Number(m[1]));
+      return isNaN(d.getTime()) ? 8640000000000000 : d.getTime();
+    }
+    var d2 = new Date(s);
+    return isNaN(d2.getTime()) ? 8640000000000000 : d2.getTime();
+  }
+
+  function psiFactEsc(v){
+    try{
+      if(typeof esc === 'function') return esc(v);
+    }catch(e){}
+    return String(v == null ? '' : v).replace(/[&<>"']/g,function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function psiFactRowsFiltrados(){
+    try{
+      if(typeof filteredFactRows === 'function') return filteredFactRows();
+    }catch(e){}
+    return [];
+  }
+
+  window.exportFacturacionExcelOrdenadoV70 = function(){
+    try{
+      var rows = psiFactRowsFiltrados().slice();
+
+      function parseFecha(v){
+        if(v instanceof Date && !isNaN(v.getTime())) return v.getTime();
+
+        var s = String(v == null ? '' : v).trim();
+        if(!s) return 8640000000000000;
+
+        // Si viene como serial Excel
+        if(/^\d+(\.\d+)?$/.test(s)){
+          var serial = Number(s);
+          if(serial > 20000 && serial < 80000){
+            return new Date(1899, 11, 30 + serial).getTime();
+          }
+        }
+
+        // d/m/aa, d/m/aaaa, d-m-aa, d-m-aaaa
+        var m = s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2,4})$/);
+        if(m){
+          var y = Number(m[3]);
+          if(y < 100) y += 2000;
+          var d = new Date(y, Number(m[2])-1, Number(m[1]));
+          return isNaN(d.getTime()) ? 8640000000000000 : d.getTime();
+        }
+
+        // aaaa-mm-dd o aaaa/mm/dd
+        var iso = s.match(/^(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})/);
+        if(iso){
+          var d2 = new Date(Number(iso[1]), Number(iso[2])-1, Number(iso[3]));
+          return isNaN(d2.getTime()) ? 8640000000000000 : d2.getTime();
+        }
+
+        var d3 = new Date(s);
+        return isNaN(d3.getTime()) ? 8640000000000000 : d3.getTime();
+      }
+
+      function fechaDMY(v){
+        var t = parseFecha(v);
+        if(t >= 8640000000000000) return '';
+        var d = new Date(t);
+        return String(d.getDate()).padStart(2,'0') + '/' +
+               String(d.getMonth()+1).padStart(2,'0') + '/' +
+               d.getFullYear();
+      }
+
+      function mesISO(v){
+        var t = parseFecha(v);
+        if(t >= 8640000000000000) return '';
+        var d = new Date(t);
+        return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0');
+      }
+
+      function anioFecha(v){
+        var t = parseFecha(v);
+        if(t >= 8640000000000000) return '';
+        return new Date(t).getFullYear();
+      }
+
+      function codigoNum(v){
+        var s = String(v == null ? '' : v).trim();
+        var n = parseFloat(s.replace(/[^\d.-]/g,''));
+        return isNaN(n) ? 999999999999 : n;
+      }
+
+      function grupoFromMatriz(matriz, grupo){
+        var g = String(grupo == null ? '' : grupo).trim();
+        if(g) return g;
+        var m = String(matriz == null ? '' : matriz).trim().toUpperCase();
+        if(['NATURAL','RESIDUAL','CONSUMO','CONSUMO DE AGUA'].indexOf(m) >= 0) return 'AGUA';
+        if(['SUELO','LODOS','LODO','CRETIB','LODO CRETIB'].indexOf(m) >= 0) return 'SUELO';
+        return '';
+      }
+
+      function semanaFecha(v){
+        try{
+          if(typeof weekOfDate === 'function') return weekOfDate(v);
+        }catch(e){}
+        var t = parseFecha(v);
+        if(t >= 8640000000000000) return '';
+        var d = new Date(t);
+        var tmp = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+        var dayNum = tmp.getUTCDay() || 7;
+        tmp.setUTCDate(tmp.getUTCDate() + 4 - dayNum);
+        var yearStart = new Date(Date.UTC(tmp.getUTCFullYear(),0,1));
+        return Math.ceil((((tmp - yearStart) / 86400000) + 1) / 7);
+      }
+
+      // ORDEN OFICIAL:
+      // 1) FECHA ascendente real.
+      // 2) Dentro de cada FECHA, CODIGO de menor a mayor.
+      rows.sort(function(a,b){
+        var ra = a && (a.rec || a.r || a) || {};
+        var rb = b && (b.rec || b.r || b) || {};
+
+        var fechaA = ra.fecha || ra.fecha_orden || ra.fecha_recepcion || '';
+        var fechaB = rb.fecha || rb.fecha_orden || rb.fecha_recepcion || '';
+
+        var fa = parseFecha(fechaA);
+        var fb = parseFecha(fechaB);
+        if(fa !== fb) return fa - fb;
+
+        var ca = codigoNum(ra.codigo || ra.ot || ra.OT);
+        var cb = codigoNum(rb.codigo || rb.ot || rb.OT);
+        if(ca !== cb) return ca - cb;
+
+        return String(ra.codigo || '').localeCompare(String(rb.codigo || ''));
+      });
+
+      var headers = [
+        'FECHA','CODIGO','MATRIZ','GRUPO','CLIENTE','SUCURSAL','MES/FRECUENCIA',
+        'TIPO_SERVICIO','DQO','TENSOACTIVOS','STATUS','ESTADO','COTIZACIÓN',
+        'FACTURA','FECHA FACTURA','SUBTOTAL','SEMANA','MES','ANIO'
+      ];
+
+      var out = '<html><head><meta charset="UTF-8">';
+      out += '<style>';
+      out += 'td,th{mso-number-format:"\\@";}';
+      out += '.num{mso-number-format:"0";text-align:right;}';
+      out += '.money{mso-number-format:"0.00";text-align:right;}';
+      out += '</style></head><body>';
+      out += '<table border="1">';
+      out += '<tr>' + headers.map(function(h){
+        return '<th style="font-weight:bold;background:#D9EAF7;">'+psiFactEsc(h)+'</th>';
+      }).join('') + '</tr>';
+
+      rows.forEach(function(o){
+        var r = o && (o.rec || o.r || o) || {};
+        var f = o && (o.fact || {}) || {};
+
+        var fechaBase = r.fecha || r.fecha_orden || r.fecha_recepcion || '';
+        var fechaFacturaBase = f.fecha_factura || r.fecha_factura || '';
+
+        var codigoOriginal = r.codigo || r.ot || '';
+        var codigoFinal = codigoNum(codigoOriginal) !== 999999999999 ? String(Math.trunc(codigoNum(codigoOriginal))) : String(codigoOriginal || '');
+
+        var matriz = r.matriz || '';
+        var vals = [
+          fechaDMY(fechaBase),
+          codigoFinal,
+          matriz,
+          grupoFromMatriz(matriz, r.grupo || ''),
+          r.cliente || '',
+          r.sucursal || '',
+          r.mes_frecuencia || r.mes || r.frecuencia || '',
+          r.tipo_servicio || r.tipoServicio || r.servicio || 'INTERNO',
+          r.dqo || r.dqo_mg_l || '',
+          r.tensoactivos || r.tensoactivos_mg_l || '',
+          r.status || '',
+          r.estado || '',
+          f.cotizacion || r.cotizacion || '',
+          f.factura || r.factura || '',
+          fechaDMY(fechaFacturaBase),
+          f.subtotal || f.valor || r.subtotal || r.valor || '',
+          r.semana || semanaFecha(fechaBase),
+          mesISO(fechaBase),
+          r.anio || anioFecha(fechaBase)
+        ];
+
+        out += '<tr>';
+        vals.forEach(function(v,idx){
+          var cls = (idx===1 || idx===16 || idx===18) ? ' class="num"' : '';
+          if(idx===15) cls = ' class="money"';
+          out += '<td'+cls+'>'+psiFactEsc(v)+'</td>';
+        });
+        out += '</tr>';
+      });
+
+      out += '</table></body></html>';
+
+      var blob = new Blob(['\ufeff', out], {type:'application/vnd.ms-excel;charset=utf-8;'});
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'FACTURACION_PSI_FECHA_DIA_MES_ANIO_CODIGO_ASC_' + (typeof today === 'function' ? today() : new Date().toISOString().slice(0,10)) + '.xls';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+
+      try{ if(typeof toast === 'function') toast('Excel generado: FECHA dd/mm/aaaa + CODIGO ascendente'); }catch(e){}
+    }catch(e){
+      console.error(e);
+      alert('No se pudo generar Excel oficial: ' + (e.message || e));
+    }
+  };
+
+  function addButton(){
+    try{
+      var btns = Array.from(document.querySelectorAll('button'));
+      var ref = btns.find(function(b){ return /Excel facturación/i.test(b.textContent || ''); });
+      if(!ref) return false;
+      if(document.getElementById('btnExcelFacturacionOrdenadoV70')) return true;
+
+      var btn = document.createElement('button');
+      btn.id = 'btnExcelFacturacionOrdenadoV70';
+      btn.className = 'btn btn-s';
+      btn.type = 'button';
+      btn.innerHTML = '📥 Excel fecha dd/mm/aaaa';
+      btn.onclick = window.exportFacturacionExcelOrdenadoV70;
+
+      ref.insertAdjacentElement('afterend', btn);
+      return true;
+    }catch(e){
+      console.warn('No se pudo agregar botón Excel ordenado', e);
+      return false;
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(addButton, 600);
+    setTimeout(addButton, 1800);
+    setTimeout(addButton, 3500);
+  });
+
+  var oldShowTab = window.showTab;
+  if(typeof oldShowTab === 'function' && !oldShowTab.__excelFactOrdenadoWrapped){
+    var wrappedShowTab = function(){
+      var res = oldShowTab.apply(this, arguments);
+      setTimeout(addButton, 300);
+      return res;
+    };
+    wrappedShowTab.__excelFactOrdenadoWrapped = true;
+    window.showTab = wrappedShowTab;
+    try{ showTab = wrappedShowTab; }catch(e){}
+  }
+
+  var oldOpenFact = window.openFacturacionModule;
+  if(typeof oldOpenFact === 'function' && !oldOpenFact.__excelFactOrdenadoWrapped){
+    var wrappedOpenFact = function(){
+      var res = oldOpenFact.apply(this, arguments);
+      setTimeout(addButton, 300);
+      setTimeout(addButton, 1200);
+      return res;
+    };
+    wrappedOpenFact.__excelFactOrdenadoWrapped = true;
+    window.openFacturacionModule = wrappedOpenFact;
+    try{ openFacturacionModule = wrappedOpenFact; }catch(e){}
+  }
+})();
+</script>
+
+
+<!-- ==========================================================
+ AJUSTE GLOBAL FECHAS ERP PSI V7.0
+ Alcance:
+ - Normaliza visualmente fechas a dd/mm/aaaa.
+ - Corrige visualización en Facturación.
+ - Corrige exportación Excel Facturación.
+ - Ordena por fecha real ascendente y código ascendente.
+ - No modifica Firebase, Firestore, datos, Queue ni Realtime.
+========================================================== -->
+<script>
+(function(){
+  if(window.PSI_FECHA_DMY_FIX_V70) return;
+  window.PSI_FECHA_DMY_FIX_V70 = true;
+
+  function pad2(n){ return String(n).padStart(2,'0'); }
+
+  function parseFechaPSI(v){
+    if(v instanceof Date && !isNaN(v.getTime())) return v;
+
+    var s = String(v == null ? '' : v).trim();
+    if(!s) return null;
+
+    // Serial Excel
+    if(/^\d+(\.\d+)?$/.test(s)){
+      var serial = Number(s);
+      if(serial > 20000 && serial < 80000){
+        var d0 = new Date(1899, 11, 30);
+        d0.setDate(d0.getDate() + serial);
+        return isNaN(d0.getTime()) ? null : d0;
+      }
+    }
+
+    // yyyy-dd-mm INCORRECTO frecuente: 2026-15-01 => 15/01/2026
+    var ydm = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+    if(ydm){
+      var y = Number(ydm[1]);
+      var a = Number(ydm[2]);
+      var b = Number(ydm[3]);
+
+      // Si la parte del medio > 12, entonces viene como yyyy-dd-mm
+      if(a > 12 && b <= 12){
+        var d1 = new Date(y, b-1, a);
+        return isNaN(d1.getTime()) ? null : d1;
+      }
+
+      // Si viene ISO correcto yyyy-mm-dd
+      var d2 = new Date(y, a-1, b);
+      return isNaN(d2.getTime()) ? null : d2;
+    }
+
+    // dd/mm/yyyy o dd-mm-yyyy
+    var dmy = s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2,4})$/);
+    if(dmy){
+      var yy = Number(dmy[3]);
+      if(yy < 100) yy += 2000;
+      var d3 = new Date(yy, Number(dmy[2])-1, Number(dmy[1]));
+      return isNaN(d3.getTime()) ? null : d3;
+    }
+
+    var d4 = new Date(s);
+    return isNaN(d4.getTime()) ? null : d4;
+  }
+
+  function fechaDMY(v){
+    var d = parseFechaPSI(v);
+    if(!d) return '';
+    return pad2(d.getDate()) + '/' + pad2(d.getMonth()+1) + '/' + d.getFullYear();
+  }
+
+  function fechaKeyPSI(v){
+    var d = parseFechaPSI(v);
+    return d ? d.getTime() : 8640000000000000;
+  }
+
+  function codigoKeyPSI(v){
+    var s = String(v == null ? '' : v).trim();
+    var n = parseFloat(s.replace(/[^\d.-]/g,''));
+    return isNaN(n) ? 999999999999 : n;
+  }
+
+  function mesISO(v){
+    var d = parseFechaPSI(v);
+    if(!d) return '';
+    return d.getFullYear() + '-' + pad2(d.getMonth()+1);
+  }
+
+  function anioFecha(v){
+    var d = parseFechaPSI(v);
+    return d ? d.getFullYear() : '';
+  }
+
+  function semanaISO(v){
+    var d = parseFechaPSI(v);
+    if(!d) return '';
+    var tmp = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    var dayNum = tmp.getUTCDay() || 7;
+    tmp.setUTCDate(tmp.getUTCDate() + 4 - dayNum);
+    var yearStart = new Date(Date.UTC(tmp.getUTCFullYear(),0,1));
+    return Math.ceil((((tmp - yearStart) / 86400000) + 1) / 7);
+  }
+
+  function escPSI(v){
+    try{ if(typeof esc === 'function') return esc(v); }catch(e){}
+    return String(v == null ? '' : v).replace(/[&<>"']/g,function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function grupoFromMatrizPSI(matriz, grupo){
+    var g = String(grupo == null ? '' : grupo).trim();
+    if(g) return g;
+    var m = String(matriz == null ? '' : matriz).trim().toUpperCase();
+    if(['NATURAL','RESIDUAL','CONSUMO','CONSUMO DE AGUA'].indexOf(m) >= 0) return 'AGUA';
+    if(['SUELO','LODOS','LODO','CRETIB','LODO CRETIB'].indexOf(m) >= 0) return 'SUELO';
+    return '';
+  }
+
+  function patchFacturacionDatesUI(){
+    try{
+      var fact = document.getElementById('facturacion');
+      if(!fact) return;
+
+      var tables = fact.querySelectorAll('table');
+      tables.forEach(function(tbl){
+        var ths = Array.from(tbl.querySelectorAll('thead th, tr:first-child th'));
+        if(!ths.length) return;
+
+        var fechaIdx = -1;
+        var fechaFactIdx = -1;
+        ths.forEach(function(th,idx){
+          var t = String(th.textContent || '').trim().toUpperCase();
+          if(t === 'FECHA' || t === 'FECHA ORDEN' || t === 'F. ORDEN') fechaIdx = idx;
+          if(t === 'FECHA FACTURA' || t === 'F. FACTURA') fechaFactIdx = idx;
+        });
+
+        if(fechaIdx < 0 && fechaFactIdx < 0) return;
+
+        Array.from(tbl.querySelectorAll('tbody tr')).forEach(function(tr){
+          var cells = Array.from(tr.children);
+          [fechaIdx, fechaFactIdx].forEach(function(idx){
+            if(idx < 0 || !cells[idx]) return;
+            var c = cells[idx];
+
+            // Si contiene input, normalizar su valor visible si aplica.
+            var inp = c.querySelector('input');
+            if(inp){
+              var original = inp.value || inp.getAttribute('value') || '';
+              var f = fechaDMY(original);
+              if(f) {
+                inp.value = f;
+                inp.setAttribute('value', f);
+              }
+            }else{
+              var txt = String(c.textContent || '').trim();
+              var f2 = fechaDMY(txt);
+              if(f2) c.textContent = f2;
+            }
+          });
+        });
+      });
+    }catch(e){
+      console.warn('patchFacturacionDatesUI', e);
+    }
+  }
+
+  // Reemplaza exportación oficial para Excel con fechas dd/mm/aaaa como texto.
+  window.exportFacturacionExcelOrdenadoV70 = function(){
+    try{
+      var rows = [];
+      try{
+        rows = typeof filteredFactRows === 'function' ? filteredFactRows().slice() : [];
+      }catch(e){ rows = []; }
+
+      rows.sort(function(a,b){
+        var ra = a && (a.rec || a.r || a) || {};
+        var rb = b && (b.rec || b.r || b) || {};
+        var fa = fechaKeyPSI(ra.fecha || ra.fecha_orden || ra.fecha_recepcion || '');
+        var fb = fechaKeyPSI(rb.fecha || rb.fecha_orden || rb.fecha_recepcion || '');
+        if(fa !== fb) return fa - fb;
+
+        var ca = codigoKeyPSI(ra.codigo || ra.ot || ra.OT || '');
+        var cb = codigoKeyPSI(rb.codigo || rb.ot || rb.OT || '');
+        if(ca !== cb) return ca - cb;
+
+        return String(ra.codigo || '').localeCompare(String(rb.codigo || ''));
+      });
+
+      var headers = [
+        'FECHA','CODIGO','MATRIZ','GRUPO','CLIENTE','SUCURSAL','MES/FRECUENCIA',
+        'TIPO_SERVICIO','DQO','TENSOACTIVOS','STATUS','ESTADO','COTIZACIÓN',
+        'FACTURA','FECHA FACTURA','SUBTOTAL','SEMANA','MES','ANIO'
+      ];
+
+      var out = '<html><head><meta charset="UTF-8"><style>';
+      out += 'td,th{mso-number-format:"\\@";} th{font-weight:bold;background:#D9EAF7;}';
+      out += '.num{mso-number-format:"0";text-align:right;} .money{mso-number-format:"0.00";text-align:right;}';
+      out += '</style></head><body><table border="1">';
+      out += '<tr>' + headers.map(function(h){return '<th>'+escPSI(h)+'</th>';}).join('') + '</tr>';
+
+      rows.forEach(function(o){
+        var r = o && (o.rec || o.r || o) || {};
+        var f = o && (o.fact || {}) || {};
+        var fechaBase = r.fecha || r.fecha_orden || r.fecha_recepcion || '';
+        var fechaFacturaBase = f.fecha_factura || r.fecha_factura || '';
+
+        var codigoOriginal = r.codigo || r.ot || '';
+        var codigoN = codigoKeyPSI(codigoOriginal);
+        var codigoFinal = codigoN !== 999999999999 ? String(Math.trunc(codigoN)) : String(codigoOriginal || '');
+
+        var matriz = r.matriz || '';
+        var vals = [
+          fechaDMY(fechaBase),
+          codigoFinal,
+          matriz,
+          grupoFromMatrizPSI(matriz, r.grupo || ''),
+          r.cliente || '',
+          r.sucursal || '',
+          r.mes_frecuencia || r.mes || r.frecuencia || '',
+          r.tipo_servicio || r.tipoServicio || r.servicio || 'INTERNO',
+          r.dqo || r.dqo_mg_l || '',
+          r.tensoactivos || r.tensoactivos_mg_l || '',
+          r.status || '',
+          r.estado || '',
+          f.cotizacion || r.cotizacion || '',
+          f.factura || r.factura || '',
+          fechaDMY(fechaFacturaBase),
+          f.subtotal || f.valor || r.subtotal || r.valor || '',
+          r.semana || semanaISO(fechaBase),
+          mesISO(fechaBase),
+          r.anio || anioFecha(fechaBase)
+        ];
+
+        out += '<tr>';
+        vals.forEach(function(v,idx){
+          var cls = '';
+          if(idx === 1 || idx === 16 || idx === 18) cls = ' class="num"';
+          if(idx === 15) cls = ' class="money"';
+          out += '<td'+cls+'>'+escPSI(v)+'</td>';
+        });
+        out += '</tr>';
+      });
+
+      out += '</table></body></html>';
+
+      var blob = new Blob(['\ufeff', out], {type:'application/vnd.ms-excel;charset=utf-8;'});
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'FACTURACION_PSI_FECHA_DD_MM_AAAA_CODIGO_ASC_' + (typeof today === 'function' ? today() : new Date().toISOString().slice(0,10)) + '.xls';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+      try{ if(typeof toast === 'function') toast('Excel facturación: fechas dd/mm/aaaa y orden Fecha/Código'); }catch(e){}
+    }catch(e){
+      console.error(e);
+      alert('No se pudo generar Excel oficial: ' + (e.message || e));
+    }
+  };
+
+  function ensureExcelButton(){
+    try{
+      var btns = Array.from(document.querySelectorAll('button'));
+      var ref = btns.find(function(b){ return /Excel facturación/i.test(b.textContent || ''); });
+      if(!ref) return false;
+
+      var old = document.getElementById('btnExcelFacturacionOrdenadoV70');
+      if(old){
+        old.textContent = '📥 Excel fecha dd/mm/aaaa';
+        old.onclick = window.exportFacturacionExcelOrdenadoV70;
+        return true;
+      }
+
+      var btn = document.createElement('button');
+      btn.id = 'btnExcelFacturacionOrdenadoV70';
+      btn.className = 'btn btn-s';
+      btn.type = 'button';
+      btn.textContent = '📥 Excel fecha dd/mm/aaaa';
+      btn.onclick = window.exportFacturacionExcelOrdenadoV70;
+      ref.insertAdjacentElement('afterend', btn);
+      return true;
+    }catch(e){ return false; }
+  }
+
+  function runFechaFix(){
+    patchFacturacionDatesUI();
+    ensureExcelButton();
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(runFechaFix, 500);
+    setTimeout(runFechaFix, 1500);
+    setTimeout(runFechaFix, 3500);
+  });
+
+  var oldRenderFacturacion = window.renderFacturacion;
+  if(typeof oldRenderFacturacion === 'function' && !oldRenderFacturacion.__fechaDMYFix){
+    var wrappedRenderFacturacion = function(){
+      var res = oldRenderFacturacion.apply(this, arguments);
+      setTimeout(runFechaFix, 50);
+      return res;
+    };
+    wrappedRenderFacturacion.__fechaDMYFix = true;
+    window.renderFacturacion = wrappedRenderFacturacion;
+    try{ renderFacturacion = wrappedRenderFacturacion; }catch(e){}
+  }
+
+  var oldOpenFact = window.openFacturacionModule;
+  if(typeof oldOpenFact === 'function' && !oldOpenFact.__fechaDMYFix){
+    var wrappedOpenFact = function(){
+      var res = oldOpenFact.apply(this, arguments);
+      setTimeout(runFechaFix, 100);
+      setTimeout(runFechaFix, 800);
+      return res;
+    };
+    wrappedOpenFact.__fechaDMYFix = true;
+    window.openFacturacionModule = wrappedOpenFact;
+    try{ openFacturacionModule = wrappedOpenFact; }catch(e){}
+  }
+
+  var oldShowTab = window.showTab;
+  if(typeof oldShowTab === 'function' && !oldShowTab.__fechaDMYFix){
+    var wrappedShowTab = function(){
+      var res = oldShowTab.apply(this, arguments);
+      setTimeout(runFechaFix, 100);
+      return res;
+    };
+    wrappedShowTab.__fechaDMYFix = true;
+    window.showTab = wrappedShowTab;
+    try{ showTab = wrappedShowTab; }catch(e){}
+  }
+
+})();
+</script>
+
+
+<!-- ==========================================================
+ AJUSTE VISUAL FACTURACIÓN · FECHA COMO REGISTRO DE MUESTRA
+ Alcance:
+ - En tabla de Facturación, agrega/normaliza columna FECHA visual.
+ - Formato mostrado: dd/mm/aaaa.
+ - Usa la misma fecha de Ingreso de Muestras: r.fecha / fecha_orden / fecha_recepcion.
+ - No modifica datos, Firebase, Firestore, Queue ni Realtime.
+========================================================== -->
+<script>
+(function(){
+  if(window.PSI_FACT_FECHA_VISIBLE_V70) return;
+  window.PSI_FACT_FECHA_VISIBLE_V70 = true;
+
+  function pad2(n){ return String(n).padStart(2,'0'); }
+
+  function parseFechaPSI(v){
+    if(v instanceof Date && !isNaN(v.getTime())) return v;
+    var s = String(v == null ? '' : v).trim();
+    if(!s) return null;
+
+    // Serial Excel
+    if(/^\d+(\.\d+)?$/.test(s)){
+      var serial = Number(s);
+      if(serial > 20000 && serial < 80000){
+        var base = new Date(1899, 11, 30);
+        base.setDate(base.getDate() + serial);
+        return isNaN(base.getTime()) ? null : base;
+      }
+    }
+
+    // yyyy-dd-mm incorrecto frecuente: 2026-15-01 => 15/01/2026
+    var ydm = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+    if(ydm){
+      var y = Number(ydm[1]);
+      var a = Number(ydm[2]);
+      var b = Number(ydm[3]);
+      if(a > 12 && b <= 12){
+        var d1 = new Date(y, b-1, a);
+        return isNaN(d1.getTime()) ? null : d1;
+      }
+      var d2 = new Date(y, a-1, b);
+      return isNaN(d2.getTime()) ? null : d2;
+    }
+
+    var dmy = s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2,4})$/);
+    if(dmy){
+      var yy = Number(dmy[3]);
+      if(yy < 100) yy += 2000;
+      var d3 = new Date(yy, Number(dmy[2])-1, Number(dmy[1]));
+      return isNaN(d3.getTime()) ? null : d3;
+    }
+
+    var d4 = new Date(s);
+    return isNaN(d4.getTime()) ? null : d4;
+  }
+
+  function fechaDMY(v){
+    var d = parseFechaPSI(v);
+    if(!d) return String(v == null ? '' : v);
+    return pad2(d.getDate()) + '/' + pad2(d.getMonth()+1) + '/' + d.getFullYear();
+  }
+
+  function escLocal(v){
+    try{ if(typeof esc === 'function') return esc(v); }catch(e){}
+    return String(v == null ? '' : v).replace(/[&<>"']/g,function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function addFechaColumnToFacturacion(){
+    try{
+      var fact = document.getElementById('facturacion');
+      if(!fact) return;
+
+      var tables = Array.from(fact.querySelectorAll('table'));
+      tables.forEach(function(tbl){
+        var headRow = tbl.querySelector('thead tr') || tbl.querySelector('tr');
+        if(!headRow) return;
+
+        var headers = Array.from(headRow.children).map(function(th){ return String(th.textContent || '').trim().toUpperCase(); });
+        var codigoIdx = headers.findIndex(function(t){ return t === 'CÓDIGO' || t === 'CODIGO'; });
+        if(codigoIdx < 0) return;
+
+        var fechaIdx = headers.findIndex(function(t){ return t === 'FECHA' || t === 'F. ORDEN' || t === 'FECHA ORDEN'; });
+
+        // Si ya existe FECHA, solo normalizar formato.
+        if(fechaIdx >= 0){
+          Array.from(tbl.querySelectorAll('tbody tr')).forEach(function(tr){
+            var c = tr.children[fechaIdx];
+            if(!c) return;
+            var inp = c.querySelector('input');
+            if(inp){
+              var f = fechaDMY(inp.value || inp.getAttribute('value') || '');
+              inp.value = f;
+              inp.setAttribute('value', f);
+            }else{
+              c.textContent = fechaDMY(c.textContent);
+            }
+          });
+          return;
+        }
+
+        // Agregar FECHA antes de CÓDIGO.
+        var th = document.createElement('th');
+        th.textContent = 'FECHA';
+        headRow.insertBefore(th, headRow.children[codigoIdx]);
+
+        Array.from(tbl.querySelectorAll('tbody tr')).forEach(function(tr){
+          var codigoCell = tr.children[codigoIdx];
+          var codigoTxt = codigoCell ? String(codigoCell.textContent || '').trim() : '';
+          var fecha = '';
+
+          // Buscar fecha desde DATA usando código.
+          try{
+            if(Array.isArray(window.DATA)){
+              var rec = window.DATA.find(function(r){
+                return String(r.codigo || r.ot || '').trim() === codigoTxt;
+              });
+              if(rec) fecha = rec.fecha || rec.fecha_orden || rec.fecha_recepcion || '';
+            }
+          }catch(e){}
+
+          var td = document.createElement('td');
+          td.textContent = fechaDMY(fecha);
+          tr.insertBefore(td, tr.children[codigoIdx]);
+        });
+      });
+    }catch(e){
+      console.warn('addFechaColumnToFacturacion', e);
+    }
+  }
+
+  function runFactFecha(){
+    addFechaColumnToFacturacion();
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(runFactFecha, 700);
+    setTimeout(runFactFecha, 1800);
+    setTimeout(runFactFecha, 3500);
+  });
+
+  var oldRenderFacturacion = window.renderFacturacion;
+  if(typeof oldRenderFacturacion === 'function' && !oldRenderFacturacion.__factFechaVisible){
+    var wrappedRenderFacturacion = function(){
+      var res = oldRenderFacturacion.apply(this, arguments);
+      setTimeout(runFactFecha, 80);
+      setTimeout(runFactFecha, 500);
+      return res;
+    };
+    wrappedRenderFacturacion.__factFechaVisible = true;
+    window.renderFacturacion = wrappedRenderFacturacion;
+    try{ renderFacturacion = wrappedRenderFacturacion; }catch(e){}
+  }
+
+  var oldOpenFacturacionModule = window.openFacturacionModule;
+  if(typeof oldOpenFacturacionModule === 'function' && !oldOpenFacturacionModule.__factFechaVisible){
+    var wrappedOpenFacturacionModule = function(){
+      var res = oldOpenFacturacionModule.apply(this, arguments);
+      setTimeout(runFactFecha, 120);
+      setTimeout(runFactFecha, 900);
+      return res;
+    };
+    wrappedOpenFacturacionModule.__factFechaVisible = true;
+    window.openFacturacionModule = wrappedOpenFacturacionModule;
+    try{ openFacturacionModule = wrappedOpenFacturacionModule; }catch(e){}
+  }
+})();
+</script>
+
+
+<!-- ==========================================================
+ AJUSTE FINAL FACTURACIÓN · FECHA CRUDA IGUAL A REGISTRO
+ Alcance:
+ - Quita transformación visual de fecha en Facturación.
+ - La FECHA se muestra exactamente como viene desde Ingreso/Registro de Muestras.
+ - No convierte a dd/mm/aaaa.
+ - No interpreta 2026-15-01.
+ - No modifica datos, Firebase, Firestore, Queue ni Realtime.
+========================================================== -->
+<script>
+(function(){
+  if(window.PSI_FACT_FECHA_RAW_V70) return;
+  window.PSI_FACT_FECHA_RAW_V70 = true;
+
+  function getDataArray(){
+    if(Array.isArray(window.DATA)) return window.DATA;
+    try{ if(typeof DATA !== 'undefined' && Array.isArray(DATA)) return DATA; }catch(e){}
+    try{ if(Array.isArray(window.ERP_DATA_MASTER)) return window.ERP_DATA_MASTER; }catch(e){}
+    try{ if(typeof ERP_DATA_MASTER !== 'undefined' && Array.isArray(ERP_DATA_MASTER)) return ERP_DATA_MASTER; }catch(e){}
+    return [];
+  }
+
+  function rawFechaFromRec(rec){
+    if(!rec) return '';
+    return String(rec.fecha || rec.fecha_orden || rec.fecha_recepcion || rec.fecha_muestreo || '');
+  }
+
+  function codigoFromText(txt){
+    return String(txt == null ? '' : txt).trim();
+  }
+
+  function sameCodigo(a,b){
+    a = codigoFromText(a);
+    b = codigoFromText(b);
+    return a === b;
+  }
+
+  function fixFacturacionFechaRaw(){
+    try{
+      var fact = document.getElementById('facturacion');
+      if(!fact) return;
+
+      var data = getDataArray();
+
+      var tables = Array.from(fact.querySelectorAll('table'));
+      tables.forEach(function(tbl){
+        var headRow = tbl.querySelector('thead tr') || tbl.querySelector('tr');
+        if(!headRow) return;
+
+        var headers = Array.from(headRow.children).map(function(th){ 
+          return String(th.textContent || '').trim().toUpperCase(); 
+        });
+
+        var fechaIdx = headers.findIndex(function(t){ return t === 'FECHA'; });
+        var codigoIdx = headers.findIndex(function(t){ return t === 'CÓDIGO' || t === 'CODIGO'; });
+
+        // Si no hay CODIGO, no es la tabla de facturación.
+        if(codigoIdx < 0) return;
+
+        // Si no existe FECHA, agregarla antes de CÓDIGO.
+        if(fechaIdx < 0){
+          var th = document.createElement('th');
+          th.textContent = 'FECHA';
+          headRow.insertBefore(th, headRow.children[codigoIdx]);
+          fechaIdx = codigoIdx;
+          codigoIdx = codigoIdx + 1;
+        }
+
+        Array.from(tbl.querySelectorAll('tbody tr')).forEach(function(tr){
+          var cells = Array.from(tr.children);
+
+          // Si se agregó FECHA pero la fila todavía no tiene esa celda, insertarla.
+          if(!cells[fechaIdx] || cells.length < headRow.children.length){
+            var tdNew = document.createElement('td');
+            tr.insertBefore(tdNew, tr.children[fechaIdx] || tr.firstChild);
+            cells = Array.from(tr.children);
+          }
+
+          var codigoCell = cells[codigoIdx];
+          var fechaCell = cells[fechaIdx];
+          if(!codigoCell || !fechaCell) return;
+
+          var codigo = codigoFromText(codigoCell.textContent);
+
+          // Evitar el caso incorrecto donde el código quedó dentro de FECHA.
+          // Si FECHA parece contener un valor tipo 31/12/661 o vacío raro, reemplazar por fecha real cruda.
+          var rec = data.find(function(r){ return sameCodigo(r.codigo || r.ot || r.OT, codigo); });
+          var fechaRaw = rawFechaFromRec(rec);
+
+          if(fechaRaw){
+            fechaCell.textContent = fechaRaw;
+          }
+        });
+      });
+    }catch(e){
+      console.warn('fixFacturacionFechaRaw', e);
+    }
+  }
+
+  function runRawFechaFix(){
+    fixFacturacionFechaRaw();
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(runRawFechaFix, 500);
+    setTimeout(runRawFechaFix, 1500);
+    setTimeout(runRawFechaFix, 3500);
+  });
+
+  var oldRenderFacturacion = window.renderFacturacion;
+  if(typeof oldRenderFacturacion === 'function' && !oldRenderFacturacion.__factFechaRaw){
+    var wrappedRenderFacturacion = function(){
+      var res = oldRenderFacturacion.apply(this, arguments);
+      setTimeout(runRawFechaFix, 80);
+      setTimeout(runRawFechaFix, 500);
+      return res;
+    };
+    wrappedRenderFacturacion.__factFechaRaw = true;
+    window.renderFacturacion = wrappedRenderFacturacion;
+    try{ renderFacturacion = wrappedRenderFacturacion; }catch(e){}
+  }
+
+  var oldOpenFacturacionModule = window.openFacturacionModule;
+  if(typeof oldOpenFacturacionModule === 'function' && !oldOpenFacturacionModule.__factFechaRaw){
+    var wrappedOpenFacturacionModule = function(){
+      var res = oldOpenFacturacionModule.apply(this, arguments);
+      setTimeout(runRawFechaFix, 100);
+      setTimeout(runRawFechaFix, 800);
+      setTimeout(runRawFechaFix, 1800);
+      return res;
+    };
+    wrappedOpenFacturacionModule.__factFechaRaw = true;
+    window.openFacturacionModule = wrappedOpenFacturacionModule;
+    try{ openFacturacionModule = wrappedOpenFacturacionModule; }catch(e){}
+  }
+
+  var oldShowTab = window.showTab;
+  if(typeof oldShowTab === 'function' && !oldShowTab.__factFechaRaw){
+    var wrappedShowTab = function(){
+      var res = oldShowTab.apply(this, arguments);
+      setTimeout(runRawFechaFix, 100);
+      return res;
+    };
+    wrappedShowTab.__factFechaRaw = true;
+    window.showTab = wrappedShowTab;
+    try{ showTab = wrappedShowTab; }catch(e){}
+  }
+
+})();
+</script>
+
+
+<!-- ==========================================================
+ AJUSTE FINAL FACTURACIÓN · ALINEACIÓN FECHA/CÓDIGO
+ Corrige:
+ - La FECHA ya no toma el valor del CÓDIGO.
+ - El CÓDIGO queda en su columna.
+ - MATRIZ, CLIENTE y SUCURSAL quedan alineados.
+ - La fecha se copia cruda desde Ingreso/Registro de Muestras.
+ - No modifica datos ni sincronización.
+========================================================== -->
+<script>
+(function(){
+  if(window.PSI_FACT_FECHA_CODIGO_ALIGN_V70) return;
+  window.PSI_FACT_FECHA_CODIGO_ALIGN_V70 = true;
+
+  function getRowsFact(){
+    try{
+      if(typeof filteredFactRows === 'function') return filteredFactRows().slice();
+    }catch(e){}
+    try{
+      if(Array.isArray(window.DATA)) return window.DATA.map(function(r){ return {rec:r, fact:{}}; });
+    }catch(e){}
+    try{
+      if(typeof DATA !== 'undefined' && Array.isArray(DATA)) return DATA.map(function(r){ return {rec:r, fact:{}}; });
+    }catch(e){}
+    return [];
+  }
+
+  function rawFecha(rec){
+    rec = rec || {};
+    return String(rec.fecha || rec.fecha_orden || rec.fecha_recepcion || rec.fecha_muestreo || '');
+  }
+
+  function escHtml(v){
+    return String(v == null ? '' : v).replace(/[&<>"']/g,function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function matrizHTML(m){
+    var mm = String(m || '').trim();
+    var cls = 'chip';
+    var up = mm.toUpperCase();
+    if(up.indexOf('RESIDUAL') >= 0) cls += ' m-res';
+    else if(up.indexOf('NATURAL') >= 0) cls += ' m-nat';
+    else if(up.indexOf('CONSUMO') >= 0) cls += ' m-con';
+    else if(up.indexOf('SUELO') >= 0 || up.indexOf('LODO') >= 0 || up.indexOf('CRETIB') >= 0) cls += ' m-sue';
+    return '<span class="'+cls+'">'+escHtml(mm)+'</span>';
+  }
+
+  function alignFacturacionFechaCodigo(){
+    try{
+      var factSec = document.getElementById('facturacion');
+      if(!factSec) return;
+
+      var table = Array.from(factSec.querySelectorAll('table')).find(function(t){
+        var tx = String(t.textContent || '').toUpperCase();
+        return tx.indexOf('CÓDIGO') >= 0 || tx.indexOf('CODIGO') >= 0;
+      });
+      if(!table) return;
+
+      var headRow = table.querySelector('thead tr') || table.querySelector('tr');
+      if(!headRow) return;
+
+      var headers = Array.from(headRow.children).map(function(th){
+        return String(th.textContent || '').trim().toUpperCase();
+      });
+
+      var fechaIdx = headers.findIndex(function(h){ return h === 'FECHA'; });
+      var codigoIdx = headers.findIndex(function(h){ return h === 'CÓDIGO' || h === 'CODIGO'; });
+
+      if(codigoIdx < 0) return;
+
+      // Si no existe FECHA, agregarla antes de CÓDIGO.
+      if(fechaIdx < 0){
+        var th = document.createElement('th');
+        th.textContent = 'FECHA';
+        headRow.insertBefore(th, headRow.children[codigoIdx]);
+        fechaIdx = codigoIdx;
+        codigoIdx = codigoIdx + 1;
+      }
+
+      // Releer encabezados después de posible inserción.
+      headers = Array.from(headRow.children).map(function(th){
+        return String(th.textContent || '').trim().toUpperCase();
+      });
+
+      fechaIdx = headers.findIndex(function(h){ return h === 'FECHA'; });
+      codigoIdx = headers.findIndex(function(h){ return h === 'CÓDIGO' || h === 'CODIGO'; });
+      var matrizIdx = headers.findIndex(function(h){ return h === 'MATRIZ'; });
+      var clienteIdx = headers.findIndex(function(h){ return h === 'CLIENTE'; });
+      var sucursalIdx = headers.findIndex(function(h){ return h === 'SUCURSAL'; });
+
+      var rows = getRowsFact();
+      var trs = Array.from(table.querySelectorAll('tbody tr'));
+
+      trs.forEach(function(tr, i){
+        var o = rows[i] || {};
+        var rec = o.rec || o.r || o || {};
+        if(!rec || (!rec.codigo && !rec.ot && !rec.cliente)) return;
+
+        // Asegurar cantidad de celdas igual a encabezados.
+        while(tr.children.length < headRow.children.length){
+          tr.appendChild(document.createElement('td'));
+        }
+
+        var cells = Array.from(tr.children);
+
+        if(cells[fechaIdx]) cells[fechaIdx].textContent = rawFecha(rec);
+        if(cells[codigoIdx]) cells[codigoIdx].textContent = String(rec.codigo || rec.ot || '');
+        if(matrizIdx >= 0 && cells[matrizIdx]) cells[matrizIdx].innerHTML = matrizHTML(rec.matriz || '');
+        if(clienteIdx >= 0 && cells[clienteIdx]) cells[clienteIdx].textContent = String(rec.cliente || '');
+        if(sucursalIdx >= 0 && cells[sucursalIdx]) cells[sucursalIdx].textContent = String(rec.sucursal || '');
+      });
+    }catch(e){
+      console.warn('alignFacturacionFechaCodigo', e);
+    }
+  }
+
+  function runAlign(){
+    alignFacturacionFechaCodigo();
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(runAlign, 500);
+    setTimeout(runAlign, 1500);
+    setTimeout(runAlign, 3500);
+  });
+
+  var oldRenderFacturacion = window.renderFacturacion;
+  if(typeof oldRenderFacturacion === 'function' && !oldRenderFacturacion.__fechaCodigoAlign){
+    var wrappedRenderFacturacion = function(){
+      var res = oldRenderFacturacion.apply(this, arguments);
+      setTimeout(runAlign, 80);
+      setTimeout(runAlign, 400);
+      return res;
+    };
+    wrappedRenderFacturacion.__fechaCodigoAlign = true;
+    window.renderFacturacion = wrappedRenderFacturacion;
+    try{ renderFacturacion = wrappedRenderFacturacion; }catch(e){}
+  }
+
+  var oldOpenFacturacionModule = window.openFacturacionModule;
+  if(typeof oldOpenFacturacionModule === 'function' && !oldOpenFacturacionModule.__fechaCodigoAlign){
+    var wrappedOpenFacturacionModule = function(){
+      var res = oldOpenFacturacionModule.apply(this, arguments);
+      setTimeout(runAlign, 100);
+      setTimeout(runAlign, 800);
+      setTimeout(runAlign, 1600);
+      return res;
+    };
+    wrappedOpenFacturacionModule.__fechaCodigoAlign = true;
+    window.openFacturacionModule = wrappedOpenFacturacionModule;
+    try{ openFacturacionModule = wrappedOpenFacturacionModule; }catch(e){}
+  }
+})();
+</script>
+
+
+<!-- ==========================================================
+ AJUSTE KPI MENSUAL · CONTEO REAL DE INGRESADAS
+ Alcance:
+ - Corrige ranking mensual para contar desde DATA / ERP_DATA_MASTER.
+ - Usa todas las muestras con estado INGRESADA.
+ - Agrupa por fecha real de ingreso.
+ - No modifica datos, Firebase, Firestore, Queue ni Realtime.
+========================================================== -->
+<script>
+(function(){
+  if(window.PSI_KPI_MENSUAL_REAL_V70) return;
+  window.PSI_KPI_MENSUAL_REAL_V70 = true;
+
+  var MESES_ES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+  function getBaseMuestras(){
+    try{ if(Array.isArray(window.DATA) && window.DATA.length) return window.DATA; }catch(e){}
+    try{ if(typeof DATA !== 'undefined' && Array.isArray(DATA) && DATA.length) return DATA; }catch(e){}
+    try{ if(Array.isArray(window.ERP_DATA_MASTER) && window.ERP_DATA_MASTER.length) return window.ERP_DATA_MASTER; }catch(e){}
+    try{ if(typeof ERP_DATA_MASTER !== 'undefined' && Array.isArray(ERP_DATA_MASTER) && ERP_DATA_MASTER.length) return ERP_DATA_MASTER; }catch(e){}
+    return [];
+  }
+
+  function parseFecha(v){
+    if(v instanceof Date && !isNaN(v.getTime())) return v;
+    var s = String(v == null ? '' : v).trim();
+    if(!s) return null;
+
+    if(/^\d+(\.\d+)?$/.test(s)){
+      var serial = Number(s);
+      if(serial > 20000 && serial < 80000){
+        var d0 = new Date(1899,11,30);
+        d0.setDate(d0.getDate()+serial);
+        return isNaN(d0.getTime()) ? null : d0;
+      }
+    }
+
+    var ymd = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+    if(ymd){
+      var y = Number(ymd[1]), a = Number(ymd[2]), b = Number(ymd[3]);
+      if(a > 12 && b <= 12){
+        var d1 = new Date(y,b-1,a);
+        return isNaN(d1.getTime()) ? null : d1;
+      }
+      var d2 = new Date(y,a-1,b);
+      return isNaN(d2.getTime()) ? null : d2;
+    }
+
+    var dmy = s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2,4})$/);
+    if(dmy){
+      var yy = Number(dmy[3]);
+      if(yy < 100) yy += 2000;
+      var d3 = new Date(yy, Number(dmy[2])-1, Number(dmy[1]));
+      return isNaN(d3.getTime()) ? null : d3;
+    }
+
+    var d4 = new Date(s);
+    return isNaN(d4.getTime()) ? null : d4;
+  }
+
+  function esIngresada(r){
+    var e = String(r.estado || r.status || '').toUpperCase().trim();
+    // En tu flujo, las muestras ingresadas alimentan laboratorio/facturación.
+    return e === 'INGRESADA' || e === 'REINGRESADA' || e === '';
+  }
+
+  function getFechaRec(r){
+    return r.fecha || r.fecha_orden || r.fecha_recepcion || r.fecha_muestreo || r.createdAt || r.updatedAt || '';
+  }
+
+  function calcularRankingMensualReal(){
+    var base = getBaseMuestras();
+    var counts = {};
+    var total = 0;
+
+    base.forEach(function(r){
+      if(!r) return;
+      if(!esIngresada(r)) return;
+
+      var d = parseFecha(getFechaRec(r));
+      if(!d) return;
+
+      var key = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0');
+      counts[key] = (counts[key] || 0) + 1;
+      total++;
+    });
+
+    var arr = Object.keys(counts).map(function(k){
+      var p = k.split('-');
+      return {
+        key:k,
+        anio:Number(p[0]),
+        mes:Number(p[1]),
+        nombre:MESES_ES[Number(p[1])-1],
+        count:counts[k]
+      };
+    }).sort(function(a,b){
+      if(b.count !== a.count) return b.count - a.count;
+      return a.key.localeCompare(b.key);
+    });
+
+    return {total:total, ranking:arr};
+  }
+
+  function renderRankingMensualReal(){
+    try{
+      var result = calcularRankingMensualReal();
+      var ranking = result.ranking;
+      if(!ranking.length) return false;
+
+      // Buscar bloque que contenga "Ranking mensual".
+      var title = Array.from(document.querySelectorAll('h2,h3,div,b,strong')).find(function(el){
+        return String(el.textContent || '').trim().toLowerCase() === 'ranking mensual';
+      });
+      if(!title) return false;
+
+      var panel = title.closest('.lab-chart,.month-panel,.kc,.lab-dash-panel,div') || title.parentElement;
+      if(!panel) return false;
+
+      var top = ranking.slice(0,12);
+      var max = Math.max.apply(null, top.map(function(x){return x.count;}));
+
+      var html = '<h3 style="font-size:18px;margin-bottom:14px">Ranking mensual</h3>';
+      html += '<div class="monthly-bars-small" id="rankingMensualRealV70">';
+      top.forEach(function(x){
+        var pct = max ? Math.round((x.count/max)*100) : 0;
+        var pctTotal = result.total ? Math.round((x.count/result.total)*100) : 0;
+        html += '<div class="bar-row">';
+        html += '<div class="bar-label">'+x.nombre+'</div>';
+        html += '<div class="bar-bg"><div class="bar-fill" style="width:'+pct+'%">'+x.count+'</div></div>';
+        html += '<div class="bar-val">'+pctTotal+'%</div>';
+        html += '</div>';
+      });
+      html += '</div>';
+      html += '<div class="small" style="margin-top:10px">Total contado en ranking: <b>'+result.total+'</b> muestras ingresadas.</div>';
+
+      panel.innerHTML = html;
+      return true;
+    }catch(e){
+      console.warn('renderRankingMensualReal', e);
+      return false;
+    }
+  }
+
+  function runKPIReal(){
+    renderRankingMensualReal();
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(runKPIReal, 800);
+    setTimeout(runKPIReal, 2000);
+    setTimeout(runKPIReal, 4000);
+  });
+
+  var oldShowTab = window.showTab;
+  if(typeof oldShowTab === 'function' && !oldShowTab.__kpiMensualReal){
+    var wrappedShowTab = function(){
+      var res = oldShowTab.apply(this, arguments);
+      setTimeout(runKPIReal, 300);
+      setTimeout(runKPIReal, 1200);
+      return res;
+    };
+    wrappedShowTab.__kpiMensualReal = true;
+    window.showTab = wrappedShowTab;
+    try{ showTab = wrappedShowTab; }catch(e){}
+  }
+
+  var oldRenderAll = window.renderAll;
+  if(typeof oldRenderAll === 'function' && !oldRenderAll.__kpiMensualReal){
+    var wrappedRenderAll = function(){
+      var res = oldRenderAll.apply(this, arguments);
+      setTimeout(runKPIReal, 500);
+      return res;
+    };
+    wrappedRenderAll.__kpiMensualReal = true;
+    window.renderAll = wrappedRenderAll;
+    try{ renderAll = wrappedRenderAll; }catch(e){}
+  }
+
+})();
+</script>
+
+
+<!-- ==========================================================
+ DASHBOARD ENTERPRISE V7.1
+ Alcance:
+ - Recalcula Dashboard Ejecutivo, volumen mensual, matriz y clientes desde base oficial actual.
+ - Fuente prioritaria: DATA / ERP_DATA_MASTER / PSI_CLOUD_MUESTRAS.
+ - No modifica Firebase, Firestore, Queue, Realtime, CRUD ni datos.
+ - Solo renderiza indicadores visibles coherentes con la base vigente.
+========================================================== -->
+<style>
+#dashboardEnterpriseV71{
+  background:linear-gradient(180deg,rgba(17,25,43,.94),rgba(8,13,24,.96));
+  border:1px solid rgba(125,211,252,.22);
+  border-radius:16px;
+  padding:18px;
+  margin-bottom:18px;
+  box-shadow:0 16px 38px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.045);
+}
+#dashboardEnterpriseV71 h2{font-size:22px;margin-bottom:6px}
+#dashboardEnterpriseV71 .v71-sub{color:#94a3b8;margin-bottom:16px;font-weight:700}
+.v71-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:18px}
+.v71-card{background:#131a2c;border:1px solid rgba(148,163,184,.18);border-radius:14px;padding:14px;position:relative;overflow:hidden}
+.v71-card:before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--c,#4f8ef7)}
+.v71-card .lbl{font-size:10px;color:#94a3b8;text-transform:uppercase;letter-spacing:1.2px;font-weight:900;margin-bottom:8px}
+.v71-card .val{font-size:32px;font-weight:900;color:var(--c,#e2e8f0)}
+.v71-card .sub{font-size:11px;color:#94a3b8;margin-top:4px}
+.v71-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-bottom:14px}
+.v71-panel{background:#111827;border:1px solid rgba(148,163,184,.18);border-radius:14px;padding:14px}
+.v71-panel h3{font-size:15px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.8px}
+.v71-bars{display:flex;flex-direction:column;gap:9px}
+.v71-row{display:grid;grid-template-columns:105px 1fr 80px;gap:10px;align-items:center}
+.v71-label{color:#a8b4c8;font-weight:900;text-align:right}
+.v71-bg{height:28px;background:#171b2a;border:1px solid rgba(148,163,184,.20);border-radius:9px;overflow:hidden}
+.v71-fill{height:100%;background:linear-gradient(90deg,#3b82f6,#60a5fa);display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#fff;font-weight:900;min-width:24px;border-radius:9px}
+.v71-val{font-weight:900;color:#e2e8f0}
+.v71-table{width:100%;border-collapse:collapse}
+.v71-table th{background:#172033;color:#b8c5d9;text-align:left;padding:9px;border-bottom:1px solid rgba(148,163,184,.18);font-size:11px}
+.v71-table td{padding:9px;border-bottom:1px solid rgba(148,163,184,.12)}
+@media(max-width:900px){.v71-layout{grid-template-columns:1fr}.v71-row{grid-template-columns:1fr}.v71-label{text-align:left}}
+</style>
+<script>
+(function(){
+  if(window.PSI_DASHBOARD_ENTERPRISE_V71) return;
+  window.PSI_DASHBOARD_ENTERPRISE_V71 = true;
+
+  var MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+  function getBaseOficial(){
+    try{ if(Array.isArray(window.DATA) && window.DATA.length) return window.DATA; }catch(e){}
+    try{ if(typeof DATA !== 'undefined' && Array.isArray(DATA) && DATA.length) return DATA; }catch(e){}
+    try{ if(Array.isArray(window.ERP_DATA_MASTER) && window.ERP_DATA_MASTER.length) return window.ERP_DATA_MASTER; }catch(e){}
+    try{ if(typeof ERP_DATA_MASTER !== 'undefined' && Array.isArray(ERP_DATA_MASTER) && ERP_DATA_MASTER.length) return ERP_DATA_MASTER; }catch(e){}
+    try{ if(Array.isArray(window.PSI_CLOUD_MUESTRAS) && window.PSI_CLOUD_MUESTRAS.length) return window.PSI_CLOUD_MUESTRAS; }catch(e){}
+    return [];
+  }
+
+  function getInformesBase(){
+    try{ if(Array.isArray(window.INFORMES)) return window.INFORMES; }catch(e){}
+    try{ if(typeof INFORMES !== 'undefined' && Array.isArray(INFORMES)) return INFORMES; }catch(e){}
+    return [];
+  }
+
+  function getFactBase(){
+    try{ if(Array.isArray(window.FACTURACION)) return window.FACTURACION; }catch(e){}
+    try{ if(typeof FACTURACION !== 'undefined' && Array.isArray(FACTURACION)) return FACTURACION; }catch(e){}
+    return [];
+  }
+
+  function norm(v){ return String(v == null ? '' : v).trim(); }
+  function up(v){ return norm(v).toUpperCase(); }
+
+  function parseFecha(v){
+    if(v instanceof Date && !isNaN(v.getTime())) return v;
+    var s = norm(v);
+    if(!s) return null;
+
+    if(/^\d+(\.\d+)?$/.test(s)){
+      var serial = Number(s);
+      if(serial > 20000 && serial < 80000){
+        var d0 = new Date(1899,11,30);
+        d0.setDate(d0.getDate() + serial);
+        return isNaN(d0.getTime()) ? null : d0;
+      }
+    }
+
+    var ymd = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+    if(ymd){
+      var y = Number(ymd[1]), a = Number(ymd[2]), b = Number(ymd[3]);
+      if(a > 12 && b <= 12){
+        var d1 = new Date(y,b-1,a);
+        return isNaN(d1.getTime()) ? null : d1;
+      }
+      var d2 = new Date(y,a-1,b);
+      return isNaN(d2.getTime()) ? null : d2;
+    }
+
+    var dmy = s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2,4})$/);
+    if(dmy){
+      var yy = Number(dmy[3]);
+      if(yy < 100) yy += 2000;
+      var d3 = new Date(yy, Number(dmy[2])-1, Number(dmy[1]));
+      return isNaN(d3.getTime()) ? null : d3;
+    }
+
+    var d4 = new Date(s);
+    return isNaN(d4.getTime()) ? null : d4;
+  }
+
+  function fechaRec(r){ return r.fecha || r.fecha_orden || r.fecha_recepcion || r.fecha_muestreo || r.createdAt || r.updatedAt || ''; }
+  function codigo(r){ return norm(r.codigo || r.ot || r.OT || r.id || ''); }
+
+  function esIngresada(r){
+    var e = up(r.estado || r.status || r.estado_muestra || '');
+    if(!e) return true;
+    return e === 'INGRESADA' || e === 'REINGRESADA' || e.indexOf('INGRES') >= 0;
+  }
+
+  function calc(){
+    var base = getBaseOficial();
+    var ingresadas = base.filter(esIngresada);
+    var informes = getInformesBase();
+    var fact = getFactBase();
+
+    var byMonth = {};
+    var byMatriz = {};
+    var byCliente = {};
+    var sinFecha = 0;
+
+    ingresadas.forEach(function(r){
+      var d = parseFecha(fechaRec(r));
+      if(d){
+        var mk = d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0');
+        byMonth[mk] = (byMonth[mk] || 0) + 1;
+      }else{
+        sinFecha++;
+      }
+
+      var m = up(r.matriz || 'SIN MATRIZ');
+      byMatriz[m] = (byMatriz[m] || 0) + 1;
+
+      var c = norm(r.cliente || 'SIN CLIENTE');
+      byCliente[c] = (byCliente[c] || 0) + 1;
+    });
+
+    var codLab = new Set(informes.map(codigo).filter(Boolean));
+    var faltanLab = ingresadas.filter(function(r){ return !codLab.has(codigo(r)); }).length;
+
+    var facturados = 0;
+    try{
+      facturados = fact.filter(function(f){ return up(f.estado_fact || f.estado || '').indexOf('FACT') >= 0; }).length;
+    }catch(e){ facturados = 0; }
+
+    return {
+      base: base,
+      ingresadas: ingresadas,
+      informes: informes,
+      fact: fact,
+      total: base.length,
+      totalIngresadas: ingresadas.length,
+      lab: informes.length,
+      faltanLab: faltanLab,
+      facturados: facturados,
+      sinFecha: sinFecha,
+      byMonth: byMonth,
+      byMatriz: byMatriz,
+      byCliente: byCliente
+    };
+  }
+
+  function sortEntries(obj, mode){
+    var arr = Object.keys(obj).map(function(k){ return [k,obj[k]]; });
+    if(mode === 'month'){
+      arr.sort(function(a,b){ return a[0].localeCompare(b[0]); });
+    }else{
+      arr.sort(function(a,b){ return b[1]-a[1] || a[0].localeCompare(b[0]); });
+    }
+    return arr;
+  }
+
+  function monthName(k){
+    var p = k.split('-');
+    var i = Number(p[1])-1;
+    return (MESES[i] || k) + ' ' + p[0];
+  }
+
+  function barsHTML(entries, total, month){
+    if(!entries.length) return '<div class="small">Sin datos para mostrar.</div>';
+    var max = Math.max.apply(null, entries.map(function(e){ return e[1]; }));
+    return '<div class="v71-bars">' + entries.map(function(e){
+      var pctMax = max ? Math.round((e[1]/max)*100) : 0;
+      var pctTotal = total ? Math.round((e[1]/total)*100) : 0;
+      return '<div class="v71-row">' +
+        '<div class="v71-label">'+(month ? monthName(e[0]) : e[0])+'</div>' +
+        '<div class="v71-bg"><div class="v71-fill" style="width:'+pctMax+'%">'+e[1]+'</div></div>' +
+        '<div class="v71-val">'+pctTotal+'%</div>' +
+      '</div>';
+    }).join('') + '</div>';
+  }
+
+  function topTableHTML(entries, total){
+    var top = entries.slice(0,10);
+    return '<table class="v71-table"><thead><tr><th>Cliente</th><th>Cantidad</th><th>%</th></tr></thead><tbody>' +
+      top.map(function(e){
+        var pct = total ? Math.round((e[1]/total)*100) : 0;
+        return '<tr><td>'+e[0]+'</td><td><b>'+e[1]+'</b></td><td>'+pct+'%</td></tr>';
+      }).join('') +
+    '</tbody></table>';
+  }
+
+  function renderDashboardV71(){
+    try{
+      var d = calc();
+      var dash = document.getElementById('dashboard');
+      if(!dash) return false;
+
+      var old = document.getElementById('dashboardEnterpriseV71');
+      if(old) old.remove();
+
+      var monthEntries = sortEntries(d.byMonth,'month');
+      var matrizEntries = sortEntries(d.byMatriz,'top');
+      var clienteEntries = sortEntries(d.byCliente,'top');
+
+      var salud = 'REVISAR';
+      var colorSalud = '#f59e0b';
+      if(d.total && d.totalIngresadas && d.sinFecha === 0) { salud = 'OK'; colorSalud = '#22c55e'; }
+
+      var html = '';
+      html += '<div id="dashboardEnterpriseV71">';
+      html += '<h2>📊 Dashboard Enterprise V7.1</h2>';
+      html += '<div class="v71-sub">Indicadores recalculados desde la base oficial actual del ERP/Cloud. No usa datos de ejemplo ni bases parciales.</div>';
+
+      html += '<div class="v71-grid">';
+      html += '<div class="v71-card" style="--c:'+colorSalud+'"><div class="lbl">Salud Dashboard</div><div class="val">'+salud+'</div><div class="sub">Base oficial única</div></div>';
+      html += '<div class="v71-card" style="--c:#4f8ef7"><div class="lbl">Muestras Base</div><div class="val">'+d.total+'</div><div class="sub">Registros totales</div></div>';
+      html += '<div class="v71-card" style="--c:#22c55e"><div class="lbl">Ingresadas</div><div class="val">'+d.totalIngresadas+'</div><div class="sub">Estado ingresada/reingresada</div></div>';
+      html += '<div class="v71-card" style="--c:#f59e0b"><div class="lbl">Laboratorio</div><div class="val">'+d.lab+'</div><div class="sub">Registros lab actuales</div></div>';
+      html += '<div class="v71-card" style="--c:#ef4444"><div class="lbl">Faltan Lab</div><div class="val">'+d.faltanLab+'</div><div class="sub">Ingresadas sin registro lab</div></div>';
+      html += '<div class="v71-card" style="--c:#06b6d4"><div class="lbl">Sin Fecha</div><div class="val">'+d.sinFecha+'</div><div class="sub">No entran al gráfico mensual</div></div>';
+      html += '</div>';
+
+      html += '<div class="v71-layout">';
+      html += '<div class="v71-panel"><h3>Volumen mensual real</h3>'+barsHTML(monthEntries, d.totalIngresadas, true)+'</div>';
+      html += '<div class="v71-panel"><h3>KPI por matriz</h3>'+barsHTML(matrizEntries.slice(0,8), d.totalIngresadas, false)+'</div>';
+      html += '</div>';
+
+      html += '<div class="v71-layout">';
+      html += '<div class="v71-panel"><h3>Ranking mensual real</h3>'+barsHTML(sortEntries(d.byMonth,'top').slice(0,12), d.totalIngresadas, true)+'</div>';
+      html += '<div class="v71-panel"><h3>Top clientes</h3>'+topTableHTML(clienteEntries, d.totalIngresadas)+'</div>';
+      html += '</div>';
+
+      html += '</div>';
+
+      dash.insertAdjacentHTML('afterbegin', html);
+
+      // Ocultar paneles viejos de dashboard para no duplicar números parciales.
+      Array.from(dash.children).forEach(function(el){
+        if(el.id !== 'dashboardEnterpriseV71' && el.id !== 'erpConsolidadoPanel'){
+          // No ocultamos todo por si hay módulos útiles; solo panels con barras viejas conocidas.
+          var txt = String(el.textContent || '').toLowerCase();
+          if(txt.indexOf('volumen mensual de muestras') >= 0 || txt.indexOf('ranking mensual') >= 0){
+            el.style.display = 'none';
+          }
+        }
+      });
+
+      return true;
+    }catch(e){
+      console.warn('renderDashboardV71', e);
+      return false;
+    }
+  }
+
+  function runDashV71(){
+    renderDashboardV71();
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(runDashV71, 900);
+    setTimeout(runDashV71, 2500);
+    setTimeout(runDashV71, 5000);
+  });
+
+  var oldShowTab = window.showTab;
+  if(typeof oldShowTab === 'function' && !oldShowTab.__dashV71){
+    var wrappedShowTab = function(){
+      var res = oldShowTab.apply(this, arguments);
+      setTimeout(runDashV71, 300);
+      setTimeout(runDashV71, 1200);
+      return res;
+    };
+    wrappedShowTab.__dashV71 = true;
+    window.showTab = wrappedShowTab;
+    try{ showTab = wrappedShowTab; }catch(e){}
+  }
+
+  var oldRenderAll = window.renderAll;
+  if(typeof oldRenderAll === 'function' && !oldRenderAll.__dashV71){
+    var wrappedRenderAll = function(){
+      var res = oldRenderAll.apply(this, arguments);
+      setTimeout(runDashV71, 800);
+      return res;
+    };
+    wrappedRenderAll.__dashV71 = true;
+    window.renderAll = wrappedRenderAll;
+    try{ renderAll = wrappedRenderAll; }catch(e){}
+  }
+
+  window.renderDashboardEnterpriseV71 = renderDashboardV71;
 })();
 </script>
 
