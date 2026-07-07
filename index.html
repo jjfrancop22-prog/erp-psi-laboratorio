@@ -145,7 +145,7 @@ AJUSTE V1.0.5 - 03/07/2026
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ERP PSI ENTERPRISE V7.0.3 AJUSTE FECHAS LOCAL CLOUD FIX</title>
+<title>ERP PSI ENTERPRISE V7.0.15 PANEL TRAZABILIDAD CONSOLIDADO</title>
 <style>
 :root{--bg:#0f1117;--surface:#1a1d27;--surface2:#22263a;--border:#2e3350;--accent:#4f8ef7;--green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--cyan:#06b6d4;--text:#e2e8f0;--muted:#94a3b8;--card:#1e2235}
 *{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;min-height:100vh}.hdr{background:linear-gradient(135deg,#1a1d27,#16213e);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.hdr h1{font-size:18px}.sub{color:var(--muted);font-size:11px;margin-top:4px}.badge{background:#334155;color:#fff;padding:4px 10px;border-radius:18px;font-size:11px;font-weight:700}nav{background:var(--surface);border-bottom:1px solid var(--border);display:flex;overflow-x:auto}nav button{background:none;border:none;color:var(--muted);padding:13px 18px;cursor:pointer;font-weight:600;border-bottom:3px solid transparent;white-space:nowrap}nav button.active{color:var(--accent);border-bottom-color:var(--accent)}section{display:none;padding:20px 24px}section.active{display:block}.btn{border:none;border-radius:8px;padding:8px 13px;font-weight:700;cursor:pointer;color:#fff;display:inline-flex;gap:6px;align-items:center}.btn:hover{opacity:.86}.btn-p{background:var(--accent)}.btn-s{background:var(--green)}.btn-d{background:var(--red)}.btn-w{background:var(--yellow);color:#111}.btn-g{background:var(--surface2);border:1px solid var(--border);color:var(--text)}.btn-mini{padding:5px 9px;font-size:11px}.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:14px;margin-bottom:22px}.kc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;position:relative;overflow:hidden}.kc:before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--c,var(--accent))}.kc .lbl{color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-size:11px;margin-bottom:8px}.kc .val{font-size:34px;font-weight:900;color:var(--c,var(--text))}.blue{--c:var(--accent)}.green{--c:var(--green)}.yellow{--c:var(--yellow)}.red{--c:var(--red)}.cyan{--c:var(--cyan)}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:14px}input,select{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:7px;outline:none}input:focus,select:focus{border-color:var(--accent)}.twrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;background:#11131b}table{width:100%;border-collapse:collapse}th{background:var(--surface2);color:var(--muted);text-transform:uppercase;font-size:11px;letter-spacing:1px;text-align:left;padding:11px 12px;border-bottom:2px solid var(--border);white-space:nowrap}td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle}tr:last-child td{border-bottom:none}.chip{display:inline-block;padding:3px 9px;border-radius:10px;font-size:10px;font-weight:900;white-space:nowrap}.m-res{background:rgba(239,68,68,.18);color:#fca5a5}.m-nat{background:rgba(34,197,94,.15);color:#86efac}.m-con{background:rgba(6,182,212,.15);color:#67e8f9}.m-sue{background:rgba(245,158,11,.15);color:#fcd34d}.s-pen,.s-esp{background:rgba(245,158,11,.18);color:#fcd34d}.s-det{background:rgba(239,68,68,.2);color:#fca5a5}.s-ok{background:rgba(34,197,94,.15);color:#86efac}.s-pro{background:rgba(79,142,247,.15);color:#93c5fd}.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:50;align-items:center;justify-content:center}.modal-bg.open{display:flex}.modal{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px;width:min(760px,96vw);max-height:92vh;overflow:auto}.modal h2{font-size:16px;margin-bottom:16px}.fg{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fgr{display:flex;flex-direction:column;gap:5px}.fgr.full{grid-column:1/-1}.fgr label{font-size:10px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.8px}.act{display:flex;justify-content:flex-end;gap:8px;margin-top:18px;padding-top:14px;border-top:1px solid var(--border)}.toast{position:fixed;right:20px;bottom:20px;z-index:100;background:var(--surface2);border:1px solid var(--accent);border-radius:10px;padding:12px 16px;opacity:0;transform:translateY(10px);transition:.2s}.toast.show{opacity:1;transform:translateY(0)}.danger-note{display:inline-flex;gap:8px;align-items:center;background:rgba(239,68,68,.11);border:1px solid rgba(239,68,68,.35);color:#fca5a5;border-radius:20px;padding:8px 14px;margin-bottom:16px;font-weight:800}.empty{color:var(--muted);text-align:center;padding:24px!important}.small{font-size:11px;color:var(--muted)}@media(max-width:700px){.fg{grid-template-columns:1fr}.fgr.full{grid-column:1}.hdr{padding:14px}section{padding:14px}.kpi-grid{grid-template-columns:repeat(2,1fr)}}
@@ -173,6 +173,9 @@ AJUSTE V1.0.5 - 03/07/2026
 .module-btn.active{background:#fff;color:#111827;border-color:#fff;box-shadow:0 18px 45px rgba(79,142,247,.22)}
 .module-btn.fact{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.30)}
 .module-btn.fact.active{background:#ecfdf5;color:#065f46;border-color:#86efac}
+.module-btn.seguimiento{background:rgba(79,142,247,.10);border-color:rgba(96,165,250,.35)}
+.module-btn.seguimiento.active,.module-btn.seguimiento:hover{background:linear-gradient(135deg,#0ea5e9,#2563eb)!important;color:#fff!important;border-color:rgba(147,197,253,.75)!important}
+
 .subnav{background:var(--surface);border-bottom:1px solid var(--border);display:flex;overflow-x:auto}
 .subnav button{background:none;border:none;color:var(--muted);padding:12px 16px;cursor:pointer;font-weight:700;border-bottom:3px solid transparent;white-space:nowrap}
 .subnav button.active{color:var(--accent);border-bottom-color:var(--accent)}.subnav button[hidden]{display:none!important}
@@ -372,11 +375,12 @@ window.PSI_ANTI_ZERO_GUARD = function(localCount, cloudCount){
 </script>
 </head>
 <body>
-<div class="hdr"><div style="display:flex;align-items:center;gap:14px"><img class="psi-logo-img" src="data:image/jpeg;base64,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3NawSvJsWadxpWdjau2xz/ax8f7FrdR7mxiZrj5LmnbJG9hktkjD9khXvImU7Ls/PevJfD/yTbeNvHZ7toLqC8Xa7EdBSWyVmv8A83DUa4n90gtEbXR4My3q6hx+DNc6tsIHiWRh+v6wWtQe5tYrLhx80LXGO0st8r/2vC2G1+5r22NwN6zZqp29rKa0ti+10j/2L38JOp0uzFvzlNy8+L6JEJ4420c9cbMkposRxWCkk5GGzxcB2n9qSZR8jgoYmrbjd6501TNUVtZUyc3veZZZXnvJ5kleiuGtgTImyubJdWX2/ubzLa2v4bCfZC1h0+UqZ8H5UZb5fsH4G4Is9qeG7vFp6VgmcPGQ+mflKyVRR2RYQ7XaZpkeGwoeij6836HnNltskZ15jPiqBhx+H7bJoXVl31p+Xe2LTiO8PR08VcjJ3Y4y0yvkgu92a7E18i0cKutiAhif60UHMNPi4ucOwhT8NAOSxoB0XjqyZzmqdrdR1NODlwR6L6vf6HIANGgGgCyiLUcyEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQH/2Q==" alt="PSI Productos y Servicios Industriales"><div><h1>ERP PSI PRODUCTOS Y SERVICIOS INDUSTRIALES C.LTDA</h1><div class="sub" id="headerSub">Sistema Integrado de Gestión de Laboratorio · ERP PSI ENTERPRISE V7.0 MASTER PRODUCCIÓN OFICIAL · Dashboard Mensual Real FIX</div></div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-s" onclick="openModal()">＋ Nueva Muestra</button><button class="btn btn-p" onclick="psiEnterpriseCloudDashboard()">☁️ Cloud Dashboard Enterprise</button><button class="btn btn-d" onclick="psiReplaceCloudWithLocal1808Official()">☁️ Reemplazar Cloud con Local 1808</button><button class="btn btn-s" onclick="psiDashboardCloudForceRefresh()">🔄 Actualizar Dashboard iCloud</button><button class="btn btn-g" onclick="psiLabCloudCommitStatus()">🏥 Lab Cloud Status</button><button class="btn btn-s" onclick="psiRestoreLabLocalFromCloud()">⬇ Recuperar Lab desde Cloud</button><button class="btn btn-w" onclick="psiSeedLabCloudFromLocal()">⬆ Subir Lab a Cloud</button><button class="btn btn-g" onclick="psiCodeAuditRC11A()">🧪 Code Audit RC1.1A</button><button class="btn btn-g" onclick="psiDataIntegrityAuditRC11B()">🧬 Data Integrity RC1.1B</button><button class="btn btn-g" onclick="psiSyncAuditRC11C()">🔄 Sync Audit RC1.1C</button><button class="btn btn-g" onclick="psiPerformanceAuditRC11D()">⚡ Performance Audit RC1.1D</button><button class="btn btn-p" onclick="document.getElementById('importFile').click()">⬆ Importar Excel</button><button class="btn btn-g psi-cloud-hidden" onclick="diagnostic()">🔎 Diagnóstico</button><button class="btn btn-g psi-cloud-hidden" onclick="psiPreFirebaseCheck()">🛡️ Pre-Firebase</button><button class="btn btn-p psi-cloud-hidden" onclick="psiCloudLogin()">☁️ Cloud Login</button><button class="btn btn-g psi-cloud-hidden" onclick="psiFirestoreSafeTest()">☁️ Firestore Test</button><button class="btn btn-p psi-cloud-hidden" onclick="psiSyncOneDevInfo()">🔁 TX Sync PROD</button><button class="btn btn-s psi-cloud-hidden" onclick="psiRealtimeStatus()">🔴 Realtime ON</button><button class="btn btn-g psi-cloud-hidden" onclick="psiCloudCenter()">☁️ Centro Cloud</button><button class="btn btn-p psi-cloud-hidden" onclick="psiSyncManager()">🧭 Gestor Sync PROD</button><button class="btn btn-w psi-cloud-hidden" onclick="psiTxCenter()">🧾 TX Center</button><button class="btn btn-p psi-cloud-hidden" onclick="psiAuditCenter()">📜 Audit Center</button><button class="btn btn-s psi-cloud-hidden" onclick="psiDashboardSmartCenter()">📊 Dash Smart</button><button class="btn btn-w psi-cloud-hidden" onclick="psiQueueCenter()">📥 Queue Center</button><button class="btn btn-p psi-cloud-hidden" onclick="psiCloudEngineCenter()">⚙️ Cloud Engine</button><button class="btn btn-w psi-cloud-hidden" onclick="psiCloudReadSafeTest()">🛡️ Read Safe</button><input id="importFile" type="file" accept=".xlsx,.xls,.csv,.json" style="display:none" onchange="importExcelFile(event)"><button class="btn btn-g" onclick="exportExcel()">⬇ Excel</button><button class="btn btn-w" onclick="downloadTemplate()">📄 Plantilla</button><button class="btn btn-w" onclick="backupJSON()">💾 Respaldo</button><span class="role-pill">👤 Rol <select id="erpRoleSelect" onchange="setERPUserRole(this.value)"><option>CALIDAD</option><option>LABORATORIO</option><option>FACTURACION</option><option>GERENCIA</option><option>ADMIN</option></select></span><span class="badge">ERP PSI ENTERPRISE V7.0.3 · AJUSTE FECHAS LOCAL+CLOUD FIX</span><span class="badge" id="cloudStatusBadge" style="background:rgba(34,197,94,.18);border:1px solid rgba(34,197,94,.35)">🧾 TX listo</span></div></div>
+<div class="hdr"><div style="display:flex;align-items:center;gap:14px"><img class="psi-logo-img" src="data:image/jpeg;base64,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3NawSvJsWadxpWdjau2xz/ax8f7FrdR7mxiZrj5LmnbJG9hktkjD9khXvImU7Ls/PevJfD/yTbeNvHZ7toLqC8Xa7EdBSWyVmv8A83DUa4n90gtEbXR4My3q6hx+DNc6tsIHiWRh+v6wWtQe5tYrLhx80LXGO0st8r/2vC2G1+5r22NwN6zZqp29rKa0ti+10j/2L38JOp0uzFvzlNy8+L6JEJ4420c9cbMkposRxWCkk5GGzxcB2n9qSZR8jgoYmrbjd6501TNUVtZUyc3veZZZXnvJ5kleiuGtgTImyubJdWX2/ubzLa2v4bCfZC1h0+UqZ8H5UZb5fsH4G4Is9qeG7vFp6VgmcPGQ+mflKyVRR2RYQ7XaZpkeGwoeij6836HnNltskZ15jPiqBhx+H7bJoXVl31p+Xe2LTiO8PR08VcjJ3Y4y0yvkgu92a7E18i0cKutiAhif60UHMNPi4ucOwhT8NAOSxoB0XjqyZzmqdrdR1NODlwR6L6vf6HIANGgGgCyiLUcyEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQH/2Q==" alt="PSI Productos y Servicios Industriales"><div><h1>ERP PSI PRODUCTOS Y SERVICIOS INDUSTRIALES C.LTDA</h1><div class="sub" id="headerSub">Sistema Integrado de Gestión de Laboratorio · ERP PSI ENTERPRISE V7.0.11 · FIX REBOUND REALTIME</div></div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-s" onclick="openModal()">＋ Nueva Muestra</button><button class="btn btn-p" onclick="psiEnterpriseCloudDashboard()">☁️ Cloud Dashboard Enterprise</button><button class="btn btn-d" onclick="psiReplaceCloudWithLocal1808Official()">☁️ Reemplazar Cloud con Local 1808</button><button class="btn btn-s" onclick="psiDashboardCloudForceRefresh()">🔄 Actualizar Dashboard iCloud</button><button class="btn btn-g" onclick="psiLabCloudCommitStatus()">🏥 Lab Cloud Status</button><button class="btn btn-s" onclick="psiRestoreLabLocalFromCloud()">⬇ Recuperar Lab desde Cloud</button><button class="btn btn-w" onclick="psiSeedLabCloudFromLocal()">⬆ Subir Lab a Cloud</button><button class="btn btn-g" onclick="psiCodeAuditRC11A()">🧪 Code Audit RC1.1A</button><button class="btn btn-g" onclick="psiDataIntegrityAuditRC11B()">🧬 Data Integrity RC1.1B</button><button class="btn btn-g" onclick="psiSyncAuditRC11C()">🔄 Sync Audit RC1.1C</button><button class="btn btn-g" onclick="psiPerformanceAuditRC11D()">⚡ Performance Audit RC1.1D</button><button class="btn btn-p" onclick="document.getElementById('importFile').click()">⬆ Importar Excel</button><button class="btn btn-g psi-cloud-hidden" onclick="diagnostic()">🔎 Diagnóstico</button><button class="btn btn-g psi-cloud-hidden" onclick="psiPreFirebaseCheck()">🛡️ Pre-Firebase</button><button class="btn btn-p psi-cloud-hidden" onclick="psiCloudLogin()">☁️ Cloud Login</button><button class="btn btn-g psi-cloud-hidden" onclick="psiFirestoreSafeTest()">☁️ Firestore Test</button><button class="btn btn-p psi-cloud-hidden" onclick="psiSyncOneDevInfo()">🔁 TX Sync PROD</button><button class="btn btn-s psi-cloud-hidden" onclick="psiRealtimeStatus()">🔴 Realtime ON</button><button class="btn btn-g psi-cloud-hidden" onclick="psiCloudCenter()">☁️ Centro Cloud</button><button class="btn btn-p psi-cloud-hidden" onclick="psiSyncManager()">🧭 Gestor Sync PROD</button><button class="btn btn-w psi-cloud-hidden" onclick="psiTxCenter()">🧾 TX Center</button><button class="btn btn-p psi-cloud-hidden" onclick="psiAuditCenter()">📜 Audit Center</button><button class="btn btn-s psi-cloud-hidden" onclick="psiDashboardSmartCenter()">📊 Dash Smart</button><button class="btn btn-w psi-cloud-hidden" onclick="psiQueueCenter()">📥 Queue Center</button><button class="btn btn-p psi-cloud-hidden" onclick="psiCloudEngineCenter()">⚙️ Cloud Engine</button><button class="btn btn-w psi-cloud-hidden" onclick="psiCloudReadSafeTest()">🛡️ Read Safe</button><input id="importFile" type="file" accept=".xlsx,.xls,.csv,.json" style="display:none" onchange="importExcelFile(event)"><button class="btn btn-g" onclick="exportExcel()">⬇ Excel</button><button class="btn btn-w" onclick="downloadTemplate()">📄 Plantilla</button><button class="btn btn-w" onclick="backupJSON()">💾 Respaldo</button><span class="role-pill">👤 Rol <select id="erpRoleSelect" onchange="setERPUserRole(this.value)"><option>CALIDAD</option><option>LABORATORIO</option><option>FACTURACION</option><option>GERENCIA</option><option>ADMIN</option></select></span><span class="badge">ERP PSI ENTERPRISE V7.0.11 · FIX REBOUND REALTIME</span><span class="badge" id="cloudStatusBadge" style="background:rgba(34,197,94,.18);border:1px solid rgba(34,197,94,.35)">🧾 TX listo</span></div></div>
 <div class="module-shell">
   <button class="btn module-btn" data-module-target="control" onclick="showTab('dashboard')">🔬 INGRESO DE MUESTRA</button>
   <button class="btn module-btn" data-module-target="informes" onclick="showTab('informes')">📄 INGRESO AL LABORATORIO</button>
   <button class="btn module-btn fact" data-module-target="facturacion" onclick="openFacturacionModule()">💵 FACTURACIÓN</button>
+  <button class="btn module-btn seguimiento" data-module-target="seguimiento" onclick="psiConsultaStatusInformes()">🧭 CENTRO SEGUIMIENTO INFORMES</button>
 </div>
 <nav class="subnav">
   <button class="active" data-menu="muestras" onclick="showTab('dashboard')">📊 Dashboard</button>
@@ -1155,6 +1159,7 @@ async function psiTxRunQueue(){
 }
 function save(silent=false){
   const prevCount = Number(window.PSI_AUDIT_LAST_COUNT ?? (Array.isArray(DATA)?DATA.length:0));
+  try{ psiReboundMarkAllLocal('EDIT',9000); }catch(_rb){}
   const ok = persistMuestrasLocalNow(silent);
   try{
     const localCount = Array.isArray(DATA) ? DATA.length : 0;
@@ -1169,6 +1174,7 @@ function save(silent=false){
       const txId='tx_'+Date.now()+'_'+Math.random().toString(36).slice(2,7);
       window.PSI_TX_LAST={status:'GUARDADO_LOCAL_SYNC_CLOUD',pending:psiTxQueueLoad().length,lastSyncAt:window.PSI_TX_LAST.lastSyncAt,lastError:null,count:localCount};
       setTimeout(()=>{
+        window.PSI_TX_IN_FLIGHT=true;
         psiTxUploadAll('SAVE_RECORD_TRANSACTION').then(res=>{
           psiTxQueueRemoveById(txId);
           psiAuditEnterprise('CLOUD_SYNC_OK',{result:'CLOUD_OK', txId, count:localCount, uploaded:res.uploaded||0, collection:'erp_muestras'});
@@ -1179,8 +1185,8 @@ function save(silent=false){
           psiAuditEnterprise('CLOUD_SYNC_PENDIENTE',{result:'CLOUD_PENDING', txId, count:localCount, error:err.message, collection:'erp_muestras'});
           window.PSI_TX_LAST={status:'PENDIENTE_CLOUD',pending:psiTxQueueLoad().length,lastSyncAt:window.PSI_TX_LAST.lastSyncAt,lastError:err.message,count:localCount};
           try{ toast('Guardado local OK · Cloud pendiente en cola TX'); }catch(_e){}
-        });
-      },120);
+        }).finally(()=>{ window.PSI_TX_IN_FLIGHT=false; try{ updateCloudBadge(); }catch(_e){} });
+      },250);
     }
   }catch(e){ console.warn('Guardado transaccional pendiente:',e); }
   return ok;
@@ -1229,6 +1235,83 @@ async function psiAuditCenter(){
 }
 try{ window.addEventListener('load',()=>{ window.PSI_AUDIT_LAST_COUNT = Array.isArray(DATA)?DATA.length:0; }); }catch(e){}
 
+
+
+/* ==========================================================
+   V7.0.11 · FIX REBOUND REALTIME
+   Objetivo:
+   - Evitar que Realtime repinte una copia vieja justo después de editar/eliminar.
+   - Mantener un bloqueo corto por código/ID mientras Cloud confirma la TX.
+   - En eliminación, borrar también el documento puntual en Firestore para que no reaparezca.
+========================================================== */
+const PSI_REBOUND_KEY='ERP_PSI_V7_0_11_REBOUND_LOCKS';
+window.PSI_REALTIME_LOCAL_WRITE=false;
+window.PSI_TX_IN_FLIGHT=false;
+window.PSI_REBOUND_RENDER_TIMER=null;
+function psiReboundNow(){return Date.now();}
+function psiReboundLoad(){try{return JSON.parse(localStorage.getItem(PSI_REBOUND_KEY)||'{}')||{};}catch(e){return {};}}
+function psiReboundSave(obj){try{localStorage.setItem(PSI_REBOUND_KEY,JSON.stringify(obj||{}));}catch(e){}}
+function psiReboundClean(){
+  const now=psiReboundNow(), obj=psiReboundLoad(); let changed=false;
+  Object.keys(obj).forEach(k=>{ if(!obj[k] || Number(obj[k].until||0)<now){delete obj[k]; changed=true;} });
+  if(changed) psiReboundSave(obj);
+  return obj;
+}
+function psiReboundKeysFromRecord(r){
+  const keys=[];
+  try{
+    if(r){
+      if(r.id) keys.push('id:'+String(r.id).trim());
+      if(r.codigo) keys.push('cod:'+String(r.codigo).trim().toUpperCase());
+      if(typeof sampleKey==='function'){
+        const sk=sampleKey(r); if(sk) keys.push('sk:'+String(sk).trim().toUpperCase());
+      }
+      if(r.__docId) keys.push('doc:'+String(r.__docId).trim());
+    }
+  }catch(e){}
+  return [...new Set(keys.filter(Boolean))];
+}
+function psiReboundMarkRecord(r,action='EDIT',ms=18000){
+  const obj=psiReboundClean(); const until=psiReboundNow()+ms;
+  psiReboundKeysFromRecord(r).forEach(k=>{obj[k]={action,until,at:new Date().toISOString()};});
+  psiReboundSave(obj);
+}
+function psiReboundIsLocked(r,actionFilter){
+  const obj=psiReboundClean(); const keys=psiReboundKeysFromRecord(r);
+  for(const k of keys){
+    const v=obj[k];
+    if(v && Number(v.until||0)>psiReboundNow()){
+      if(!actionFilter || String(v.action||'').toUpperCase()===String(actionFilter).toUpperCase()) return v;
+    }
+  }
+  return null;
+}
+function psiReboundMarkAllLocal(action='EDIT',ms=8000){
+  try{ (Array.isArray(DATA)?DATA:[]).forEach(r=>psiReboundMarkRecord(r,action,ms)); }catch(e){}
+}
+function psiRealtimeRenderDebounced(){
+  clearTimeout(window.PSI_REBOUND_RENDER_TIMER);
+  window.PSI_REBOUND_RENDER_TIMER=setTimeout(()=>{try{renderAll();}catch(e){}},180);
+}
+async function psiTxDeleteMuestraCloud(record,reason='DELETE_RECORD'){
+  try{
+    const {db,user}=await psiTxEnsureReady();
+    const ids=[psiTxDocId(record), record&&record.id, record&&record.codigo].filter(Boolean).map(x=>String(x).replace(/[\/#?\[\]]/g,'_'));
+    const unique=[...new Set(ids)];
+    const batch=db.batch();
+    unique.forEach(id=>batch.delete(db.collection('erp_muestras').doc(id)));
+    await batch.commit();
+    await psiTxAudit('CLOUD_DELETE_OK',{reason, codigo:record&&record.codigo, id:record&&record.id, deletedDocIds:unique});
+    window.PSI_TX_LAST={status:'ELIMINACION_SINCRONIZADA',pending:psiTxQueueLoad().length,lastSyncAt:new Date().toISOString(),lastError:null,count:Array.isArray(DATA)?DATA.length:0};
+    try{ updateCloudBadge(); }catch(e){}
+    return {ok:true,deleted:unique.length};
+  }catch(e){
+    psiTxQueuePush({id:'del_'+Date.now(),module:'muestras',type:'DELETE_ONE',codigo:record&&record.codigo,record:record,error:e.message});
+    window.PSI_TX_LAST={status:'ELIMINACION_PENDIENTE',pending:psiTxQueueLoad().length,lastSyncAt:window.PSI_TX_LAST.lastSyncAt,lastError:e.message,count:Array.isArray(DATA)?DATA.length:0};
+    return {ok:false,error:e.message};
+  }
+}
+
 let PSI_MUESTRAS_UNSUB=null;
 let PSI_REALTIME_ACTIVE=false;
 function keyMuestra(r){ return String((r&& (r.id || r.codigo || r.__docId)) || '').trim(); }
@@ -1249,10 +1332,13 @@ function mergeCloudMuestrasSafe(cloudArr){
     const c=calc(Object.assign({}, c0));
     const k=keyMuestra(c);
     if(!k) return;
+    // V7.0.11: si el usuario acaba de eliminar/editar, no permitimos que Realtime repinte la copia vieja.
+    if(psiReboundIsLocked(c,'DELETE')) return;
     const found=byKey.get(k);
     if(!found){
-      DATA.push(c); added++;
+      if(!psiReboundIsLocked(c)) { DATA.push(c); added++; }
     }else{
+      if(psiReboundIsLocked(found.r,'EDIT') || psiReboundIsLocked(c,'EDIT')) return;
       // Actualización conservadora: solo fusiona campos de nube si existe marca cloudUpdatedAt más nueva.
       const lc=String(found.r.cloudUpdatedAt || found.r.updatedAt || found.r.fechaActualizacion || '');
       const cc=String(c.cloudUpdatedAt || c.updatedAt || c.fechaActualizacion || '');
@@ -1260,9 +1346,10 @@ function mergeCloudMuestrasSafe(cloudArr){
     }
   });
   if(added || updated){
-    persistMuestrasLocalNow(true);
+    window.PSI_REALTIME_LOCAL_WRITE=true;
+    try{ persistMuestrasLocalNow(true); }finally{ setTimeout(()=>{window.PSI_REALTIME_LOCAL_WRITE=false;},400); }
     try{ sincronizarLaboratorioDesdeIngreso(true); }catch(e){}
-    try{ renderAll(); }catch(e){}
+    try{ psiRealtimeRenderDebounced(); }catch(e){ try{renderAll();}catch(_e){} }
     try{ updateCloudBadge(); }catch(e){}
   }
   return {ok:true, added, updated, localCount:DATA.length, cloudCount};
@@ -1476,6 +1563,7 @@ function delRecord(id){
   if(!requireDeletePassword('eliminación total del registro'))return;
 
   markDeletedLocalId(r.id);
+  try{ psiReboundMarkRecord(r,'DELETE',45000); toast('Sincronizando eliminación…'); }catch(_rb){}
   try{ if(typeof auditEntry==='function') auditEntry({codigo:r.codigo,cliente:r.cliente},'ELIMINACIÓN TOTAL','Ingreso de Muestra','Registro existente','Eliminado'); }catch(e){}
   linkedInformes.forEach(i=>{try{ if(typeof auditEntry==='function') auditEntry(i,'ELIMINACIÓN EN CASCADA','Ingreso al Laboratorio / Informe','Vinculado a muestra','Eliminado'); }catch(e){}});
 
@@ -1487,7 +1575,12 @@ function delRecord(id){
   const okInf=saveInformes();
   const okFac=(typeof saveFacturacion==='function')?saveFacturacion():true;
   renderAll();
-  if(okBase&&okInf&&okFac){toast('Eliminado en cascada con autorización CALIDAD');}
+  if(okBase&&okInf&&okFac){
+    psiTxDeleteMuestraCloud(r,'DELETE_RECORD_CASCADE').then(res=>{
+      if(res.ok){ toast('Eliminado y sincronizado · no reaparecerá por Realtime'); }
+      else{ toast('Eliminado local · Cloud pendiente en cola TX'); }
+    });
+  }
   else{alert('Se intentó eliminar, pero hubo un problema guardando algún módulo. Revise diagnóstico/respaldo.');}
 }
 function setStatus(id,status,estado='INGRESADA'){let r=findRecById(id);if(!r){alert('Registro no encontrado');return;}status=up(status);if(status==='DETENIDA') estado='INGRESADA';r.status=status;r.estado=estado;r.trace=[...(r.trace||[]),`${new Date().toLocaleString()}: ${status}`];calc(r);save();renderAll();toast('Cambio guardado')}
@@ -1501,9 +1594,9 @@ function toggleAnalisisFields(id){
   if(ts){ts.disabled=!enabled;if(!enabled)ts.value='';}
 }
 function guardarDQO(id){
-let r=findRecById(id);if(!r){alert('Registro no encontrado');return;}let has=document.getElementById('anaHas_'+id)?.checked;let d=has?(document.getElementById('dq_'+id)?.value||''):'';let t=has?(document.getElementById('ts_'+id)?.value||''):'';r.dqo=d;r.tensoactivos=t;r.reqAnalisisValores=!!has;r.reqDQO=false;r.estado='INGRESADA';r.status=r.status==='PENDIENTE'?'CONTINUAR':(r.status==='EN ESPERA'?'CONTINUAR':r.status);r.estado_final='INGRESADA';r.tipo_cierre=has?'CON DQO/TENS':'SIN DQO/TENS';r.dqo_saved_at=new Date().toISOString();r.trace=[...(r.trace||[]),`${new Date().toLocaleString()}: Registro de Análisis guardado · ${has?'con DQO/Tensoactivos':'sin DQO/Tensoactivos'} · pasa a INGRESADA`];calc(r);save();renderAll();toast('Registro de Análisis guardado · INGRESADA')}
+let r=findRecById(id);if(!r){alert('Registro no encontrado');return;}try{psiReboundMarkRecord(r,'EDIT',15000);}catch(_rb){}let has=document.getElementById('anaHas_'+id)?.checked;let d=has?(document.getElementById('dq_'+id)?.value||''):'';let t=has?(document.getElementById('ts_'+id)?.value||''):'';r.dqo=d;r.tensoactivos=t;r.reqAnalisisValores=!!has;r.reqDQO=false;r.estado='INGRESADA';r.status=r.status==='PENDIENTE'?'CONTINUAR':(r.status==='EN ESPERA'?'CONTINUAR':r.status);r.estado_final='INGRESADA';r.tipo_cierre=has?'CON DQO/TENS':'SIN DQO/TENS';r.dqo_saved_at=new Date().toISOString();r.trace=[...(r.trace||[]),`${new Date().toLocaleString()}: Registro de Análisis guardado · ${has?'con DQO/Tensoactivos':'sin DQO/Tensoactivos'} · pasa a INGRESADA`];calc(r);save();renderAll();toast('Registro de Análisis guardado · INGRESADA')}
 function enviarEspera(id){
-let r=findRecById(id);if(!r){alert('Registro no encontrado');return;}let has=document.getElementById('anaHas_'+id)?.checked;let d=document.getElementById('dq_'+id)?.value??r.dqo;let t=document.getElementById('ts_'+id)?.value??r.tensoactivos;r.reqAnalisisValores=!!has;r.dqo=has?d:'';r.tensoactivos=has?t:'';r.status='EN ESPERA';r.estado='PLANIFICADA';r.estado_final='PENDIENTE';r.reqDQO=false;r.trace=[...(r.trace||[]),`${new Date().toLocaleString()}: enviado a EN ESPERA · estado final PENDIENTE`];calc(r);save();renderAll();toast('Enviado a pestaña EN ESPERA')}
+let r=findRecById(id);if(!r){alert('Registro no encontrado');return;}try{psiReboundMarkRecord(r,'EDIT',15000);}catch(_rb){}let has=document.getElementById('anaHas_'+id)?.checked;let d=document.getElementById('dq_'+id)?.value??r.dqo;let t=document.getElementById('ts_'+id)?.value??r.tensoactivos;r.reqAnalisisValores=!!has;r.dqo=has?d:'';r.tensoactivos=has?t:'';r.status='EN ESPERA';r.estado='PLANIFICADA';r.estado_final='PENDIENTE';r.reqDQO=false;r.trace=[...(r.trace||[]),`${new Date().toLocaleString()}: enviado a EN ESPERA · estado final PENDIENTE`];calc(r);save();renderAll();toast('Enviado a pestaña EN ESPERA')}
 function continuarEspera(id){
 let r=findRecById(id);if(!r){alert('Registro no encontrado');return;}r.status='';r.estado='PLANIFICADA';r.estado_final='';r.reqDQO=true;r.trace=[...(r.trace||[]),`${new Date().toLocaleString()}: CONTINUAR desde EN ESPERA · vuelve a Registro de Análisis`];calc(r);save();renderAll();toast('Regresó a Registro de Análisis');showTab('analisis')}
 function detenerEspera(id){
@@ -11111,5 +11204,832 @@ document.addEventListener('DOMContentLoaded', function(){
   else {setTimeout(install,100);setTimeout(install,1000);}
 })();
 </script>
+
+<script>
+/* ==========================================================
+   V7.0.5 · CONSULTA STATUS DE INFORMES
+   - Botón ejecutivo para consultar el estado integral de informes.
+   - Lee la misma base de INFORMES / Control Final.
+   - No modifica datos, no escribe en Cloud ni Local.
+========================================================== */
+(function(){
+  function _psiEsc(v){
+    try{ if(typeof esc==='function') return esc(v); }catch(e){}
+    return String(v ?? '').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});
+  }
+  function _psiUp(v){return String(v||'').toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+  function _psiNormDate(v){
+    try{ if(typeof infNorm==='function') return infNorm(v||''); }catch(e){}
+    return String(v||'').slice(0,10);
+  }
+  function _psiCalc(i){
+    try{ if(typeof calcInforme==='function') return calcInforme(Object.assign({},i)); }catch(e){}
+    return Object.assign({},i);
+  }
+  function _psiChip(label,ok,kind){
+    const cls = ok ? 'ok' : (kind==='bad'?'bad':'');
+    return '<span class="lab-step '+cls+'">'+_psiEsc(label)+'</span>';
+  }
+  function _psiEstadoInforme(i){
+    const entrega=!!_psiNormDate(i.fecha_entrega_real);
+    const auth=!!_psiNormDate(i.fecha_autorizacion);
+    const portal=!!_psiNormDate(i.fecha_envio_portal);
+    if(portal) return 'EN PORTAL / ENVIADO';
+    if(auth) return 'AUTORIZADO';
+    if(entrega) return 'ENTREGADO REAL';
+    return i.estado_plazo || 'EN PROCESO';
+  }
+  function _psiStatusClass(i){
+    const estado=_psiUp(_psiEstadoInforme(i));
+    if(estado.includes('PORTAL') || estado.includes('AUTORIZADO') || estado.includes('ENTREGADO')) return 'stage-ok';
+    if(_psiUp(i.estado_plazo).includes('VENCIDO')) return 'stage-bad';
+    return 'stage-warn';
+  }
+  window.psiConsultaStatusInformes = function(){
+    try{ if(typeof renderInformes==='function') renderInformes(); }catch(e){}
+    const old=document.getElementById('psiStatusInformesBg'); if(old) old.remove();
+    const bg=document.createElement('div');
+    bg.id='psiStatusInformesBg';
+    bg.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:100000;display:flex;align-items:center;justify-content:center;padding:16px';
+    bg.innerHTML = `
+      <div style="background:var(--surface,#1a1d27);color:var(--text,#e2e8f0);border:1px solid var(--border,#2e3350);border-radius:18px;width:min(1180px,98vw);max-height:92vh;overflow:auto;padding:20px;box-shadow:0 24px 70px rgba(0,0,0,.45)">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:12px">
+          <div>
+            <h2 style="margin:0 0 5px;font-size:22px">🔎 Consulta Status de Informes</h2>
+            <div class="small">Consulta rápida basada en Informes ingresados / Control Final: entrega real, autorización, portal, plazo y alerta.</div>
+          </div>
+          <button class="btn btn-g" onclick="document.getElementById('psiStatusInformesBg').remove()">Cerrar</button>
+        </div>
+        <div class="toolbar" style="margin-bottom:12px">
+          <input id="psiStatusInfQ" placeholder="Escriba código OT exacto o nombre del cliente..." oninput="psiRenderStatusInformes()" style="min-width:280px;flex:1">
+          <select id="psiStatusInfEstado" onchange="psiRenderStatusInformes()">
+            <option value="">Todos los estados</option>
+            <option value="EN PROCESO">En proceso</option>
+            <option value="VENCIDO">Vencido</option>
+            <option value="ENTREGADO">Entregado real</option>
+            <option value="AUTORIZADO">Autorizado</option>
+            <option value="PORTAL">Portal / enviado</option>
+          </select>
+          <select id="psiStatusInfOrden" onchange="psiRenderStatusInformes()">
+            <option value="reciente">Más recientes</option>
+            <option value="vencimiento">Próximo vencimiento</option>
+            <option value="codigo">Código OT</option>
+          </select>
+          <button class="btn btn-p" onclick="psiRenderStatusInformes()">🔄 Actualizar</button>
+          <button class="btn btn-s" onclick="psiExportStatusInformesExcel()">📥 Excel Status</button>
+          <span class="small" id="psiStatusInfCount" style="margin-left:auto"></span>
+        </div>
+        <div class="lab-dash-grid" id="psiStatusInfCards" style="margin-bottom:12px"></div>
+        <div class="twrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Cód.</th><th>Cliente</th><th>Sucursal</th><th>Analista</th><th>Matriz</th><th>F. recepción</th><th>F. máx.</th><th>Estado informe</th><th>Flujo</th><th>Entrega real</th><th>Autorización</th><th>Portal</th><th>Alerta</th>
+              </tr>
+            </thead>
+            <tbody id="psiStatusInfBody"></tbody>
+          </table>
+        </div>
+      </div>`;
+    document.body.appendChild(bg);
+    setTimeout(()=>{const q=document.getElementById('psiStatusInfQ'); if(q)q.focus(); psiRenderStatusInformes();},50);
+  };
+  window.psiStatusInformesData = function(){
+    const arr=Array.isArray(window.INFORMES)?window.INFORMES:[];
+    let rows=arr.map(_psiCalc);
+    const q=_psiUp(document.getElementById('psiStatusInfQ')?.value||'');
+    const est=_psiUp(document.getElementById('psiStatusInfEstado')?.value||'');
+    if(q) rows=rows.filter(i=>_psiUp([i.codigo,i.cliente,i.sucursal,i.analista,i.matriz,i.tipo,i.estado_plazo,_psiEstadoInforme(i)].join(' ')).includes(q));
+    if(est) rows=rows.filter(i=>{
+      const e=_psiUp(_psiEstadoInforme(i)+' '+(i.estado_plazo||''));
+      if(est==='PORTAL') return e.includes('PORTAL') || !!_psiNormDate(i.fecha_envio_portal);
+      if(est==='AUTORIZADO') return e.includes('AUTORIZADO') || !!_psiNormDate(i.fecha_autorizacion);
+      if(est==='ENTREGADO') return e.includes('ENTREGADO') || !!_psiNormDate(i.fecha_entrega_real);
+      return e.includes(est);
+    });
+    const orden=document.getElementById('psiStatusInfOrden')?.value||'reciente';
+    rows.sort((a,b)=>{
+      if(orden==='vencimiento') return String(a.fecha_max_emision||'').localeCompare(String(b.fecha_max_emision||'')) || String(a.codigo||'').localeCompare(String(b.codigo||''));
+      if(orden==='codigo') return String(a.codigo||'').localeCompare(String(b.codigo||''),undefined,{numeric:true});
+      return String(b.fecha_recepcion||'').localeCompare(String(a.fecha_recepcion||'')) || String(b.id||'').localeCompare(String(a.id||''));
+    });
+    return rows;
+  };
+  window.psiRenderStatusInformes = function(){
+    const rows=window.psiStatusInformesData();
+    const total=Array.isArray(window.INFORMES)?window.INFORMES.length:0;
+    const venc=(Array.isArray(window.INFORMES)?window.INFORMES:[]).map(_psiCalc).filter(i=>_psiUp(i.estado_plazo).includes('VENCIDO') && !_psiNormDate(i.fecha_entrega_real)).length;
+    const entreg=(Array.isArray(window.INFORMES)?window.INFORMES:[]).filter(i=>!!_psiNormDate(i.fecha_entrega_real)).length;
+    const aut=(Array.isArray(window.INFORMES)?window.INFORMES:[]).filter(i=>!!_psiNormDate(i.fecha_autorizacion)).length;
+    const portal=(Array.isArray(window.INFORMES)?window.INFORMES:[]).filter(i=>!!_psiNormDate(i.fecha_envio_portal)).length;
+    const cards=document.getElementById('psiStatusInfCards');
+    if(cards) cards.innerHTML=
+      `<div class="lab-dash-card blue"><div class="lbl">Informes</div><div class="val">${total}</div><div class="sub">control final</div></div>
+       <div class="lab-dash-card red"><div class="lbl">Vencidos sin entrega</div><div class="val">${venc}</div><div class="sub">requieren atención</div></div>
+       <div class="lab-dash-card green"><div class="lbl">Entrega real</div><div class="val">${entreg}</div><div class="sub">registrados</div></div>
+       <div class="lab-dash-card yellow"><div class="lbl">Autorizados</div><div class="val">${aut}</div><div class="sub">cobranza/calidad</div></div>
+       <div class="lab-dash-card cyan"><div class="lbl">Portal cliente</div><div class="val">${portal}</div><div class="sub">enviados/subidos</div></div>`;
+    const count=document.getElementById('psiStatusInfCount'); if(count) count.textContent=rows.length+' visibles';
+    const body=document.getElementById('psiStatusInfBody'); if(!body) return;
+    body.innerHTML=rows.length?rows.map(i=>{
+      const entrega=!!_psiNormDate(i.fecha_entrega_real), auth=!!_psiNormDate(i.fecha_autorizacion), portal=!!_psiNormDate(i.fecha_envio_portal);
+      return `<tr>
+        <td><b>${_psiEsc(i.codigo)}</b></td>
+        <td>${_psiEsc(i.cliente)}</td>
+        <td>${_psiEsc(i.sucursal)}</td>
+        <td>${_psiEsc(i.analista)}</td>
+        <td>${(typeof chipM==='function')?chipM(i.matriz):_psiEsc(i.matriz)}</td>
+        <td>${_psiEsc(i.fecha_recepcion||'')}</td>
+        <td>${_psiEsc(i.fecha_max_emision||'')}</td>
+        <td><b class="${_psiStatusClass(i)}">${_psiEsc(_psiEstadoInforme(i))}</b><div class="small">${_psiEsc(i.estado_plazo||'')}</div></td>
+        <td><div class="lab-timeline">${_psiChip('Lab',true)}${_psiChip('Entrega',entrega)}${_psiChip('Aut.',auth)}${_psiChip('Portal',portal)}</div></td>
+        <td>${_psiEsc(_psiNormDate(i.fecha_entrega_real)||'—')}</td>
+        <td>${_psiEsc(_psiNormDate(i.fecha_autorizacion)||'—')}</td>
+        <td>${_psiEsc(_psiNormDate(i.fecha_envio_portal)||'—')}</td>
+        <td>${_psiEsc(i.alerta||'')}</td>
+      </tr>`;
+    }).join(''):'<tr><td colspan="13" class="empty">No hay informes con esos filtros.</td></tr>';
+  };
+  window.psiExportStatusInformesExcel = function(){
+    const rows=window.psiStatusInformesData().map(i=>({
+      Codigo:i.codigo||'', Cliente:i.cliente||'', Sucursal:i.sucursal||'', Analista:i.analista||'', Matriz:i.matriz||'', Tipo:i.tipo||'',
+      Fecha_recepcion:i.fecha_recepcion||'', Fecha_maxima:i.fecha_max_emision||'', Estado_informe:_psiEstadoInforme(i), Estado_plazo:i.estado_plazo||'',
+      Entrega_real:_psiNormDate(i.fecha_entrega_real)||'', Fecha_autorizacion:_psiNormDate(i.fecha_autorizacion)||'', Fecha_envio_portal:_psiNormDate(i.fecha_envio_portal)||'', Alerta:i.alerta||'', Observaciones:i.observaciones||''
+    }));
+    if(!rows.length){alert('No hay registros para exportar.');return;}
+    if(window.XLSX){
+      const ws=XLSX.utils.json_to_sheet(rows);
+      const wb=XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb,ws,'Status Informes');
+      XLSX.writeFile(wb,'STATUS_INFORMES_PSI.xlsx');
+    }else{
+      const csv=Object.keys(rows[0]).join(';')+'\n'+rows.map(r=>Object.values(r).map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\n');
+      const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'})); a.download='STATUS_INFORMES_PSI.csv'; a.click();
+    }
+  };
+})();
+</script>
+
+
+
+<script>
+/* ==========================================================
+ V7.0.6 · CENTRO DE SEGUIMIENTO DE INFORMES
+ - Botón principal: 🧭 Centro Seguimiento Informes
+ - Línea de tiempo por OT: Ingreso muestra → Laboratorio → Control final → Entrega real → Autorización → Portal → Facturación
+ - No borra, no reemplaza, no escribe en Cloud. Solo consulta visual y exporta Excel.
+========================================================== */
+(function(){
+  function E(v){
+    try{ if(typeof esc==='function') return esc(v); }catch(e){}
+    return String(v ?? '').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});
+  }
+  function U(v){return String(v||'').toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();}
+  function D(v){
+    try{ if(typeof infNorm==='function') return infNorm(v||''); }catch(e){}
+    const s=String(v||'').trim(); return s ? s.slice(0,10) : '';
+  }
+  function Arr(x){return Array.isArray(x)?x:[];}
+  function calcInf(i){try{ if(typeof calcInforme==='function') return calcInforme(Object.assign({},i)); }catch(e){} return Object.assign({},i);}
+  function objValues(o){return (o&&typeof o==='object'&&!Array.isArray(o))?Object.values(o):[];}
+  function globalArr(name){try{ const v=Function('try{return typeof '+name+'!==\"undefined\"?'+name+':undefined}catch(e){return undefined}')(); return Arr(v); }catch(e){return [];} }
+  function globalObjValues(name){try{ const v=Function('try{return typeof '+name+'!==\"undefined\"?'+name+':undefined}catch(e){return undefined}')(); return objValues(v); }catch(e){return [];} }
+  function allMuestras(){return globalArr('DATA').concat(globalArr('ERP_DATA_MASTER'),Arr(window.ERP_DATA_MASTER),Arr(window.MUESTRAS),Arr(window.data),Arr(window.muestras));}
+  function allFacturas(){return globalObjValues('FACTURACION').concat(Arr(window.FACTURACION),objValues(window.FACTURACION),Arr(window.facturacion),objValues(window.facturacion),Arr(window.FACTURAS),Arr(window.facturas));}
+  function codeOf(o){return String(o?.codigo || o?.cod || o?.ot || o?.orden || o?.codigo_ot || o?.codigoOrden || o?.Codigo || o?.CODIGO || '').trim();}
+  function sameCode(a,b){return U(a) && U(a)===U(b);}
+  function findByCode(arr,c){return Arr(arr).find(x=>sameCode(codeOf(x),c));}
+  function hasVal(v){return String(v||'').trim()!=='';}
+  function estado(i){
+    i=calcInf(i||{});
+    if(D(i.fecha_envio_portal)) return 'PORTAL CLIENTE';
+    if(D(i.fecha_autorizacion)) return 'AUTORIZADO';
+    if(D(i.fecha_entrega_real)) return 'ENTREGA REAL';
+    if(U(i.estado_plazo).includes('VENCIDO')) return 'VENCIDO';
+    return i.estado_plazo || 'EN PROCESO';
+  }
+  function etapaObj(label, ok, detalle, fecha){return {label, ok:!!ok, detalle:detalle||'', fecha:fecha||''};}
+  function stages(i){
+    i=calcInf(i||{});
+    const c=codeOf(i);
+    const m=findByCode(allMuestras(),c);
+    const f=findByCode(allFacturas(),c);
+    const ingresoOk=!!m || hasVal(i.fecha_recepcion) || hasVal(i.cliente);
+    const labOk=hasVal(i.id) || hasVal(i.analista) || hasVal(i.fecha_recepcion);
+    const controlOk=hasVal(i.estado_plazo) || hasVal(i.fecha_max_emision) || hasVal(i.sla);
+    const entregaOk=!!D(i.fecha_entrega_real);
+    const autOk=!!D(i.fecha_autorizacion);
+    const portalOk=!!D(i.fecha_envio_portal);
+    const factOk=!!f || hasVal(i.estado_facturacion) || hasVal(i.factura) || hasVal(i.fecha_facturacion);
+    return [
+      etapaObj('Ingreso muestra', ingresoOk, ingresoOk?'Registrado':'No ubicado', D(m?.fecha || m?.fecha_orden || m?.fecha_recepcion || i.fecha_recepcion)),
+      etapaObj('Laboratorio', labOk, labOk?'Ingresado a laboratorio':'Pendiente de ingreso', D(i.fecha_recepcion)),
+      etapaObj('Control final', controlOk, controlOk?(i.estado_plazo||'En control'):'Sin control final', D(i.fecha_max_emision)),
+      etapaObj('Entrega real', entregaOk, entregaOk?'Entregado':'Pendiente', D(i.fecha_entrega_real)),
+      etapaObj('Autorización', autOk, autOk?'Autorizado':'Pendiente', D(i.fecha_autorizacion)),
+      etapaObj('Portal cliente', portalOk, portalOk?'Subido/enviado':'Pendiente', D(i.fecha_envio_portal)),
+      etapaObj('Facturación', factOk, factOk?(f?.estado || i.estado_facturacion || 'Con registro'):'Sin registro', D(f?.fecha || f?.fecha_facturacion || i.fecha_facturacion))
+    ];
+  }
+  function pct(i){const s=stages(i); return Math.round((s.filter(x=>x.ok).length/s.length)*100);}
+  function clsStatus(i){const e=U(estado(i)); if(e.includes('VENCIDO')) return 'stage-bad'; if(e.includes('PROCESO')) return 'stage-warn'; return 'stage-ok';}
+  function dataset(){
+    let base=[];
+    try{ if(typeof INFORMES!=='undefined' && Array.isArray(INFORMES)) base=INFORMES; }catch(e){}
+    if(!base.length && Array.isArray(window.INFORMES)) base=window.INFORMES;
+    if(!base.length){ try{ base=globalArr('INFORMES'); }catch(e){} }
+    return Arr(base).map(calcInf);
+  }
+  function filtered(){
+    let rows=dataset();
+    const qRaw=String(document.getElementById('psiSegQ')?.value||'').trim();
+    const q=U(qRaw);
+    const filtro=U(document.getElementById('psiSegEstado')?.value||'');
+    if(q){
+      const isCode=/^[0-9]+$/.test(q);
+      if(isCode){
+        const exact=rows.filter(i=>U(codeOf(i))===q);
+        rows=(exact.length?exact:rows.filter(i=>U(codeOf(i)).includes(q)));
+      }else{
+        rows=rows.filter(i=>U([codeOf(i),i.cliente,i.sucursal,i.analista,i.matriz,i.tipo,estado(i),i.alerta,i.id].join(' ')).includes(q));
+      }
+    }
+    if(filtro){
+      rows=rows.filter(i=>{
+        const st=stages(i), e=U(estado(i)+' '+(i.estado_plazo||''));
+        if(filtro==='PENDIENTE') return st.some(x=>!x.ok);
+        if(filtro==='COMPLETO') return st.every(x=>x.ok);
+        return e.includes(filtro);
+      });
+    }
+    const orden=document.getElementById('psiSegOrden')?.value||'vencimiento';
+    rows.sort((a,b)=>{
+      if(orden==='codigo') return String(codeOf(a)).localeCompare(String(codeOf(b)),undefined,{numeric:true});
+      if(orden==='avance') return pct(a)-pct(b) || String(a.fecha_max_emision||'').localeCompare(String(b.fecha_max_emision||''));
+      return String(a.fecha_max_emision||'').localeCompare(String(b.fecha_max_emision||'')) || String(codeOf(a)).localeCompare(String(codeOf(b)),undefined,{numeric:true});
+    });
+    return rows;
+  }
+  function stepHtml(x){
+    const c=x.ok?'ok':'';
+    return '<div class="psi-seg-step '+c+'"><div class="dot">'+(x.ok?'✓':'•')+'</div><b>'+E(x.label)+'</b><span>'+E(x.detalle)+'</span><small>'+E(x.fecha||'—')+'</small></div>';
+  }
+  function miniFlow(i){return stages(i).map(x=>'<span class="lab-step '+(x.ok?'ok':'')+'">'+E(x.label.split(' ')[0])+'</span>').join('');}
+  window.psiConsultaStatusInformes = function(){
+    try{ if(typeof renderInformes==='function') renderInformes(); }catch(e){}
+    const old=document.getElementById('psiSeguimientoInformesBg'); if(old) old.remove();
+    const bg=document.createElement('div');
+    bg.id='psiSeguimientoInformesBg';
+    bg.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.76);z-index:100000;display:flex;align-items:center;justify-content:center;padding:12px';
+    bg.innerHTML = '<div class="psi-seg-modal">\
+      <div class="psi-seg-head"><div><h2>🧭 Centro de Seguimiento de Informes</h2><div class="small">Consulta por código OT o nombre de cliente. Si escribe código muestra esa OT; si escribe cliente muestra su histórico.</div></div><button class="btn btn-g" onclick="document.getElementById(\'psiSeguimientoInformesBg\').remove()">Cerrar</button></div>\
+      <div class="toolbar psi-seg-tools"><input id="psiSegQ" placeholder="Escriba código OT exacto o nombre del cliente..." oninput="psiSegRender()"><select id="psiSegEstado" onchange="psiSegRender()"><option value="">Todos</option><option value="EN PROCESO">En proceso</option><option value="VENCIDO">Vencido</option><option value="PENDIENTE">Con pendientes</option><option value="COMPLETO">Flujo completo</option><option value="PORTAL">Portal cliente</option><option value="AUTORIZADO">Autorizado</option></select><select id="psiSegOrden" onchange="psiSegRender()"><option value="vencimiento">Próximo vencimiento</option><option value="codigo">Código OT</option><option value="avance">Menor avance</option></select><button class="btn btn-p" onclick="psiSegRender()">🔄 Actualizar</button><button class="btn btn-s" onclick="psiSegExportExcel()">📥 Excel</button><span class="small" id="psiSegCount"></span></div>\
+      <div id="psiSegCards" class="lab-dash-grid"></div>\
+      <div class="psi-seg-layout"><div class="psi-seg-list"><div class="twrap"><table><thead><tr><th>OT</th><th>Cliente</th><th>Estado</th><th>Avance</th><th>Vence</th><th>Flujo</th></tr></thead><tbody id="psiSegBody"></tbody></table></div></div><div class="psi-seg-detail" id="psiSegDetail"><div class="empty">Seleccione una OT para ver la línea de tiempo.</div></div></div>\
+    </div>';
+    document.body.appendChild(bg);
+    setTimeout(()=>{const q=document.getElementById('psiSegQ'); if(q) q.focus(); psiSegRender();},40);
+  };
+  window.psiSegRender = function(){
+    const rows=filtered(), all=dataset();
+    const venc=all.filter(i=>U(estado(i)).includes('VENCIDO') && !D(i.fecha_entrega_real)).length;
+    const pendientes=all.filter(i=>stages(i).some(x=>!x.ok)).length;
+    const completos=all.filter(i=>stages(i).every(x=>x.ok)).length;
+    const promedio=all.length?Math.round(all.reduce((s,i)=>s+pct(i),0)/all.length):0;
+    const cards=document.getElementById('psiSegCards');
+    if(cards) cards.innerHTML='<div class="lab-dash-card blue"><div class="lbl">Informes</div><div class="val">'+all.length+'</div><div class="sub">control final</div></div><div class="lab-dash-card yellow"><div class="lbl">Pendientes</div><div class="val">'+pendientes+'</div><div class="sub">etapas abiertas</div></div><div class="lab-dash-card red"><div class="lbl">Vencidos</div><div class="val">'+venc+'</div><div class="sub">sin entrega real</div></div><div class="lab-dash-card green"><div class="lbl">Completos</div><div class="val">'+completos+'</div><div class="sub">flujo cerrado</div></div><div class="lab-dash-card cyan"><div class="lbl">Avance promedio</div><div class="val">'+promedio+'%</div><div class="sub">trazabilidad</div></div>';
+    const count=document.getElementById('psiSegCount'); if(count) count.textContent=rows.length+' visibles';
+    const body=document.getElementById('psiSegBody'); if(!body) return;
+    body.innerHTML=rows.length?rows.slice(0,250).map((i,idx)=>'<tr style="cursor:pointer" onclick="psiSegSelect('+idx+')"><td><b>'+E(codeOf(i))+'</b></td><td>'+E(i.cliente||'')+'<div class="small">'+E(i.sucursal||'')+'</div></td><td><b class="'+clsStatus(i)+'">'+E(estado(i))+'</b><div class="small">'+E(i.alerta||'')+'</div></td><td><div class="matrix-progress"><span style="width:'+pct(i)+'%"></span></div><div class="small">'+pct(i)+'%</div></td><td>'+E(D(i.fecha_max_emision)||'—')+'</td><td><div class="lab-timeline">'+miniFlow(i)+'</div></td></tr>').join(''):'<tr><td colspan="6" class="empty">No hay informes con esos filtros. Verifique que primero esté cargado/recuperado el módulo Datos Laboratorio.</td></tr>';
+    window.__PSI_SEG_ROWS=rows;
+    if(rows[0]) psiSegSelect(0); else {const d=document.getElementById('psiSegDetail'); if(d)d.innerHTML='<div class="empty">Sin resultado seleccionado.</div>';}
+  };
+  window.psiSegSelect = function(idx){
+    const i=(window.__PSI_SEG_ROWS||[])[idx]; const d=document.getElementById('psiSegDetail'); if(!i||!d) return;
+    const st=stages(i), done=st.filter(x=>x.ok).length;
+    d.innerHTML='<div class="psi-seg-title"><div><h3>OT '+E(codeOf(i))+'</h3><div class="small">'+E(i.cliente||'')+' · '+E(i.sucursal||'')+'</div></div><b class="'+clsStatus(i)+'">'+E(estado(i))+'</b></div><div class="psi-seg-info"><div><b>Analista</b><span>'+E(i.analista||'—')+'</span></div><div><b>Matriz</b><span>'+E(i.matriz||'—')+'</span></div><div><b>Recepción</b><span>'+E(D(i.fecha_recepcion)||'—')+'</span></div><div><b>F. máxima</b><span>'+E(D(i.fecha_max_emision)||'—')+'</span></div><div><b>Entrega real</b><span>'+E(D(i.fecha_entrega_real)||'—')+'</span></div><div><b>Alerta</b><span>'+E(i.alerta||'—')+'</span></div></div><div class="psi-seg-progress"><div style="width:'+pct(i)+'%"></div></div><div class="small" style="margin:6px 0 12px">Avance: '+done+' de '+st.length+' etapas · '+pct(i)+'%</div><div class="psi-seg-timeline">'+st.map(stepHtml).join('')+'</div><div class="psi-seg-actions"><button class="btn btn-g" onclick="showTab(\'informes\');document.getElementById(\'psiSeguimientoInformesBg\')?.remove()">🏥 Ir a Datos Laboratorio</button><button class="btn btn-g" onclick="showTab(\'informesPendientesEntrega\');document.getElementById(\'psiSeguimientoInformesBg\')?.remove()">📌 Pendientes</button><button class="btn btn-g" onclick="showTab(\'portalCliente\');document.getElementById(\'psiSeguimientoInformesBg\')?.remove()">📤 Portal</button><button class="btn btn-g" onclick="try{openFacturacionModule()}catch(e){showTab(\'facturacion\')}document.getElementById(\'psiSeguimientoInformesBg\')?.remove()">💵 Facturación</button></div>';
+  };
+  window.psiSegExportExcel = function(){
+    const rows=filtered().map(i=>({OT:codeOf(i),Cliente:i.cliente||'',Sucursal:i.sucursal||'',Analista:i.analista||'',Matriz:i.matriz||'',Estado:estado(i),Avance:pct(i)+'%',Fecha_recepcion:D(i.fecha_recepcion),Fecha_maxima:D(i.fecha_max_emision),Entrega_real:D(i.fecha_entrega_real),Autorizacion:D(i.fecha_autorizacion),Portal:D(i.fecha_envio_portal),Alerta:i.alerta||''}));
+    if(!rows.length){alert('No hay registros para exportar.');return;}
+    if(window.XLSX){const ws=XLSX.utils.json_to_sheet(rows); const wb=XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb,ws,'Seguimiento Informes'); XLSX.writeFile(wb,'CENTRO_SEGUIMIENTO_INFORMES_PSI.xlsx');}
+  };
+  const style=document.createElement('style');
+  style.textContent='.psi-seg-modal{background:var(--surface,#1a1d27);color:var(--text,#e2e8f0);border:1px solid var(--border,#2e3350);border-radius:18px;width:min(1380px,98vw);max-height:93vh;overflow:auto;padding:18px;box-shadow:0 24px 70px rgba(0,0,0,.48)}.psi-seg-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:12px}.psi-seg-head h2{margin:0 0 5px;font-size:22px}.psi-seg-tools input{min-width:280px;flex:1}.psi-seg-layout{display:grid;grid-template-columns:1.25fr .85fr;gap:14px}.psi-seg-detail{background:linear-gradient(180deg,rgba(17,25,43,.95),rgba(8,13,24,.96));border:1px solid rgba(125,211,252,.18);border-radius:14px;padding:14px;min-height:420px}.psi-seg-title{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;border-bottom:1px solid rgba(148,163,184,.16);padding-bottom:10px;margin-bottom:12px}.psi-seg-title h3{font-size:24px;margin:0}.psi-seg-info{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}.psi-seg-info div{background:rgba(255,255,255,.045);border:1px solid rgba(148,163,184,.12);border-radius:10px;padding:9px}.psi-seg-info b{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.8px}.psi-seg-info span{font-weight:900}.psi-seg-progress{height:16px;background:#171b2a;border:1px solid var(--border);border-radius:999px;overflow:hidden}.psi-seg-progress div{height:100%;background:linear-gradient(90deg,#22c55e,#3b82f6)}.psi-seg-timeline{display:flex;flex-direction:column;gap:8px}.psi-seg-step{display:grid;grid-template-columns:34px 1fr auto;gap:8px;align-items:center;border:1px solid rgba(239,68,68,.25);background:rgba(239,68,68,.07);border-radius:12px;padding:9px}.psi-seg-step.ok{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.08)}.psi-seg-step .dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(148,163,184,.18);font-weight:900}.psi-seg-step.ok .dot{background:rgba(34,197,94,.24);color:#86efac}.psi-seg-step span{color:var(--muted);font-size:12px}.psi-seg-step small{color:var(--muted);font-weight:800}.psi-seg-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid rgba(148,163,184,.16)}@media(max-width:980px){.psi-seg-layout{grid-template-columns:1fr}.psi-seg-info{grid-template-columns:1fr}}';
+  document.head.appendChild(style);
+})();
+</script>
+
+
+
+<script>
+/* ==========================================================
+ V7.0.9 · FIX REGISTRO DE ANÁLISIS SIN REINGRESO
+ Problema corregido:
+ - Códigos ya INGRESADOS volvían a aparecer en Registro de Análisis.
+ - Al presionar Guardar en esos códigos, se acumulaban trazas/registros en el historial inferior.
+ Regla nueva:
+ - Registro de Análisis SOLO muestra OT pendientes/PLANIFICADAS para validar DQO/Tensoactivos.
+ - Si una OT ya fue guardada como INGRESADA, no vuelve a la bandeja aunque tenga reqDQO antiguo.
+ - Guardar DQO es idempotente: no duplica historial ni reingresa códigos ya cerrados.
+========================================================== */
+(function(){
+  function v79_up(v){return String(v||'').trim().toUpperCase();}
+  function v79_has(v){return String(v??'').trim()!=='';}
+  function v79_key(r){
+    try{ if(typeof sampleKey==='function') return sampleKey(r); }catch(_e){}
+    return [r&&r.codigo,r&&r.cliente,r&&r.sucursal,r&&r.matriz].map(x=>v79_up(x)).join('|');
+  }
+  function v79_isAnalysisClosed(r){
+    if(!r) return false;
+    const est=v79_up(r.estado), estf=v79_up(r.estado_final), st=v79_up(r.status);
+    if(st==='EN ESPERA' || st==='DETENIDA') return true;
+    if(v79_has(r.dqo_saved_at) || v79_has(r.tipo_cierre)) return true;
+    if(estf==='INGRESADA' || estf==='FINALIZADA' || estf==='DETENIDA') return true;
+    if(est==='INGRESADA' && r.reqDQO===false) return true;
+    return false;
+  }
+  function v79_isPendingAnalysis(r){
+    if(!r) return false;
+    if(!r.reqDQO) return false;
+    if(v79_isAnalysisClosed(r)) return false;
+    const st=v79_up(r.status);
+    if(st==='EN ESPERA' || st==='DETENIDA') return false;
+    const est=v79_up(r.estado);
+    // La bandeja de Registro de Análisis debe ser previa al ingreso final.
+    return est==='' || est==='PLANIFICADA' || est==='PENDIENTE' || est==='EN PROCESO';
+  }
+  window.psiFixAnalisisReingresoV709=function(silent){
+    try{
+      if(!Array.isArray(window.DATA)) return 0;
+      let fixed=0;
+      window.DATA.forEach(function(r){
+        if(!r) return;
+        if(v79_isAnalysisClosed(r) && r.reqDQO===true){
+          r.reqDQO=false;
+          fixed++;
+        }
+      });
+      if(fixed){
+        /* V7.0.10: no guardar automáticamente durante render/realtime; evita loop contador/cloud */
+        if(!silent && typeof toast==='function') toast('FIX análisis visual: '+fixed+' códigos cerrados retirados de la bandeja.');
+      }
+      return fixed;
+    }catch(e){console.warn('psiFixAnalisisReingresoV709',e);return 0;}
+  };
+  window.guardarDQO=function(id){
+    try{
+      const r=(typeof findRecById==='function')?findRecById(id):null;
+      if(!r){alert('Registro no encontrado');return;}
+      const key=v79_key(r);
+      const has=!!document.getElementById('anaHas_'+id)?.checked;
+      const d=has?(document.getElementById('dq_'+id)?.value||''):'';
+      const t=has?(document.getElementById('ts_'+id)?.value||''):'';
+      const nowIso=new Date().toISOString();
+      const nowTxt=new Date().toLocaleString();
+      const same=(Array.isArray(window.DATA)?window.DATA:[]).filter(x=>v79_key(x)===key);
+      same.forEach(function(x){
+        x.dqo=d;
+        x.tensoactivos=t;
+        x.reqAnalisisValores=!!has;
+        x.reqDQO=false;
+        x.estado='INGRESADA';
+        x.status=v79_up(x.status)==='PENDIENTE'||v79_up(x.status)==='EN ESPERA'?'CONTINUAR':x.status;
+        x.estado_final='INGRESADA';
+        x.tipo_cierre=has?'CON DQO/TENS':'SIN DQO/TENS';
+        x.dqo_saved_at=x.dqo_saved_at||nowIso;
+        const msg=nowTxt+': Registro de Análisis guardado · '+(has?'con DQO/Tensoactivos':'sin DQO/Tensoactivos')+' · pasa a INGRESADA';
+        const tr=Array.isArray(x.trace)?x.trace:[];
+        if(!tr.some(z=>String(z).includes('Registro de Análisis guardado'))){ x.trace=[...tr,msg]; }
+        try{ if(typeof calc==='function') calc(x); }catch(_e){}
+      });
+      try{ if(typeof save==='function') save(); }catch(_e){}
+      try{ if(typeof renderAll==='function') renderAll(); }catch(_e){}
+      if(typeof toast==='function') toast('Registro de Análisis guardado · INGRESADA');
+    }catch(e){console.error(e); alert('No se pudo guardar Registro de Análisis. Revise diagnóstico.');}
+  };
+  window.renderAnalisis=function(){
+    try{
+      if(typeof psiFixAnalisisReingresoV709==='function') psiFixAnalisisReingresoV709(true);
+      const term=v79_up(document.getElementById('anaQ')?.value||'');
+      let arr=(Array.isArray(window.DATA)?window.DATA:[]).filter(function(r){
+        return v79_isPendingAnalysis(r) && (!term || [r.codigo,r.cliente,r.sucursal].join(' ').toUpperCase().includes(term));
+      });
+      const orden=document.getElementById('anaOrden')?.value||'codigo';
+      const dir=document.getElementById('anaDireccion')?.value||'asc';
+      arr.sort(function(a,b){
+        let A='',B='';
+        if(orden==='codigo'){
+          A=parseInt(String(a.codigo||'').replace(/\D/g,''),10)||0;
+          B=parseInt(String(b.codigo||'').replace(/\D/g,''),10)||0;
+        }else if(orden==='fecha'){
+          A=new Date(a.fecha||'1900-01-01').getTime()||0;
+          B=new Date(b.fecha||'1900-01-01').getTime()||0;
+        }else{ A=v79_up(a[orden]||''); B=v79_up(b[orden]||''); }
+        if(A<B) return dir==='asc'?-1:1;
+        if(A>B) return dir==='asc'?1:-1;
+        return 0;
+      });
+      ['Fecha','Codigo','Cliente'].forEach(function(k){const el=document.getElementById('anaSort'+k); if(el) el.textContent='';});
+      const mark=document.getElementById('anaSort'+(orden==='codigo'?'Codigo':orden==='fecha'?'Fecha':'Cliente'));
+      if(mark) mark.textContent=dir==='asc'?'▲':'▼';
+      const body=document.getElementById('analisisBody');
+      if(!body) return;
+      body.innerHTML=arr.length?arr.map(function(r){
+        const has=!!(r.reqAnalisisValores || v79_has(r.dqo)||v79_has(r.tensoactivos));
+        return `<tr><td>${esc(r.fecha)}</td><td><b>${esc(r.codigo)}</b></td><td>${esc(r.cliente)}</td><td>${esc(r.sucursal)}</td><td>${chipM(r.matriz)}</td><td>${chipS('',r.estado)}</td><td><label style="display:flex;gap:6px;align-items:center;white-space:nowrap;font-weight:800"><input type="checkbox" id="anaHas_${r.id}" ${has?'checked':''} onchange="toggleAnalisisFields('${r.id}')"> Tiene DQO/Tensoactivos</label></td><td><input id="dq_${r.id}" value="${esc(r.dqo)}" style="width:90px" ${has?'':'disabled'}></td><td><input id="ts_${r.id}" value="${esc(r.tensoactivos)}" style="width:110px" ${has?'':'disabled'}></td><td><div class="acciones-dqo"><button class="btn btn-mini btn-s" onclick="guardarDQO('${r.id}')">💾 Guardar</button><button class="btn btn-mini btn-w" onclick="enviarEspera('${r.id}')">⏳ En espera</button></div></td></tr>`;
+      }).join(''):`<tr><td colspan="10" class="empty">No hay códigos pendientes de Registro de Análisis.</td></tr>`;
+    }catch(e){console.warn('renderAnalisis V7.0.9',e);}
+  };
+  /* V7.0.10: no ejecutar limpieza automática al cargar para evitar escritura en bucle */
+})();
+</script>
+
+
+<script>
+/* ==========================================================
+ V7.0.10 · FIX LOOP CONTADOR / PERFORMANCE
+ - Detiene el guardado automático provocado por render/Realtime.
+ - Congela actualizaciones repetitivas del encabezado.
+ - Evita listeners duplicados en erp_muestras.
+========================================================== */
+(function(){
+  const VERSION='ERP PSI ENTERPRISE V7.0.11 · FIX REBOUND REALTIME';
+  window.PSI_V710_PERFORMANCE_GUARD=true;
+  let lastHeaderText='', lastHeaderAt=0;
+  function stableHeader(){
+    try{
+      const sub=document.getElementById('headerSub');
+      const rows=Array.isArray(window.DATA)?window.DATA:[];
+      if(!sub || !rows.length) return;
+      const txt=rows.length.toLocaleString('es-EC')+' muestras registradas · '+VERSION;
+      const now=Date.now();
+      if(txt!==lastHeaderText && now-lastHeaderAt>2500){
+        sub.textContent=txt; lastHeaderText=txt; lastHeaderAt=now;
+      }
+    }catch(e){}
+  }
+  const originalSave=window.save;
+  if(typeof originalSave==='function' && !window.__PSI_SAVE_GUARD_V710){
+    window.__PSI_SAVE_GUARD_V710=true;
+    window.save=function(){
+      if(window.__PSI_RENDERING_OR_REALTIME){
+        console.warn('V7.0.10: save bloqueado durante render/realtime para evitar loop.');
+        return;
+      }
+      return originalSave.apply(this,arguments);
+    };
+  }
+  const originalRenderAll=window.renderAll;
+  if(typeof originalRenderAll==='function' && !window.__PSI_RENDER_GUARD_V710){
+    window.__PSI_RENDER_GUARD_V710=true;
+    window.renderAll=function(){
+      if(window.__PSI_RENDER_LOCK) return;
+      window.__PSI_RENDER_LOCK=true;
+      try{return originalRenderAll.apply(this,arguments);}finally{setTimeout(function(){window.__PSI_RENDER_LOCK=false;stableHeader();},300);}
+    };
+  }
+  const originalRenderAnalisis=window.renderAnalisis;
+  if(typeof originalRenderAnalisis==='function' && !window.__PSI_ANALISIS_GUARD_V710){
+    window.__PSI_ANALISIS_GUARD_V710=true;
+    window.renderAnalisis=function(){
+      window.__PSI_RENDERING_OR_REALTIME=true;
+      try{return originalRenderAnalisis.apply(this,arguments);}finally{window.__PSI_RENDERING_OR_REALTIME=false;stableHeader();}
+    };
+  }
+  // Botón de reparación manual, sin ejecutarse solo.
+  window.psiFixLoopContadorPerformanceV710=function(){
+    try{stableHeader();}catch(e){}
+    try{ if(typeof toast==='function') toast('V7.0.10: contador estabilizado y guardado automático bloqueado en render.'); else alert('V7.0.10 aplicado: contador estabilizado.'); }catch(e){}
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    setTimeout(stableHeader,800);
+    try{
+      const hdr=document.querySelector('.hdr > div:last-child')||document.querySelector('.hdr');
+      if(hdr && !document.getElementById('psiV710PerfBtn')){
+        const b=document.createElement('button');
+        b.id='psiV710PerfBtn'; b.className='btn btn-g'; b.type='button';
+        b.textContent='🛡 Fix Performance V7.0.10';
+        b.onclick=window.psiFixLoopContadorPerformanceV710;
+        hdr.appendChild(b);
+      }
+    }catch(e){}
+  });
+})();
+</script>
+
+
+
+<script>
+/* ==========================================================
+ V7.0.13 · CENTRO SEGUIMIENTO INFORMES · INGRESADAS + MONITOREADA
+ Cambio solicitado:
+ - El Centro de Seguimiento ahora consulta la BASE general de muestras (DATA/ERP_DATA_MASTER)
+   además de INFORMES / Control Final.
+ - Si la OT está en base pero aún está PLANIFICADA o no tiene registro de laboratorio,
+   muestra el mensaje: MUESTRA POR INGRESAR AL LABORATORIO.
+ - Agrega etapa MONITOREADA entre OT generado y Laboratorio.
+ - Agrega contador/filtro INGRESADAS según estado base INGRESADA.
+ - Si se busca por código: muestra solo ese código.
+ - Si se busca por cliente: muestra el histórico completo del cliente.
+========================================================== */
+(function(){
+  function U(v){return String(v??'').trim().toUpperCase();}
+  function E(v){return String(v??'').replace(/[&<>'"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c];});}
+  function D(v){const s=String(v||'').trim(); return s?s.slice(0,10):'';}
+  function A(v){return Array.isArray(v)?v:[];}
+  function values(o){return (o&&typeof o==='object'&&!Array.isArray(o))?Object.values(o):[];}
+  function getGlobal(name){try{return Function('try{return typeof '+name+'!=="undefined"?'+name+':undefined}catch(e){return undefined}')();}catch(e){return undefined;}}
+  function arrFrom(name){const v=getGlobal(name); return A(v).concat(values(v));}
+  function codeOf(o){return String(o?.codigo || o?.cod || o?.ot || o?.orden || o?.codigo_ot || o?.codigoOrden || o?.Codigo || o?.CODIGO || '').trim();}
+  function same(a,b){return U(a)&&U(a)===U(b);}
+  function baseRows(){
+    const merged=[];
+    ['DATA','ERP_DATA_MASTER','MUESTRAS','muestras','data'].forEach(n=>merged.push(...arrFrom(n)));
+    merged.push(...A(window.DATA),...A(window.ERP_DATA_MASTER),...A(window.MUESTRAS),...A(window.muestras),...A(window.data));
+    const seen=new Set(), out=[];
+    merged.forEach(r=>{const c=codeOf(r); if(!c) return; const k=U(c)+'|'+U(r.cliente)+'|'+U(r.sucursal)+'|'+U(r.matriz); if(!seen.has(k)){seen.add(k); out.push(r);}});
+    return out;
+  }
+  function informesRows(){
+    let rows=[];
+    rows.push(...arrFrom('INFORMES'),...A(window.INFORMES));
+    const seen=new Set(), out=[];
+    rows.forEach(r=>{try{ if(typeof calcInforme==='function') r=calcInforme(Object.assign({},r)); }catch(e){}
+      const c=codeOf(r); if(!c) return; const k=U(c)+'|'+U(r.id||''); if(!seen.has(k)){seen.add(k); out.push(r);}
+    });
+    return out;
+  }
+  function facturaRows(){return arrFrom('FACTURACION').concat(A(window.FACTURACION),values(window.FACTURACION),A(window.facturacion),values(window.facturacion),A(window.FACTURAS),A(window.facturas));}
+  function findFactura(c){return facturaRows().find(x=>same(codeOf(x),c));}
+  function has(v){return String(v??'').trim()!=='';}
+  function isPlanificada(r){const e=U(r?.estado||r?.estado_final||r?.status); return !e || e.includes('PLANIFIC') || e==='PENDIENTE' || e==='REGISTRADA' || e==='NUEVA';}
+  function isIngresadaBase(r){const e=U(r?.estado||r?.estado_final||r?.status); return e.includes('INGRES');}
+  function hasLabInfo(i){return !!(i && (has(i.id)||has(i.analista)||has(i.fecha_recepcion)||has(i.fecha_max_emision)||has(i.estado_plazo)||has(i.sla)));}
+  function unionRows(){
+    const base=baseRows(), infos=informesRows();
+    const byCode=new Map();
+    base.forEach(b=>{const c=U(codeOf(b)); if(c && !byCode.has(c)) byCode.set(c,b);});
+    const used=new Set();
+    const rows=[];
+    infos.forEach(i=>{
+      const c=U(codeOf(i)); if(!c) return; used.add(c);
+      const b=byCode.get(c);
+      const merged=Object.assign({}, b||{}, i||{});
+      merged.__base=b||null; merged.__informe=i; merged.__estadoBase=b?(b.estado||b.estado_final||b.status||''):'';
+      merged.__monitoreada = b ? isIngresadaBase(b) : true;
+      merged.__planificada = b ? isPlanificada(b) : false;
+      merged.__porIngresar = !hasLabInfo(i) || merged.__planificada;
+      rows.push(merged);
+    });
+    base.forEach(b=>{
+      const c=U(codeOf(b)); if(!c || used.has(c)) return;
+      const r=Object.assign({},b,{__base:b,__informe:null,__estadoBase:b.estado||b.estado_final||b.status||'',__monitoreada:isIngresadaBase(b),__planificada:isPlanificada(b),__porIngresar:true});
+      rows.push(r);
+    });
+    return rows;
+  }
+  function estado(r){
+    if(r.__porIngresar) return 'MUESTRA POR INGRESAR AL LABORATORIO';
+    try{ if(typeof calcInforme==='function') r=calcInforme(Object.assign({},r)); }catch(e){}
+    if(D(r.fecha_envio_portal)) return 'PORTAL CLIENTE';
+    if(D(r.fecha_autorizacion)) return 'AUTORIZADO';
+    if(D(r.fecha_entrega_real)) return 'ENTREGA REAL';
+    if(U(r.estado_plazo).includes('VENCIDO')) return 'VENCIDO';
+    return r.estado_plazo || 'EN PROCESO';
+  }
+  function stage(label,ok,det,fecha){return {label,ok:!!ok,detalle:det||'',fecha:fecha||''};}
+  function etapas(r){
+    const c=codeOf(r), b=r.__base||baseRows().find(x=>same(codeOf(x),c)), f=findFactura(c);
+    const fechaBase=D(b?.fecha||b?.fecha_muestra||b?.fecha_orden||b?.fecha_recepcion||r.fecha||r.fecha_muestra||r.fecha_orden);
+    const monitoreada = r.__monitoreada || isIngresadaBase(b) || (!b && !r.__porIngresar);
+    if(r.__porIngresar){
+      return [
+        stage('OT generado',!!b||has(c),'Existe en base general',fechaBase),
+        stage('Monitoreada',!!monitoreada,monitoreada?'Estado base INGRESADA':'PLANIFICADA / por ingresar',''),
+        stage('Laboratorio',false,'MUESTRA POR INGRESAR AL LABORATORIO',''),
+        stage('Control final',false,'Sin control final',''),
+        stage('Entrega real',false,'Pendiente',''),
+        stage('Autorización',false,'Pendiente',''),
+        stage('Portal cliente',false,'Pendiente',''),
+        stage('Facturación',!!f,f?'Con registro':'Sin registro',D(f?.fecha||f?.fecha_facturacion))
+      ];
+    }
+    return [
+      stage('OT generado',!!b||has(r.cliente),'Existe en base general',fechaBase||D(r.fecha_recepcion)),
+      stage('Monitoreada',true,'Estado base INGRESADA',fechaBase),
+      stage('Laboratorio',true,'Ingresado a laboratorio',D(r.fecha_recepcion)),
+      stage('Control final',has(r.estado_plazo)||has(r.fecha_max_emision)||has(r.sla),r.estado_plazo||'En control',D(r.fecha_max_emision)),
+      stage('Entrega real',!!D(r.fecha_entrega_real),D(r.fecha_entrega_real)?'Entregado':'Pendiente',D(r.fecha_entrega_real)),
+      stage('Autorización',!!D(r.fecha_autorizacion),D(r.fecha_autorizacion)?'Autorizado':'Pendiente',D(r.fecha_autorizacion)),
+      stage('Portal cliente',!!D(r.fecha_envio_portal),D(r.fecha_envio_portal)?'Subido/enviado':'Pendiente',D(r.fecha_envio_portal)),
+      stage('Facturación',!!f||has(r.estado_facturacion)||has(r.factura),f?(f.estado||'Con registro'):(r.estado_facturacion||'Sin registro'),D(f?.fecha||f?.fecha_facturacion||r.fecha_facturacion))
+    ];
+  }
+  function pct(r){const s=etapas(r); return Math.round(s.filter(x=>x.ok).length/s.length*100);}
+  function cls(r){const e=U(estado(r)); if(e.includes('POR INGRESAR')) return 'stage-warn'; if(e.includes('VENCIDO')) return 'stage-bad'; if(e.includes('PROCESO')) return 'stage-warn'; return 'stage-ok';}
+  function flow(r){return etapas(r).map(x=>'<span class="lab-step '+(x.ok?'ok':'')+'">'+E(x.label.split(' ')[0])+'</span>').join('');}
+  function stepHtml(x){return '<div class="psi-seg-step '+(x.ok?'ok':'')+'"><div class="dot">'+(x.ok?'✓':'•')+'</div><b>'+E(x.label)+'</b><span>'+E(x.detalle)+'</span><small>'+E(x.fecha||'—')+'</small></div>';}
+  function filtered(){
+    let rows=unionRows();
+    const qRaw=String(document.getElementById('psiSegQ')?.value||'').trim(), q=U(qRaw);
+    const filtro=U(document.getElementById('psiSegEstado')?.value||'');
+    if(q){
+      const isCode=/^[0-9]+(?:[-][0-9]+)?$/.test(q);
+      if(isCode){ rows=rows.filter(r=>U(codeOf(r))===q); }
+      else rows=rows.filter(r=>U([codeOf(r),r.cliente,r.sucursal,r.analista,r.matriz,r.tipo,estado(r),r.alerta,r.id].join(' ')).includes(q));
+    }
+    if(filtro){
+      rows=rows.filter(r=>{
+        const e=U(estado(r)+' '+(r.estado_plazo||'')); const st=etapas(r);
+        if(filtro==='POR INGRESAR') return r.__porIngresar;
+        if(filtro==='INGRESADA') return r.__monitoreada || isIngresadaBase(r.__base);
+        if(filtro==='PENDIENTE') return st.some(x=>!x.ok);
+        if(filtro==='COMPLETO') return st.every(x=>x.ok);
+        return e.includes(filtro);
+      });
+    }
+    const orden=document.getElementById('psiSegOrden')?.value||'vencimiento';
+    rows.sort((a,b)=>{
+      if(orden==='codigo') return String(codeOf(a)).localeCompare(String(codeOf(b)),undefined,{numeric:true});
+      if(orden==='avance') return pct(a)-pct(b)||String(codeOf(a)).localeCompare(String(codeOf(b)),undefined,{numeric:true});
+      return String(a.fecha_max_emision||'9999-99-99').localeCompare(String(b.fecha_max_emision||'9999-99-99'))||String(codeOf(a)).localeCompare(String(codeOf(b)),undefined,{numeric:true});
+    });
+    return rows;
+  }
+  window.psiConsultaStatusInformes=function(){
+    try{ if(typeof renderInformes==='function') renderInformes(); }catch(e){}
+    const old=document.getElementById('psiSeguimientoInformesBg'); if(old) old.remove();
+    const bg=document.createElement('div'); bg.id='psiSeguimientoInformesBg'; bg.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.76);z-index:100000;display:flex;align-items:center;justify-content:center;padding:12px';
+    bg.innerHTML='<div class="psi-seg-modal"><div class="psi-seg-head"><div><h2>🧭 Centro de Seguimiento de Informes</h2><div class="small">Busca por OT o cliente. Flujo: OT generado → Monitoreada → Laboratorio → Control Final → Entrega/Portal/Facturación.</div></div><button class="btn btn-g" onclick="document.getElementById(\'psiSeguimientoInformesBg\').remove()">Cerrar</button></div><div class="toolbar psi-seg-tools"><input id="psiSegQ" placeholder="Escriba código OT exacto o nombre del cliente..." oninput="psiSegRender()"><select id="psiSegEstado" onchange="psiSegRender()"><option value="">Todos</option><option value="POR INGRESAR">Por ingresar al laboratorio</option><option value="INGRESADA">Ingresadas / monitoreadas</option><option value="EN PROCESO">En proceso</option><option value="VENCIDO">Vencido</option><option value="PENDIENTE">Con pendientes</option><option value="COMPLETO">Flujo completo</option><option value="PORTAL">Portal cliente</option><option value="AUTORIZADO">Autorizado</option></select><select id="psiSegOrden" onchange="psiSegRender()"><option value="vencimiento">Próximo vencimiento</option><option value="codigo">Código OT</option><option value="avance">Menor avance</option></select><button class="btn btn-p" onclick="psiSegRender()">🔄 Actualizar</button><button class="btn btn-s" onclick="psiSegExportExcel()">📥 Excel</button><span class="small" id="psiSegCount"></span></div><div id="psiSegCards" class="lab-dash-grid"></div><div class="psi-seg-layout"><div class="psi-seg-list"><div class="twrap"><table><thead><tr><th>OT</th><th>Cliente</th><th>Estado</th><th>Avance</th><th>Vence</th><th>Flujo</th></tr></thead><tbody id="psiSegBody"></tbody></table></div></div><div class="psi-seg-detail" id="psiSegDetail"><div class="empty">Seleccione una OT para ver la línea de tiempo.</div></div></div></div>';
+    document.body.appendChild(bg); setTimeout(()=>{document.getElementById('psiSegQ')?.focus(); psiSegRender();},40);
+  };
+  window.psiSegRender=function(){
+    const rows=filtered(), all=unionRows();
+    const ingresadas=all.filter(r=>r.__monitoreada || isIngresadaBase(r.__base)).length, porIng=all.filter(r=>r.__porIngresar).length, venc=all.filter(r=>U(estado(r)).includes('VENCIDO')&&!D(r.fecha_entrega_real)).length, comp=all.filter(r=>etapas(r).every(x=>x.ok)).length, prom=all.length?Math.round(all.reduce((s,r)=>s+pct(r),0)/all.length):0;
+    const cards=document.getElementById('psiSegCards'); if(cards) cards.innerHTML='<div class="lab-dash-card blue"><div class="lbl">Base total</div><div class="val">'+all.length+'</div><div class="sub">muestras + informes</div></div><div class="lab-dash-card green" style="cursor:pointer" onclick="document.getElementById('psiSegEstado').value='INGRESADA';psiSegRender()"><div class="lbl">Ingresadas</div><div class="val">'+ingresadas+'</div><div class="sub">monitoreadas desde base</div></div><div class="lab-dash-card yellow"><div class="lbl">Por ingresar</div><div class="val">'+porIng+'</div><div class="sub">muestra por ingresar al laboratorio</div></div><div class="lab-dash-card red"><div class="lbl">Vencidos</div><div class="val">'+venc+'</div><div class="sub">sin entrega real</div></div><div class="lab-dash-card cyan"><div class="lbl">Avance promedio</div><div class="val">'+prom+'%</div><div class="sub">trazabilidad</div></div>';
+    const count=document.getElementById('psiSegCount'); if(count) count.textContent=rows.length+' visibles';
+    const body=document.getElementById('psiSegBody'); if(!body) return;
+    body.innerHTML=rows.length?rows.slice(0,350).map((r,idx)=>'<tr style="cursor:pointer" onclick="psiSegSelect('+idx+')"><td><b>'+E(codeOf(r))+'</b></td><td>'+E(r.cliente||'')+'<div class="small">'+E(r.sucursal||'')+'</div></td><td><b class="'+cls(r)+'">'+E(estado(r))+'</b><div class="small">'+E(r.alerta||r.__estadoBase||'')+'</div></td><td><div class="matrix-progress"><span style="width:'+pct(r)+'%"></span></div><div class="small">'+pct(r)+'%</div></td><td>'+E(D(r.fecha_max_emision)||'—')+'</td><td>'+flow(r)+'</td></tr>').join(''):'<tr><td colspan="6" class="empty">No hay registros con esos filtros.</td></tr>';
+    window.__PSI_SEG_ROWS=rows; if(rows[0]) psiSegSelect(0); else {const d=document.getElementById('psiSegDetail'); if(d)d.innerHTML='<div class="empty">Sin resultado seleccionado.</div>';}
+  };
+  window.psiSegSelect=function(idx){
+    const r=(window.__PSI_SEG_ROWS||[])[idx], d=document.getElementById('psiSegDetail'); if(!r||!d) return;
+    const st=etapas(r), done=st.filter(x=>x.ok).length;
+    const warn=r.__porIngresar?'<div style="margin:10px 0;padding:12px;border-radius:12px;background:rgba(245,158,11,.14);border:1px solid rgba(245,158,11,.40);color:#fcd34d;font-weight:900">⚠️ MUESTRA POR INGRESAR AL LABORATORIO. Existe en la base general. Si está INGRESADA queda como MONITOREADA; si está PLANIFICADA aún no pasa a laboratorio.</div>':'';
+    d.innerHTML='<div class="psi-seg-title"><div><h3>OT '+E(codeOf(r))+'</h3><div class="small">'+E(r.cliente||'')+' · '+E(r.sucursal||'')+'</div></div><b class="'+cls(r)+'">'+E(estado(r))+'</b></div>'+warn+'<div class="psi-seg-info"><div><b>Analista</b><span>'+E(r.analista||'—')+'</span></div><div><b>Matriz</b><span>'+E(r.matriz||'—')+'</span></div><div><b>Fecha base</b><span>'+E(D(r.fecha||r.fecha_muestra||r.fecha_orden)||'—')+'</span></div><div><b>Recepción lab</b><span>'+E(D(r.fecha_recepcion)||'—')+'</span></div><div><b>F. máxima</b><span>'+E(D(r.fecha_max_emision)||'—')+'</span></div><div><b>Entrega real</b><span>'+E(D(r.fecha_entrega_real)||'—')+'</span></div></div><div class="psi-seg-progress"><div style="width:'+pct(r)+'%"></div></div><div class="small" style="margin:6px 0 12px">Avance: '+done+' de '+st.length+' etapas · '+pct(r)+'%</div><div class="psi-seg-timeline">'+st.map(stepHtml).join('')+'</div><div class="psi-seg-actions"><button class="btn btn-g" onclick="showTab(\'control\');document.getElementById(\'psiSeguimientoInformesBg\')?.remove()">📋 Ir a Ingreso de Muestras</button><button class="btn btn-g" onclick="showTab(\'informes\');document.getElementById(\'psiSeguimientoInformesBg\')?.remove()">🏥 Datos Laboratorio</button><button class="btn btn-g" onclick="showTab(\'informesPendientesEntrega\');document.getElementById(\'psiSeguimientoInformesBg\')?.remove()">📌 Pendientes</button><button class="btn btn-g" onclick="showTab(\'portalCliente\');document.getElementById(\'psiSeguimientoInformesBg\')?.remove()">📤 Portal</button></div>';
+  };
+  window.psiSegExportExcel=function(){
+    const rows=filtered().map(r=>({OT:codeOf(r),Cliente:r.cliente||'',Sucursal:r.sucursal||'',Analista:r.analista||'',Matriz:r.matriz||'',Estado:estado(r),Avance:pct(r)+'%',Fecha_base:D(r.fecha||r.fecha_muestra||r.fecha_orden),Fecha_recepcion:D(r.fecha_recepcion),Fecha_maxima:D(r.fecha_max_emision),Entrega_real:D(r.fecha_entrega_real),Alerta:r.alerta||'',Estado_base:r.__estadoBase||'',Monitoreada:(r.__monitoreada||isIngresadaBase(r.__base))?'SI':'NO'}));
+    if(!rows.length){alert('No hay registros para exportar.');return;}
+    if(window.XLSX){const ws=XLSX.utils.json_to_sheet(rows); const wb=XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb,ws,'Seguimiento Informes'); XLSX.writeFile(wb,'CENTRO_SEGUIMIENTO_INFORMES_BASE_PSI.xlsx');}
+  };
+})();
+</script>
+
+
+
+<style id="psi-trazabilidad-v714-style">
+.psi-traza-modal{width:min(1480px,98vw);height:min(920px,96vh);overflow:auto;background:linear-gradient(180deg,rgba(17,25,43,.98),rgba(8,13,24,.98));border:1px solid rgba(125,211,252,.28);border-radius:18px;padding:18px;color:var(--text);box-shadow:0 25px 80px rgba(0,0,0,.45)}
+.psi-traza-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px}.psi-traza-head h2{font-size:24px;margin:0}.psi-traza-sub{color:var(--muted);font-size:13px;margin-top:4px}.psi-traza-tools{display:grid;grid-template-columns:minmax(280px,1fr) 220px 220px auto auto auto;gap:10px;align-items:center}.psi-traza-tools input,.psi-traza-tools select{width:100%}.psi-traza-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px;margin:16px 0}.psi-traza-card{background:linear-gradient(180deg,rgba(30,34,53,.96),rgba(23,28,45,.96));border:1px solid rgba(125,211,252,.18);border-radius:14px;padding:14px;cursor:pointer;border-top:4px solid var(--c,#4f8ef7)}.psi-traza-card .lbl{letter-spacing:2px;text-transform:uppercase;color:#aab6ca;font-weight:900;font-size:11px}.psi-traza-card .val{font-size:38px;font-weight:950;color:var(--c,#4f8ef7);line-height:1.05;margin-top:8px}.psi-traza-card .sub{font-size:12px;color:#aab6ca;margin-top:4px}.psi-traza-layout{display:grid;grid-template-columns:1.35fr .9fr;gap:14px}.psi-traza-list{min-width:0}.psi-traza-detail{background:linear-gradient(180deg,rgba(15,23,42,.95),rgba(9,14,25,.95));border:1px solid rgba(125,211,252,.22);border-radius:14px;min-height:460px;padding:16px;overflow:auto}.psi-traza-table th,.psi-traza-table td{padding:12px 10px}.psi-traza-status{font-weight:950;line-height:1.1}.psi-traza-status.warn{color:#fcd34d}.psi-traza-status.good{color:#86efac}.psi-traza-status.bad{color:#fca5a5}.psi-traza-progress{height:22px;background:#171b2a;border:1px solid var(--border);border-radius:999px;overflow:hidden;min-width:120px}.psi-traza-progress span{display:block;height:100%;background:linear-gradient(90deg,#22c55e,#3b82f6);border-radius:999px}.psi-flow{display:flex;gap:5px;flex-wrap:wrap}.psi-flow span{padding:5px 8px;border-radius:999px;font-size:10px;font-weight:900;background:rgba(148,163,184,.14);color:#aab6ca}.psi-flow span.ok{background:rgba(34,197,94,.18);color:#86efac}.psi-flow span.now{background:rgba(245,158,11,.22);color:#fcd34d}.psi-detail-title{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;border-bottom:1px solid rgba(148,163,184,.18);padding-bottom:12px;margin-bottom:12px}.psi-detail-title h3{font-size:26px;margin:0}.psi-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(150px,1fr));gap:10px;margin:12px 0}.psi-detail-grid div{background:rgba(255,255,255,.04);border:1px solid rgba(148,163,184,.18);border-radius:10px;padding:10px}.psi-detail-grid b{display:block;color:#aab6ca;letter-spacing:1.5px;text-transform:uppercase;font-size:10px}.psi-detail-grid span{font-weight:900;font-size:15px}.psi-alert-plan{margin:10px 0;padding:13px;border-radius:12px;background:rgba(245,158,11,.14);border:1px solid rgba(245,158,11,.42);color:#fcd34d;font-weight:900}.psi-time{display:flex;flex-direction:column;gap:9px;margin-top:12px}.psi-time-row{display:grid;grid-template-columns:42px 170px 1fr 110px;gap:10px;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(148,163,184,.18);border-radius:12px;padding:10px}.psi-time-row.ok{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.08)}.psi-time-row.now{border-color:rgba(245,158,11,.42);background:rgba(245,158,11,.08)}.psi-time-row .dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(148,163,184,.16);font-weight:900}.psi-time-row.ok .dot{background:rgba(34,197,94,.25);color:#86efac}.psi-time-row.now .dot{background:rgba(245,158,11,.25);color:#fcd34d}.psi-time-row b{font-size:14px}.psi-time-row span,.psi-time-row small{color:#aab6ca}.psi-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.psi-traza-click{cursor:pointer}.psi-traza-click:hover td{background:rgba(79,142,247,.08)!important}@media(max-width:1000px){.psi-traza-tools{grid-template-columns:1fr}.psi-traza-layout{grid-template-columns:1fr}.psi-time-row{grid-template-columns:36px 1fr}.psi-time-row small{grid-column:2}.psi-detail-grid{grid-template-columns:1fr}}
+</style>
+<script id="psi-trazabilidad-v714-script">
+/* ==========================================================
+ V7.0.15 · PANEL TRAZABILIDAD CON MOTOR CONSOLIDADO ÚNICO
+ - Base principal como fuente del flujo completo.
+ - Tarjetas: Base total, Monitoreadas, Laboratorio, Por ingresar, Portal, Facturadas.
+ - Secuencia: OT Generada → Monitoreada → Laboratorio → Control Final → Entrega → Autorización → Portal → Facturación.
+ - Si busca código exacto: muestra solo esa OT.
+ - Si busca cliente/sucursal/analista: muestra histórico.
+========================================================== */
+(function(){
+  function S(v){return String(v??'').trim();}
+  function U(v){return S(v).toUpperCase();}
+  function E(v){return S(v).replace(/[&<>'"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c];});}
+  function D(v){let s=S(v); if(!s) return ''; if(/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0,10); return s.slice(0,10);}
+  function A(v){return Array.isArray(v)?v:[];}
+  function vals(o){return (o&&typeof o==='object'&&!Array.isArray(o))?Object.values(o):[];}
+  function get(name){try{return Function('try{return typeof '+name+'!=="undefined"?'+name+':undefined}catch(e){return undefined}')();}catch(e){return undefined;}}
+  function arr(name){const v=get(name); return A(v).concat(vals(v));}
+  function codeOf(o){return S(o?.codigo||o?.cod||o?.ot||o?.orden||o?.codigo_ot||o?.codigoOrden||o?.Codigo||o?.CODIGO||o?.codigoOrdenTrabajo||o?.ordenTrabajo);}
+  function sameCode(a,b){return U(a)&&U(a)===U(b);}
+  function has(v){return S(v)!=='';}
+  function normEstado(r){return U(r?.estado||r?.estado_final||r?.status||r?.estadoMuestra||r?.estado_muestra);}
+  function isMonitoreadaBase(r){const e=normEstado(r); return e.includes('INGRES')||e.includes('MONITOR')||e.includes('MUESTREAD')||e.includes('RECIB');}
+  function isPlanificadaBase(r){const e=normEstado(r); return !e||e.includes('PLANIFIC')||e==='PENDIENTE'||e==='REGISTRADA'||e==='NUEVA';}
+  function baseRows(){
+    // V7.0.15: usa la misma base maestra del Consolidado Ejecutivo.
+    // No deduplica por código, porque el consolidado cuenta DATA.length.
+    let raw=[];
+    const main=get('DATA');
+    if(Array.isArray(main) && main.length) raw=main;
+    else ['ERP_DATA_MASTER','MUESTRAS','muestras','data','muestrasData','ERP_MUESTRAS'].forEach(n=>raw.push(...arr(n)));
+    return A(raw).filter(r=>codeOf(r));
+  }
+  function labRows(){
+    let raw=[]; ['INFORMES','informes','LAB_INFORMES','CONTROL_FINAL','controlFinal','informesLaboratorio'].forEach(n=>raw.push(...arr(n)));
+    raw.push(...A(window.INFORMES),...A(window.informes));
+    const by=new Map(); raw.forEach(r=>{let x=r; try{ if(typeof calcInforme==='function') x=calcInforme(Object.assign({},r)); }catch(e){} const c=codeOf(x); if(c&&!by.has(U(c))) by.set(U(c),x);});
+    return Array.from(by.values());
+  }
+  function facturaRows(){let raw=[]; ['FACTURACION','facturacion','FACTURAS','facturas','COBRANZA','cobranza'].forEach(n=>raw.push(...arr(n))); return raw.concat(A(window.FACTURACION),vals(window.FACTURACION));}
+  function portalRows(){let raw=[]; ['PORTAL_CLIENTE','portalCliente','PORTAL','portal'].forEach(n=>raw.push(...arr(n))); return raw.concat(A(window.PORTAL_CLIENTE),A(window.portalCliente));}
+  function facturaOf(c){return facturaRows().find(x=>sameCode(codeOf(x),c));}
+  function portalOf(c){return portalRows().find(x=>sameCode(codeOf(x),c));}
+  function unionRows(){
+    // V7.0.15: cada registro de DATA queda visible, igual que en el Consolidado.
+    // Si existe el mismo código en Laboratorio/Control Final, se adjunta como etapa de laboratorio.
+    const base=baseRows(), lab=labRows(), byLab=new Map();
+    lab.forEach(l=>{const c=U(codeOf(l)); if(c&&!byLab.has(c)) byLab.set(c,l);});
+    const rows=[];
+    const baseCodes=new Set();
+    base.forEach(b=>{const c=U(codeOf(b)); if(!c) return; baseCodes.add(c); const l=byLab.get(c)||null; rows.push(Object.assign({},b||{},l||{},{__base:b,__lab:l,__fact:facturaOf(c),__portal:portalOf(c)}));});
+    lab.forEach(l=>{const c=U(codeOf(l)); if(!c||baseCodes.has(c)) return; rows.push(Object.assign({},l||{},{__base:null,__lab:l,__fact:facturaOf(c),__portal:portalOf(c)}));});
+    return rows;
+  }
+  function fechaBase(r){const b=r.__base||r; return D(b.fecha||b.fecha_muestra||b.fecha_orden||b.fecha_recepcion||b.fechaIngreso||r.fecha||r.fecha_muestra||r.fecha_orden);}
+  function hasLab(r){const l=r.__lab; return !!(l&&(has(l.id)||has(l.analista)||has(l.fecha_recepcion)||has(l.fecha_max_emision)||has(l.estado_plazo)||has(l.sla)||has(l.fecha_entrega_real)));}
+  function hasPortal(r){return !!(D(r.fecha_envio_portal)||D(r.fecha_portal)||D(r.__portal?.fecha)||D(r.__portal?.fecha_envio)||U(r.estado_portal).includes('PORTAL'));}
+  function hasFactura(r){return !!(r.__fact||has(r.factura)||has(r.estado_facturacion)||D(r.fecha_facturacion));}
+  function isMonitoreada(r){return isMonitoreadaBase(r.__base||r)||hasLab(r);}
+  function isPorIngresar(r){return !hasLab(r);}
+  function estadoActual(r){
+    if(!isMonitoreada(r)) return 'OT GENERADA / PLANIFICADA';
+    if(isPorIngresar(r)) return 'MONITOREADA · POR INGRESAR AL LABORATORIO';
+    if(hasFactura(r)) return 'FACTURACIÓN';
+    if(hasPortal(r)) return 'PORTAL CLIENTE';
+    if(D(r.fecha_autorizacion)) return 'AUTORIZACIÓN';
+    if(D(r.fecha_entrega_real)) return 'ENTREGA REAL';
+    if(U(r.estado_plazo).includes('VENCIDO')) return 'VENCIDO';
+    if(hasLab(r)) return 'LABORATORIO / CONTROL FINAL';
+    return 'EN PROCESO';
+  }
+  function etapa(label,ok,det,fecha){return {label,ok:!!ok,det:S(det),fecha:S(fecha)};}
+  function etapas(r){
+    const b=r.__base||r, f=r.__fact, p=r.__portal;
+    const monit=isMonitoreada(r), lab=hasLab(r), portal=hasPortal(r), fact=hasFactura(r);
+    return [
+      etapa('OT Generada',!!codeOf(r),'Registrada en base principal',fechaBase(r)),
+      etapa('Monitoreada',monit,monit?'Estado base INGRESADA / MONITOREADA':'Muestra aún planificada',fechaBase(r)),
+      etapa('Laboratorio',lab,lab?'Ingresada a laboratorio':'MUESTRA POR INGRESAR AL LABORATORIO',D(r.fecha_recepcion)),
+      etapa('Control Final',lab&&(has(r.estado_plazo)||has(r.sla)||has(r.fecha_max_emision)),r.estado_plazo||'Pendiente control final',D(r.fecha_max_emision)),
+      etapa('Entrega',!!D(r.fecha_entrega_real),D(r.fecha_entrega_real)?'Entrega real registrada':'Pendiente entrega',D(r.fecha_entrega_real)),
+      etapa('Autorización',!!D(r.fecha_autorizacion),D(r.fecha_autorizacion)?'Autorizada':'Pendiente autorización',D(r.fecha_autorizacion)),
+      etapa('Portal',portal,portal?'Enviado/subido a portal':'Pendiente portal',D(r.fecha_envio_portal||r.fecha_portal||p?.fecha||p?.fecha_envio)),
+      etapa('Facturación',fact,f?(f.estado||f.numero||'Con registro'):(r.estado_facturacion||'Pendiente facturación'),D(f?.fecha||f?.fecha_facturacion||r.fecha_facturacion))
+    ];
+  }
+  function pct(r){const e=etapas(r); return Math.round(e.filter(x=>x.ok).length/e.length*100);}
+  function statusClass(r){const e=U(estadoActual(r)); if(e.includes('VENCIDO')) return 'bad'; if(e.includes('PLANIFIC')||e.includes('POR INGRESAR')||e.includes('PENDIENTE')) return 'warn'; return 'good';}
+  function flujoHtml(r){const nowIdx=Math.max(0,etapas(r).findIndex(x=>!x.ok)); return '<div class="psi-flow">'+etapas(r).map((x,i)=>'<span class="'+(x.ok?'ok':(i===nowIdx?'now':''))+'">'+E(x.label.split(' ')[0])+'</span>').join('')+'</div>';}
+  function getRows(){
+    let rows=unionRows(); const qRaw=S(document.getElementById('psiTrazaQ')?.value), q=U(qRaw), filtro=U(document.getElementById('psiTrazaFiltro')?.value||''), orden=document.getElementById('psiTrazaOrden')?.value||'codigo';
+    if(q){const exact=/^[0-9]+(?:[-][0-9]+)?$/.test(q); if(exact) rows=rows.filter(r=>U(codeOf(r))===q); else rows=rows.filter(r=>U([codeOf(r),r.cliente,r.sucursal,r.analista,r.matriz,r.tipo,estadoActual(r),normEstado(r.__base||r)].join(' ')).includes(q));}
+    if(filtro){rows=rows.filter(r=>{if(filtro==='BASE')return true; if(filtro==='MONITOREADA')return isMonitoreada(r); if(filtro==='PORINGRESAR')return isPorIngresar(r); if(filtro==='LAB')return hasLab(r); if(filtro==='PORTAL')return hasPortal(r); if(filtro==='FACT')return hasFactura(r); if(filtro==='VENCIDO')return U(estadoActual(r)).includes('VENCIDO'); if(filtro==='COMPLETO')return etapas(r).every(x=>x.ok); return true;});}
+    rows.sort((a,b)=>{if(orden==='avance') return pct(a)-pct(b)||S(codeOf(a)).localeCompare(S(codeOf(b)),undefined,{numeric:true}); if(orden==='vencimiento') return S(a.fecha_max_emision||'9999-99-99').localeCompare(S(b.fecha_max_emision||'9999-99-99'))||S(codeOf(a)).localeCompare(S(codeOf(b)),undefined,{numeric:true}); return S(codeOf(a)).localeCompare(S(codeOf(b)),undefined,{numeric:true});});
+    return rows;
+  }
+  window.psiConsultaStatusInformes=function(){
+    try{if(typeof renderInformes==='function') renderInformes();}catch(e){}
+    const old=document.getElementById('psiSeguimientoInformesBg'); if(old) old.remove();
+    const bg=document.createElement('div'); bg.id='psiSeguimientoInformesBg'; bg.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:100000;display:flex;align-items:center;justify-content:center;padding:10px';
+    bg.innerHTML=`<div class="psi-traza-modal"><div class="psi-traza-head"><div><h2>🧭 Panel de Trazabilidad del ERP</h2><div class="psi-traza-sub">Consulta por OT, cliente, sucursal o analista. Secuencia: OT Generada → Monitoreada → Laboratorio → Control Final → Entrega → Autorización → Portal → Facturación.</div></div><button class="btn btn-g" onclick="document.getElementById('psiSeguimientoInformesBg')?.remove()">Cerrar</button></div><div class="toolbar psi-traza-tools"><input id="psiTrazaQ" placeholder="Escriba código OT exacto o nombre del cliente..." oninput="psiTrazaRender()"><select id="psiTrazaFiltro" onchange="psiTrazaRender()"><option value="">Todos</option><option value="BASE">Base total</option><option value="MONITOREADA">Monitoreadas</option><option value="PORINGRESAR">Por ingresar al laboratorio</option><option value="LAB">En laboratorio / control final</option><option value="PORTAL">Portal cliente</option><option value="FACT">Facturadas</option><option value="VENCIDO">Vencidas</option><option value="COMPLETO">Flujo completo</option></select><select id="psiTrazaOrden" onchange="psiTrazaRender()"><option value="codigo">Código OT</option><option value="vencimiento">Próximo vencimiento</option><option value="avance">Menor avance</option></select><button class="btn btn-p" onclick="psiTrazaRender()">🔄 Actualizar</button><button class="btn btn-s" onclick="psiTrazaExportExcel()">📥 Excel</button><span class="small" id="psiTrazaCount"></span></div><div id="psiTrazaCards" class="psi-traza-cards"></div><div class="psi-traza-layout"><div class="psi-traza-list"><div class="twrap"><table class="psi-traza-table"><thead><tr><th>OT</th><th>Cliente</th><th>Etapa actual</th><th>Avance</th><th>Vence</th><th>Flujo ERP</th></tr></thead><tbody id="psiTrazaBody"></tbody></table></div></div><div class="psi-traza-detail" id="psiTrazaDetail"><div class="empty">Seleccione una OT para ver toda la trazabilidad.</div></div></div></div>`;
+    document.body.appendChild(bg); setTimeout(()=>{document.getElementById('psiTrazaQ')?.focus(); psiTrazaRender();},60);
+  };
+  window.psiTrazaSetFiltro=function(v){const el=document.getElementById('psiTrazaFiltro'); if(el){el.value=v; psiTrazaRender();}}
+  window.psiTrazaRender=function(){
+    const all=unionRows(), rows=getRows();
+    // V7.0.15: tarjetas alineadas con los mismos criterios del Consolidado Ejecutivo.
+    const muestras=(typeof DATA!=='undefined' && Array.isArray(DATA))?DATA:baseRows();
+    const baseIngresadas=(typeof muestrasIngresadasParaInforme==='function')?muestrasIngresadasParaInforme():all.filter(isMonitoreada);
+    const informes=(typeof INFORMES!=='undefined' && Array.isArray(INFORMES))?INFORMES.map(x=>{try{return typeof calcInforme==='function'?calcInforme(Object.assign({},x)):x}catch(e){return x}}):labRows();
+    const factRows=(typeof getFactRows==='function')?getFactRows():[];
+    const base=muestras.length||all.length;
+    const monit=baseIngresadas.length;
+    const lab=informes.length;
+    const por=(typeof muestrasPendientesInforme==='function')?muestrasPendientesInforme().length:Math.max(0,monit-lab);
+    const portal=informes.filter(i=>i.fecha_envio_portal).length;
+    const fact=factRows.filter(o=>o.fact&&o.fact.estado_fact==='FACTURADO').length;
+    const venc=informes.filter(i=>i.estado_plazo==='VENCIDO').length;
+    const prom=base?Math.round(((monit*2)+(lab*2)+portal+fact)/(base*8)*100):0;
+    const cards=document.getElementById('psiTrazaCards'); if(cards) cards.innerHTML=`<div class="psi-traza-card" style="--c:#4f8ef7" onclick="psiTrazaSetFiltro('')"><div class="lbl">Base total</div><div class="val">${base}</div><div class="sub">igual al Consolidado</div></div><div class="psi-traza-card" style="--c:#22c55e" onclick="psiTrazaSetFiltro('MONITOREADA')"><div class="lbl">Monitoreadas / Ingresadas</div><div class="val">${monit}</div><div class="sub">mismo criterio del Consolidado</div></div><div class="psi-traza-card" style="--c:#06b6d4" onclick="psiTrazaSetFiltro('LAB')"><div class="lbl">Laboratorio</div><div class="val">${lab}</div><div class="sub">control final / informes</div></div><div class="psi-traza-card" style="--c:#f59e0b" onclick="psiTrazaSetFiltro('PORINGRESAR')"><div class="lbl">Por ingresar</div><div class="val">${por}</div><div class="sub">ingresadas sin registro lab</div></div><div class="psi-traza-card" style="--c:#8b5cf6" onclick="psiTrazaSetFiltro('PORTAL')"><div class="lbl">Portal</div><div class="val">${portal}</div><div class="sub">mismo criterio del Consolidado</div></div><div class="psi-traza-card" style="--c:#10b981" onclick="psiTrazaSetFiltro('FACT')"><div class="lbl">Facturadas</div><div class="val">${fact}</div><div class="sub">flujo comercial</div></div><div class="psi-traza-card" style="--c:#ef4444" onclick="psiTrazaSetFiltro('VENCIDO')"><div class="lbl">Vencidas</div><div class="val">${venc}</div><div class="sub">por fecha máxima emisión</div></div><div class="psi-traza-card" style="--c:#06b6d4"><div class="lbl">Avance promedio</div><div class="val">${prom}%</div><div class="sub">motor consolidado</div></div>`;
+    const count=document.getElementById('psiTrazaCount'); if(count) count.textContent=rows.length+' visibles';
+    const body=document.getElementById('psiTrazaBody'); if(!body) return;
+    body.innerHTML=rows.length?rows.slice(0,500).map((r,i)=>`<tr class="psi-traza-click" onclick="psiTrazaSelect(${i})"><td><b>${E(codeOf(r))}</b></td><td>${E(r.cliente||'')}<div class="small">${E(r.sucursal||'')}</div></td><td><div class="psi-traza-status ${statusClass(r)}">${E(estadoActual(r))}</div><div class="small">${E(normEstado(r.__base||r)||r.estado_plazo||'')}</div></td><td><div class="psi-traza-progress"><span style="width:${pct(r)}%"></span></div><div class="small">${pct(r)}%</div></td><td>${E(D(r.fecha_max_emision)||'—')}</td><td>${flujoHtml(r)}</td></tr>`).join(''):'<tr><td colspan="6" class="empty">No hay registros con esos filtros.</td></tr>';
+    window.__PSI_TRAZA_ROWS=rows; if(rows[0]) psiTrazaSelect(0); else {const d=document.getElementById('psiTrazaDetail'); if(d)d.innerHTML='<div class="empty">Sin resultado seleccionado.</div>';}
+  };
+  window.psiTrazaSelect=function(i){
+    const r=(window.__PSI_TRAZA_ROWS||[])[i], d=document.getElementById('psiTrazaDetail'); if(!r||!d) return;
+    const e=etapas(r), done=e.filter(x=>x.ok).length, current=e.find(x=>!x.ok), plan=isPorIngresar(r)?'<div class="psi-alert-plan">⚠️ Siguiente acción: '+E(current?.det||'MUESTRA POR INGRESAR AL LABORATORIO')+'. La OT existe en base, pero aún no tiene registro completo en Laboratorio/Control Final.</div>':'';
+    d.innerHTML=`<div class="psi-detail-title"><div><h3>OT ${E(codeOf(r))}</h3><div class="small">${E(r.cliente||'')} · ${E(r.sucursal||'')}</div></div><div class="psi-traza-status ${statusClass(r)}">${E(estadoActual(r))}</div></div>${plan}<div class="psi-detail-grid"><div><b>Analista</b><span>${E(r.analista||'—')}</span></div><div><b>Matriz</b><span>${E(r.matriz||'—')}</span></div><div><b>Estado base</b><span>${E(normEstado(r.__base||r)||'—')}</span></div><div><b>Fecha base</b><span>${E(fechaBase(r)||'—')}</span></div><div><b>Recepción lab</b><span>${E(D(r.fecha_recepcion)||'—')}</span></div><div><b>F. máxima</b><span>${E(D(r.fecha_max_emision)||'—')}</span></div><div><b>Entrega real</b><span>${E(D(r.fecha_entrega_real)||'—')}</span></div><div><b>Facturación</b><span>${E(hasFactura(r)?'Con registro':'Pendiente')}</span></div></div><div class="psi-traza-progress"><span style="width:${pct(r)}%"></span></div><div class="small" style="margin:7px 0 12px">Avance: ${done} de ${e.length} etapas · ${pct(r)}%</div><div class="psi-time">${e.map((x,idx)=>`<div class="psi-time-row ${x.ok?'ok':(x===current?'now':'')}"><div class="dot">${x.ok?'✓':(x===current?'!':'•')}</div><b>${E(x.label)}</b><span>${E(x.det)}</span><small>${E(x.fecha||'—')}</small></div>`).join('')}</div><div class="psi-actions"><button class="btn btn-g" onclick="showTab('control');document.getElementById('psiSeguimientoInformesBg')?.remove()">📋 Ingreso de Muestras</button><button class="btn btn-g" onclick="showTab('informes');document.getElementById('psiSeguimientoInformesBg')?.remove()">🏥 Laboratorio</button><button class="btn btn-g" onclick="showTab('informesPendientesEntrega');document.getElementById('psiSeguimientoInformesBg')?.remove()">📌 Pendientes</button><button class="btn btn-g" onclick="showTab('portalCliente');document.getElementById('psiSeguimientoInformesBg')?.remove()">📤 Portal</button></div>`;
+  };
+  window.psiTrazaExportExcel=function(){
+    const rows=getRows().map(r=>({OT:codeOf(r),Cliente:r.cliente||'',Sucursal:r.sucursal||'',Analista:r.analista||'',Matriz:r.matriz||'',Estado_base:normEstado(r.__base||r),Etapa_actual:estadoActual(r),Avance:pct(r)+'%',Fecha_base:fechaBase(r),Recepcion_lab:D(r.fecha_recepcion),Fecha_maxima:D(r.fecha_max_emision),Entrega_real:D(r.fecha_entrega_real),Portal:hasPortal(r)?'SI':'NO',Facturacion:hasFactura(r)?'SI':'NO'}));
+    if(!rows.length){alert('No hay registros para exportar.');return;}
+    if(window.XLSX){const ws=XLSX.utils.json_to_sheet(rows); const wb=XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb,ws,'Trazabilidad ERP'); XLSX.writeFile(wb,'PANEL_TRAZABILIDAD_ERP_PSI.xlsx');}
+  };
+})();
+</script>
+
 </body>
 </html>
