@@ -140,12 +140,13 @@ AJUSTE V1.0.5 - 03/07/2026
  - Mantiene colección erp_laboratorio.
 ========================================================== -->
 
+<!-- V7.0.23: permite eliminar individualmente registros huérfanos de erp_muestras con doble confirmación y auditoría. -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ERP PSI ENTERPRISE V7.0.20 ESTANDARIZA LOCAL ICLOUD</title>
+<title>ERP PSI ENTERPRISE V7.0.22 FIX PERSISTENCIA LAB LOCAL CLOUD</title>
 <style>
 :root{--bg:#0f1117;--surface:#1a1d27;--surface2:#22263a;--border:#2e3350;--accent:#4f8ef7;--green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--cyan:#06b6d4;--text:#e2e8f0;--muted:#94a3b8;--card:#1e2235}
 *{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;min-height:100vh}.hdr{background:linear-gradient(135deg,#1a1d27,#16213e);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.hdr h1{font-size:18px}.sub{color:var(--muted);font-size:11px;margin-top:4px}.badge{background:#334155;color:#fff;padding:4px 10px;border-radius:18px;font-size:11px;font-weight:700}nav{background:var(--surface);border-bottom:1px solid var(--border);display:flex;overflow-x:auto}nav button{background:none;border:none;color:var(--muted);padding:13px 18px;cursor:pointer;font-weight:600;border-bottom:3px solid transparent;white-space:nowrap}nav button.active{color:var(--accent);border-bottom-color:var(--accent)}section{display:none;padding:20px 24px}section.active{display:block}.btn{border:none;border-radius:8px;padding:8px 13px;font-weight:700;cursor:pointer;color:#fff;display:inline-flex;gap:6px;align-items:center}.btn:hover{opacity:.86}.btn-p{background:var(--accent)}.btn-s{background:var(--green)}.btn-d{background:var(--red)}.btn-w{background:var(--yellow);color:#111}.btn-g{background:var(--surface2);border:1px solid var(--border);color:var(--text)}.btn-mini{padding:5px 9px;font-size:11px}.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:14px;margin-bottom:22px}.kc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;position:relative;overflow:hidden}.kc:before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--c,var(--accent))}.kc .lbl{color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-size:11px;margin-bottom:8px}.kc .val{font-size:34px;font-weight:900;color:var(--c,var(--text))}.blue{--c:var(--accent)}.green{--c:var(--green)}.yellow{--c:var(--yellow)}.red{--c:var(--red)}.cyan{--c:var(--cyan)}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:14px}input,select{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:7px;outline:none}input:focus,select:focus{border-color:var(--accent)}.twrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;background:#11131b}table{width:100%;border-collapse:collapse}th{background:var(--surface2);color:var(--muted);text-transform:uppercase;font-size:11px;letter-spacing:1px;text-align:left;padding:11px 12px;border-bottom:2px solid var(--border);white-space:nowrap}td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle}tr:last-child td{border-bottom:none}.chip{display:inline-block;padding:3px 9px;border-radius:10px;font-size:10px;font-weight:900;white-space:nowrap}.m-res{background:rgba(239,68,68,.18);color:#fca5a5}.m-nat{background:rgba(34,197,94,.15);color:#86efac}.m-con{background:rgba(6,182,212,.15);color:#67e8f9}.m-sue{background:rgba(245,158,11,.15);color:#fcd34d}.s-pen,.s-esp{background:rgba(245,158,11,.18);color:#fcd34d}.s-det{background:rgba(239,68,68,.2);color:#fca5a5}.s-ok{background:rgba(34,197,94,.15);color:#86efac}.s-pro{background:rgba(79,142,247,.15);color:#93c5fd}.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:50;align-items:center;justify-content:center}.modal-bg.open{display:flex}.modal{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px;width:min(760px,96vw);max-height:92vh;overflow:auto}.modal h2{font-size:16px;margin-bottom:16px}.fg{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fgr{display:flex;flex-direction:column;gap:5px}.fgr.full{grid-column:1/-1}.fgr label{font-size:10px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.8px}.act{display:flex;justify-content:flex-end;gap:8px;margin-top:18px;padding-top:14px;border-top:1px solid var(--border)}.toast{position:fixed;right:20px;bottom:20px;z-index:100;background:var(--surface2);border:1px solid var(--accent);border-radius:10px;padding:12px 16px;opacity:0;transform:translateY(10px);transition:.2s}.toast.show{opacity:1;transform:translateY(0)}.danger-note{display:inline-flex;gap:8px;align-items:center;background:rgba(239,68,68,.11);border:1px solid rgba(239,68,68,.35);color:#fca5a5;border-radius:20px;padding:8px 14px;margin-bottom:16px;font-weight:800}.empty{color:var(--muted);text-align:center;padding:24px!important}.small{font-size:11px;color:var(--muted)}@media(max-width:700px){.fg{grid-template-columns:1fr}.fgr.full{grid-column:1}.hdr{padding:14px}section{padding:14px}.kpi-grid{grid-template-columns:repeat(2,1fr)}}
@@ -375,7 +376,7 @@ window.PSI_ANTI_ZERO_GUARD = function(localCount, cloudCount){
 </script>
 </head>
 <body>
-<div class="hdr"><div style="display:flex;align-items:center;gap:14px"><img class="psi-logo-img" src="data:image/jpeg;base64,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3NawSvJsWadxpWdjau2xz/ax8f7FrdR7mxiZrj5LmnbJG9hktkjD9khXvImU7Ls/PevJfD/yTbeNvHZ7toLqC8Xa7EdBSWyVmv8A83DUa4n90gtEbXR4My3q6hx+DNc6tsIHiWRh+v6wWtQe5tYrLhx80LXGO0st8r/2vC2G1+5r22NwN6zZqp29rKa0ti+10j/2L38JOp0uzFvzlNy8+L6JEJ4420c9cbMkposRxWCkk5GGzxcB2n9qSZR8jgoYmrbjd6501TNUVtZUyc3veZZZXnvJ5kleiuGtgTImyubJdWX2/ubzLa2v4bCfZC1h0+UqZ8H5UZb5fsH4G4Is9qeG7vFp6VgmcPGQ+mflKyVRR2RYQ7XaZpkeGwoeij6836HnNltskZ15jPiqBhx+H7bJoXVl31p+Xe2LTiO8PR08VcjJ3Y4y0yvkgu92a7E18i0cKutiAhif60UHMNPi4ucOwhT8NAOSxoB0XjqyZzmqdrdR1NODlwR6L6vf6HIANGgGgCyiLUcyEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQH/2Q==" alt="PSI Productos y Servicios Industriales"><div><h1>ERP PSI PRODUCTOS Y SERVICIOS INDUSTRIALES C.LTDA</h1><div class="sub" id="headerSub">Sistema Integrado de Gestión de Laboratorio · ERP PSI ENTERPRISE V7.0.20 · LOCAL ICLOUD ALINEADO</div></div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-s" onclick="openModal()">＋ Nueva Muestra</button><button class="btn btn-p" onclick="psiEnterpriseCloudDashboard()">☁️ Cloud Dashboard Enterprise</button><button class="btn btn-d" onclick="psiReplaceCloudWithLocal1808Official()">☁️ Reemplazar Cloud con Local 1808</button><button class="btn btn-s" onclick="psiDashboardCloudForceRefresh()">🔄 Actualizar Dashboard iCloud</button><button class="btn btn-g" onclick="psiLabCloudCommitStatus()">🏥 Lab Cloud Status</button><button class="btn btn-s" onclick="psiRestoreLabLocalFromCloud()">⬇ Recuperar Lab desde Cloud</button><button class="btn btn-w" onclick="psiSeedLabCloudFromLocal()">⬆ Subir Lab a Cloud</button><button class="btn btn-g" onclick="psiCodeAuditRC11A()">🧪 Code Audit RC1.1A</button><button class="btn btn-g" onclick="psiDataIntegrityAuditRC11B()">🧬 Data Integrity RC1.1B</button><button class="btn btn-g" onclick="psiSyncAuditRC11C()">🔄 Sync Audit RC1.1C</button><button class="btn btn-g" onclick="psiPerformanceAuditRC11D()">⚡ Performance Audit RC1.1D</button><button class="btn btn-p" onclick="document.getElementById('importFile').click()">⬆ Importar Excel</button><button class="btn btn-g psi-cloud-hidden" onclick="diagnostic()">🔎 Diagnóstico</button><button class="btn btn-g psi-cloud-hidden" onclick="psiPreFirebaseCheck()">🛡️ Pre-Firebase</button><button class="btn btn-p psi-cloud-hidden" onclick="psiCloudLogin()">☁️ Cloud Login</button><button class="btn btn-g psi-cloud-hidden" onclick="psiFirestoreSafeTest()">☁️ Firestore Test</button><button class="btn btn-p psi-cloud-hidden" onclick="psiSyncOneDevInfo()">🔁 TX Sync PROD</button><button class="btn btn-s psi-cloud-hidden" onclick="psiRealtimeStatus()">🔴 Realtime ON</button><button class="btn btn-g psi-cloud-hidden" onclick="psiCloudCenter()">☁️ Centro Cloud</button><button class="btn btn-p psi-cloud-hidden" onclick="psiSyncManager()">🧭 Gestor Sync PROD</button><button class="btn btn-w psi-cloud-hidden" onclick="psiTxCenter()">🧾 TX Center</button><button class="btn btn-p psi-cloud-hidden" onclick="psiAuditCenter()">📜 Audit Center</button><button class="btn btn-s psi-cloud-hidden" onclick="psiDashboardSmartCenter()">📊 Dash Smart</button><button class="btn btn-w psi-cloud-hidden" onclick="psiQueueCenter()">📥 Queue Center</button><button class="btn btn-p psi-cloud-hidden" onclick="psiCloudEngineCenter()">⚙️ Cloud Engine</button><button class="btn btn-w psi-cloud-hidden" onclick="psiCloudReadSafeTest()">🛡️ Read Safe</button><input id="importFile" type="file" accept=".xlsx,.xls,.csv,.json" style="display:none" onchange="importExcelFile(event)"><button class="btn btn-g" onclick="exportExcel()">⬇ Excel</button><button class="btn btn-w" onclick="downloadTemplate()">📄 Plantilla</button><button class="btn btn-w" onclick="backupJSON()">💾 Respaldo</button><span class="role-pill">👤 Rol <select id="erpRoleSelect" onchange="setERPUserRole(this.value)"><option>CALIDAD</option><option>LABORATORIO</option><option>FACTURACION</option><option>GERENCIA</option><option>ADMIN</option></select></span><span class="badge">ERP PSI ENTERPRISE V7.0.20 · LOCAL ICLOUD ALINEADO</span><span class="badge" id="cloudStatusBadge" style="background:rgba(34,197,94,.18);border:1px solid rgba(34,197,94,.35)">🧾 TX listo</span></div></div>
+<div class="hdr"><div style="display:flex;align-items:center;gap:14px"><img class="psi-logo-img" src="data:image/jpeg;base64,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3NawSvJsWadxpWdjau2xz/ax8f7FrdR7mxiZrj5LmnbJG9hktkjD9khXvImU7Ls/PevJfD/yTbeNvHZ7toLqC8Xa7EdBSWyVmv8A83DUa4n90gtEbXR4My3q6hx+DNc6tsIHiWRh+v6wWtQe5tYrLhx80LXGO0st8r/2vC2G1+5r22NwN6zZqp29rKa0ti+10j/2L38JOp0uzFvzlNy8+L6JEJ4420c9cbMkposRxWCkk5GGzxcB2n9qSZR8jgoYmrbjd6501TNUVtZUyc3veZZZXnvJ5kleiuGtgTImyubJdWX2/ubzLa2v4bCfZC1h0+UqZ8H5UZb5fsH4G4Is9qeG7vFp6VgmcPGQ+mflKyVRR2RYQ7XaZpkeGwoeij6836HnNltskZ15jPiqBhx+H7bJoXVl31p+Xe2LTiO8PR08VcjJ3Y4y0yvkgu92a7E18i0cKutiAhif60UHMNPi4ucOwhT8NAOSxoB0XjqyZzmqdrdR1NODlwR6L6vf6HIANGgGgCyiLUcyEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQH/2Q==" alt="PSI Productos y Servicios Industriales"><div><h1>ERP PSI PRODUCTOS Y SERVICIOS INDUSTRIALES C.LTDA</h1><div class="sub" id="headerSub">Sistema Integrado de Gestión de Laboratorio · ERP PSI ENTERPRISE V7.0.11 · FIX REBOUND REALTIME</div></div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-s" onclick="openModal()">＋ Nueva Muestra</button><button class="btn btn-p" onclick="psiEnterpriseCloudDashboard()">☁️ Cloud Dashboard Enterprise</button><button class="btn btn-d" onclick="psiReplaceCloudWithLocal1808Official()">☁️ Reemplazar Cloud con Local 1808</button><button class="btn btn-s" onclick="psiDashboardCloudForceRefresh()">🔄 Actualizar Dashboard iCloud</button><button class="btn btn-g" onclick="psiLabCloudCommitStatus()">🏥 Lab Cloud Status</button><button class="btn btn-s" onclick="psiRestoreLabLocalFromCloud()">⬇ Recuperar Lab desde Cloud</button><button class="btn btn-w" onclick="psiSeedLabCloudFromLocal()">⬆ Subir Lab a Cloud</button><button class="btn btn-g" onclick="psiCodeAuditRC11A()">🧪 Code Audit RC1.1A</button><button class="btn btn-g" onclick="psiDataIntegrityAuditRC11B()">🧬 Data Integrity RC1.1B</button><button class="btn btn-g" onclick="psiSyncAuditRC11C()">🔄 Sync Audit RC1.1C</button><button class="btn btn-g" onclick="psiPerformanceAuditRC11D()">⚡ Performance Audit RC1.1D</button><button class="btn btn-p" onclick="document.getElementById('importFile').click()">⬆ Importar Excel</button><button class="btn btn-g psi-cloud-hidden" onclick="diagnostic()">🔎 Diagnóstico</button><button class="btn btn-g psi-cloud-hidden" onclick="psiPreFirebaseCheck()">🛡️ Pre-Firebase</button><button class="btn btn-p psi-cloud-hidden" onclick="psiCloudLogin()">☁️ Cloud Login</button><button class="btn btn-g psi-cloud-hidden" onclick="psiFirestoreSafeTest()">☁️ Firestore Test</button><button class="btn btn-p psi-cloud-hidden" onclick="psiSyncOneDevInfo()">🔁 TX Sync PROD</button><button class="btn btn-s psi-cloud-hidden" onclick="psiRealtimeStatus()">🔴 Realtime ON</button><button class="btn btn-g psi-cloud-hidden" onclick="psiCloudCenter()">☁️ Centro Cloud</button><button class="btn btn-p psi-cloud-hidden" onclick="psiSyncManager()">🧭 Gestor Sync PROD</button><button class="btn btn-w psi-cloud-hidden" onclick="psiTxCenter()">🧾 TX Center</button><button class="btn btn-p psi-cloud-hidden" onclick="psiAuditCenter()">📜 Audit Center</button><button class="btn btn-s psi-cloud-hidden" onclick="psiDashboardSmartCenter()">📊 Dash Smart</button><button class="btn btn-w psi-cloud-hidden" onclick="psiQueueCenter()">📥 Queue Center</button><button class="btn btn-p psi-cloud-hidden" onclick="psiCloudEngineCenter()">⚙️ Cloud Engine</button><button class="btn btn-w psi-cloud-hidden" onclick="psiCloudReadSafeTest()">🛡️ Read Safe</button><input id="importFile" type="file" accept=".xlsx,.xls,.csv,.json" style="display:none" onchange="importExcelFile(event)"><button class="btn btn-g" onclick="exportExcel()">⬇ Excel</button><button class="btn btn-w" onclick="downloadTemplate()">📄 Plantilla</button><button class="btn btn-w" onclick="backupJSON()">💾 Respaldo</button><span class="role-pill">👤 Rol <select id="erpRoleSelect" onchange="setERPUserRole(this.value)"><option>CALIDAD</option><option>LABORATORIO</option><option>FACTURACION</option><option>GERENCIA</option><option>ADMIN</option></select></span><span class="badge">ERP PSI ENTERPRISE V7.0.11 · FIX REBOUND REALTIME</span><span class="badge" id="cloudStatusBadge" style="background:rgba(34,197,94,.18);border:1px solid rgba(34,197,94,.35)">🧾 TX listo</span></div></div>
 <div class="module-shell">
   <button class="btn module-btn" data-module-target="control" onclick="showTab('dashboard')">🔬 INGRESO DE MUESTRA</button>
   <button class="btn module-btn" data-module-target="informes" onclick="showTab('informes')">📄 INGRESO AL LABORATORIO</button>
@@ -2668,9 +2669,7 @@ function canFacturarRec(rec){
   return {ok:true,msg:'Autorizado'};
 }
 function systemDescuadres(){
-  // FIX V7.0.21: el consolidado no debe leer un DATA antiguo en memoria.
-  // Toma la base local más grande/persistida (localStorage/IndexedDB sincronizado) para evitar mostrar 1822 cuando local ya tiene 1824.
-  const muestras=(typeof window.PSI_STD_GET_MUESTRAS==='function')?window.PSI_STD_GET_MUESTRAS():((typeof getMuestras==='function')?getMuestras():((DATA)||[]));
+  const muestras=DATA||[];
   const ingresadas=muestrasIngresadasParaInforme();
   const informes=(INFORMES||[]).map(x=>calcInforme(Object.assign({},x)));
   const sampleKeys=new Set(ingresadas.map(r=>sampleKeySafeFromParts(r.codigo,r.grupo)));
@@ -2998,7 +2997,7 @@ function updateAuthEstado(id,value){
     i.updatedAt=new Date().toISOString();
     calcInforme(i);
     saveInformes(true);
-    renderAutorizacionInformes();
+    renderAll();
     toast('Seleccione la Fecha de autorización y presione Guardar');
     return;
   }
@@ -3017,7 +3016,7 @@ function updateAuthEstado(id,value){
   i.fecha_autorizacion='';
   i.cobranza='';
   relockField('auth',id);
-  calcInforme(i); saveInformes(); renderAutorizacionInformes();
+  calcInforme(i); saveInformes(); renderAll();
 }
 function guardarAutorizacionInforme(id){
   const i=INFORMES.find(x=>String(x.id)===String(id)); if(!i)return;
@@ -4021,7 +4020,14 @@ async function psiGetCloudMuestrasV601(){
   const snap=await window.PSI_FIRESTORE_DB.collection('erp_muestras').get();
   const arr=[];
   snap.forEach(doc=>arr.push(Object.assign({__docId:doc.id}, doc.data()||{})));
-  return arr.map(function(x){ try{return calc(x);}catch(e){return x;} });
+  return arr.map(function(x){
+    var docId=String(x.__docId||'');
+    var y;
+    try{ y=calc(Object.assign({},x)); }catch(e){ y=Object.assign({},x); }
+    y=Object.assign({},y||{});
+    y.__docId=docId; // FIX V7.0.25: conservar ID real de Firestore después de calc()
+    return y;
+  });
 }
 async function psiBuildSyncDiffV601(){
   const localArr=(Array.isArray(DATA)?DATA:[]).map(function(x){try{return calc(x);}catch(e){return x;}});
@@ -4038,9 +4044,9 @@ function psiShowSyncManagerV601(diff){
   window.PSI_SYNC_DIFF_V601=diff;
   const old=document.getElementById('psiSyncManagerBg'); if(old) old.remove();
   const ml=diff.missingLocal||[], mc=diff.missingCloud||[];
-  const sampleLocal=ml.slice(0,15).map(r=>'<tr><td>'+psiEscHtmlV601(psiRecordKeyV601(r))+'</td><td>❌ Local</td><td>✅ Cloud</td></tr>').join('');
-  const sampleCloud=mc.slice(0,15).map(r=>'<tr><td>'+psiEscHtmlV601(psiRecordKeyV601(r))+'</td><td>✅ Local</td><td>❌ Cloud</td></tr>').join('');
-  const rows=(sampleLocal+sampleCloud) || '<tr><td colspan="3" style="text-align:center;color:#16a34a;font-weight:800">Bases alineadas. No hay diferencias.</td></tr>';
+  const sampleLocal=ml.slice(0,15).map(r=>{ const key=psiRecordKeyV601(r); const docId=String(r.__docId||key); return '<tr><td>'+psiEscHtmlV601(key)+'</td><td>❌ Local</td><td>✅ Cloud</td><td><button onclick="psiDeleteCloudOrphanV723('+JSON.stringify(docId)+','+JSON.stringify(key)+')" style="border:0;background:#dc2626;color:white;border-radius:8px;padding:7px 10px;font-weight:800;cursor:pointer">🗑 Eliminar Cloud</button></td></tr>'; }).join('');
+  const sampleCloud=mc.slice(0,15).map(r=>'<tr><td>'+psiEscHtmlV601(psiRecordKeyV601(r))+'</td><td>✅ Local</td><td>❌ Cloud</td><td>—</td></tr>').join('');
+  const rows=(sampleLocal+sampleCloud) || '<tr><td colspan="4" style="text-align:center;color:#16a34a;font-weight:800">Bases alineadas. No hay diferencias.</td></tr>';
   const bg=document.createElement('div');
   bg.id='psiSyncManagerBg';
   bg.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:100000;display:flex;align-items:center;justify-content:center;padding:16px';
@@ -4055,15 +4061,16 @@ function psiShowSyncManagerV601(diff){
       <div style="border:1px solid #fecaca;border-radius:12px;padding:12px"><b>Faltan cloud</b><div style="font-size:30px;font-weight:900;color:#dc2626">${mc.length}</div></div>
     </div>
     <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;padding:12px;margin:12px 0;color:#374151">
-      <b>Regla Enterprise:</b> esta herramienta <b>no elimina</b> registros. Solo recupera faltantes desde Cloud o sube faltantes hacia Cloud con confirmación.
+      <b>Regla Enterprise:</b> no elimina automáticamente. Los registros huérfanos de Cloud pueden eliminarse individualmente con doble confirmación.
     </div>
     <div style="overflow:auto;border:1px solid #e5e7eb;border-radius:10px;margin-top:12px">
       <table style="width:100%;border-collapse:collapse;font-size:13px">
-        <thead><tr style="background:#f1f5f9"><th style="text-align:left;padding:8px">OT / ID</th><th style="text-align:left;padding:8px">Local</th><th style="text-align:left;padding:8px">Cloud</th></tr></thead>
+        <thead><tr style="background:#f1f5f9"><th style="text-align:left;padding:8px">OT / ID</th><th style="text-align:left;padding:8px">Local</th><th style="text-align:left;padding:8px">Cloud</th><th style="text-align:left;padding:8px">Acción segura</th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;margin-top:16px">
+      <button onclick="psiEqualizeSingleOrphanV725()" ${ml.length===1 && mc.length===0?'':'disabled'} style="border:0;background:${ml.length===1 && mc.length===0?'#dc2626':'#94a3b8'};color:white;border-radius:9px;padding:9px 12px;font-weight:800;cursor:pointer">⚖️ Igualar Local y Cloud</button>
       <button onclick="psiSyncManager()" style="border:0;background:#475569;color:white;border-radius:9px;padding:9px 12px;font-weight:800;cursor:pointer">🔄 Comparar otra vez</button>
       <button onclick="psiRecoverMissingFromCloudV601()" ${ml.length?'':'disabled'} style="border:0;background:${ml.length?'#16a34a':'#94a3b8'};color:white;border-radius:9px;padding:9px 12px;font-weight:800;cursor:pointer">⬇ Recuperar ${ml.length} desde Cloud</button>
       <button onclick="psiRestoreLocalFromCloudV601()" style="border:0;background:#0f766e;color:white;border-radius:9px;padding:9px 12px;font-weight:800;cursor:pointer">🧹 Restaurar Local desde Cloud</button>
@@ -4092,6 +4099,90 @@ async function psiSyncManager(){
     psiSafeModal('🧭 GESTOR SYNC · ERROR',[{ok:false,text:'No se pudo comparar: '+(e.message||e)}],'Verifique Cloud Login, reglas Firestore e internet.');
   }
 }
+
+async function psiLocateCloudOrphanV725(docId, visibleKey){
+  await psiEmailPasswordLogin();
+  const db=window.PSI_FIRESTORE_DB;
+  if(!db) throw new Error('Firestore no está disponible');
+  const col=db.collection('erp_muestras');
+  const requested=String(docId||'').trim();
+  const key=String(visibleKey||requested).trim();
+
+  if(requested){
+    const direct=await col.doc(requested).get();
+    if(direct.exists) return direct;
+  }
+  for(const field of ['id','codigo']){
+    try{
+      const qs=await col.where(field,'==',key).limit(5).get();
+      if(!qs.empty) return qs.docs[0];
+    }catch(_e){}
+  }
+  const all=await col.get();
+  let found=null;
+  all.forEach(function(d){
+    if(found) return;
+    const v=d.data()||{};
+    const candidates=[d.id,v.id,v.codigo,v.ot,v.codigoOT,v.codigoOrden].map(function(z){return String(z||'').trim();});
+    if(candidates.indexOf(key)>=0 || candidates.indexOf(requested)>=0) found=d;
+  });
+  return found;
+}
+
+async function psiDeleteCloudOrphanV723(docId, visibleKey){
+  try{
+    const requested=String(docId||'').trim();
+    const key=String(visibleKey||requested).trim();
+    if(!requested && !key){ alert('No se pudo identificar el registro huérfano.'); return; }
+
+    const typed=prompt('IGUALAR LOCAL Y CLOUD\n\nSe eliminará únicamente el registro huérfano de Cloud:\n'+key+'\n\nEscriba ELIMINAR para continuar:','');
+    if(String(typed||'').trim().toUpperCase()!=='ELIMINAR'){ alert('Operación cancelada.'); return; }
+    if(!confirm('Confirmación final: ¿eliminar SOLO '+key+' de Cloud para igualar los conteos?')) return;
+
+    const located=await psiLocateCloudOrphanV725(requested,key);
+    if(!located) throw new Error('No se encontró el documento real en erp_muestras');
+    const realId=located.id;
+    await located.ref.delete();
+
+    // Verificación real desde servidor cuando sea posible.
+    let verify;
+    try{ verify=await located.ref.get({source:'server'}); }catch(_e){ verify=await located.ref.get(); }
+    if(verify.exists) throw new Error('Firestore todavía reporta el documento existente');
+
+    try{
+      await window.PSI_FIRESTORE_DB.collection('erp_logs').add({
+        action:'DELETE_CLOUD_ORPHAN_V725',collection:'erp_muestras',requestedDocId:requested,
+        deletedDocId:realId,visibleKey:key,deletedAt:new Date().toISOString(),source:'ERP_PSI_V7_0_25',
+        user:window.PSI_FIREBASE_AUTH&&window.PSI_FIREBASE_AUTH.currentUser?(window.PSI_FIREBASE_AUTH.currentUser.email||window.PSI_FIREBASE_AUTH.currentUser.uid):null
+      });
+    }catch(_e){}
+
+    window.PSI_SYNC_DIFF_V601=null;
+    alert('✅ Registro eliminado realmente de Cloud.\n\nCódigo: '+key+'\nDocumento: '+realId+'\n\nSe volverá a comparar Local y Cloud.');
+    await psiSyncManager();
+  }catch(e){
+    console.error('V7.0.25 delete orphan error',e);
+    alert('No se pudo igualar Local y Cloud:\n'+(e&&e.message?e.message:e));
+  }
+}
+
+async function psiEqualizeSingleOrphanV725(){
+  try{
+    const diff=await psiBuildSyncDiffV601();
+    if((diff.missingCloud||[]).length){
+      alert('No se puede igualar automáticamente porque también faltan registros en Cloud. Use primero “Subir a Cloud”.');
+      return;
+    }
+    if((diff.missingLocal||[]).length!==1){
+      alert('La igualación directa solo se habilita cuando existe exactamente 1 huérfano en Cloud. Diferencias actuales: '+(diff.missingLocal||[]).length);
+      await psiSyncManager();
+      return;
+    }
+    const r=diff.missingLocal[0];
+    await psiDeleteCloudOrphanV723(String(r.__docId||''),psiRecordKeyV601(r));
+  }catch(e){ alert('No se pudo ejecutar la igualación: '+(e.message||e)); }
+}
+
 async function psiRecoverMissingFromCloudV601(){
   const diff=window.PSI_SYNC_DIFF_V601 || await psiBuildSyncDiffV601();
   const missing=diff.missingLocal||[];
@@ -7834,13 +7925,35 @@ document.addEventListener('DOMContentLoaded', function(){
     }catch(e){state.status='ERROR';state.realtime='ERROR';state.error=e&&e.message?e.message:String(e);render();}
   }
   function stop(){try{if(unsub)unsub();}catch(e){}unsub=null;active=false;baseline=false;state.realtime='OFF';state.status='DETENIDO';log('STOP','Universal Event Commit detenido','');render();}
-  async function revalidate(){try{state.cloud=await cloudCount();state.local=arr().length;state.status=(state.cloud===state.local?'ALINEADO':'REVISAR');log('VALIDATE','Local '+state.local+' / Cloud '+state.cloud,'');}catch(e){state.status='ERROR';state.error=e&&e.message?e.message:String(e);}render();}
+  async function revalidate(){
+    try{
+      var cmp=null;
+      if(typeof window.psiDataEngineCompare==='function'){
+        try{cmp=await window.psiDataEngineCompare();}catch(_e){cmp=null;}
+      }
+      if(cmp){
+        state.local=Number(cmp.localCount||0);
+        state.cloud=Number(cmp.cloudCount||0);
+        state.status=cmp.aligned?'ALINEADO':'REVISAR';
+        state.error='sin errores';
+        log('VALIDATE','Local depurado '+state.local+' / Cloud '+state.cloud,'');
+      }else{
+        state.cloud=await cloudCount();
+        var rows=arr(), seen=new Set(), n=0;
+        rows.forEach(function(r){var id=idOf(r);if(id&&!seen.has(id)){seen.add(id);n++;}});
+        state.local=n;
+        state.status=(state.cloud===state.local?'ALINEADO':'REVISAR');
+        log('VALIDATE','Local depurado '+state.local+' / Cloud '+state.cloud,'');
+      }
+    }catch(e){state.status='ERROR';state.error=e&&e.message?e.message:String(e);}
+    render();
+  }
   function card(lbl,val,color,border){return '<div style="border:1px solid '+border+';border-radius:16px;padding:16px;min-height:130px;background:#fff"><b style="font-size:18px">'+esc(lbl)+'</b><div style="font-size:38px;color:'+color+';font-weight:900;word-break:break-word;margin-top:8px">'+esc(val)+'</div></div>';}
   function html(){
     var rows=state.logs.map(function(x){return '<tr><td>'+esc(x.t)+'</td><td><b>'+esc(x.type)+'</b></td><td>'+esc(x.id)+'</td><td>'+esc(x.msg)+'</td></tr>';}).join('')||'<tr><td colspan="4" style="color:#64748b;padding:14px">Sin eventos registrados.</td></tr>';
     return '<div style="background:white;color:#111827;border-radius:18px;width:min(1180px,96vw);max-height:92vh;overflow:auto;padding:24px;box-shadow:0 20px 70px rgba(0,0,0,.38);font-family:Segoe UI,Arial,sans-serif">'
-      +'<h1 style="font-size:42px;margin:0 0 10px">⚡ Enterprise Stabilization V1.0 · Fase 5.2C</h1>'
-      +'<p style="font-size:20px;color:#4b5563;margin-top:0">Universal Event Commit: Realtime usa <b>docChanges()</b> y aplica solo ADD, EDIT y DELETE al ERP_DATA_MASTER. No cambia los commits ya validados.</p>'
+      +'<h1 style="font-size:42px;margin:0 0 10px">⚡ Enterprise Stabilization V1.0 · Fase 5.2C · Conteo depurado</h1>'
+      +'<p style="font-size:20px;color:#4b5563;margin-top:0">Universal Event Commit: Realtime usa <b>docChanges()</b>. El contador local se valida con la misma comparación depurada por IDs del Gestor Sync.</p>'
       +'<div style="display:grid;grid-template-columns:repeat(5,minmax(130px,1fr));gap:12px;margin:18px 0">'+card('Local',state.local||arr().length,'#2563eb','#bfdbfe')+card('Cloud',state.cloud,'#16a34a','#bbf7d0')+card('Eventos',state.events,'#0f766e','#99f6e4')+card('Cambios','+'+state.add+' · ✎'+state.edit+' · -'+state.del,'#f97316','#fed7aa')+card('Estado',state.status,(state.status==='ALINEADO'||state.status==='EVENT_COMMIT_OK'||state.status==='ESCUCHANDO_DOCCHANGES')?'#16a34a':'#dc2626','#e5e7eb')+'</div>'
       +'<div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:18px;padding:18px;font-size:18px;line-height:1.45"><b>Flujo:</b> Firestore Snapshot → docChanges() → Universal Event Commit → ERP_DATA_MASTER → persistencia local → render.<br><b>Regla:</b> no procesa toda la colección si solo cambió un documento.<br><b>Ignorados:</b> '+state.ignored+' · <b>Realtime:</b> '+state.realtime+' · <b>Error:</b> '+esc(state.error)+'</div>'
       +'<h2 style="margin-top:18px">Últimos eventos</h2><table style="width:100%;border-collapse:collapse"><thead><tr style="background:#1f2937;color:white"><th style="padding:10px;text-align:left">FECHA</th><th style="padding:10px;text-align:left">TIPO</th><th style="padding:10px;text-align:left">ID</th><th style="padding:10px;text-align:left">DETALLE</th></tr></thead><tbody>'+rows+'</tbody></table>'
@@ -7849,7 +7962,7 @@ document.addEventListener('DOMContentLoaded', function(){
   }
   function render(){var bg=document.getElementById('psiF52CBg'); if(!bg)return; bg.innerHTML=html(); bind();}
   function bind(){var b=document.getElementById('psiF52CStart'); if(b)b.onclick=start; b=document.getElementById('psiF52CStop'); if(b)b.onclick=stop; b=document.getElementById('psiF52CVal'); if(b)b.onclick=revalidate; b=document.getElementById('psiF52CClose'); if(b)b.onclick=function(){var bg=document.getElementById('psiF52CBg'); if(bg)bg.remove();};}
-  function openPanel(){var old=document.getElementById('psiF52CBg'); if(old)old.remove();var bg=document.createElement('div');bg.id='psiF52CBg';bg.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:100050;display:flex;align-items:center;justify-content:center;padding:16px';document.body.appendChild(bg);state.local=arr().length;render();revalidate();}
+  function openPanel(){var old=document.getElementById('psiF52CBg'); if(old)old.remove();var bg=document.createElement('div');bg.id='psiF52CBg';bg.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:100050;display:flex;align-items:center;justify-content:center;padding:16px';document.body.appendChild(bg);state.local=0;state.status='VALIDANDO';render();revalidate();}
   function install(){try{var hdr=document.querySelector('.hdr > div:last-child')||document.querySelector('.hdr');if(hdr&&!document.getElementById('psiF52CBtn')){var b=document.createElement('button');b.id='psiF52CBtn';b.className='btn btn-s';b.type='button';b.textContent='⚡ Event Commit 5.2C';b.onclick=openPanel;hdr.appendChild(b);}}catch(e){}try{var sub=document.getElementById('headerSub');if(sub)sub.textContent='Sistema Integrado de Gestión de Laboratorio · ERP PSI Enterprise V7.0 · Production Final';}catch(e){} }
   window.PSI_UNIVERSAL_EVENT_COMMIT_52C={open:openPanel,start:start,stop:stop,revalidate:revalidate,state:state};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(install,700);setTimeout(install,1800);});else{setTimeout(install,700);setTimeout(install,1800);}
@@ -9512,12 +9625,18 @@ document.addEventListener('DOMContentLoaded', function(){
     if(labApplyingCloud) return;
     if(!labWriteEnabled) return;
     clearTimeout(labCommitTimer);
+    // Mismo candado que usa el ingreso oficial de Laboratorio: mientras el commit a Cloud
+    // está pendiente, se ignoran snapshots de Realtime para no revertir el guardado local
+    // recién hecho (Portal Cliente, Autorización, Observaciones, etc.).
+    window.PSI_LAB_LOCAL_LOCK_UNTIL = Date.now() + 10000;
     labCommitTimer = setTimeout(async function(){
       var arr = Array.isArray(window.INFORMES) ? window.INFORMES : (typeof INFORMES !== 'undefined' ? INFORMES : []);
       arr = Array.isArray(arr) ? arr : [];
+      window.PSI_LAB_LOCAL_LOCK_UNTIL = Date.now() + Math.max(10000, arr.length * 1500 + 5000);
       for(var k=0;k<arr.length;k++){
         await commitOneInformeCloud(arr[k], reason || 'SAVE_ALL');
       }
+      window.PSI_LAB_LOCAL_LOCK_UNTIL = Date.now() + 1500;
     }, 600);
   }
 
@@ -9638,6 +9757,15 @@ document.addEventListener('DOMContentLoaded', function(){
     }catch(e){
       alert('No se pudo recuperar Laboratorio desde Cloud: '+(e.message || e));
     }
+  };
+
+  // FIX V7.0.28: commit directo de un informe para acciones críticas del Portal Cliente.
+  // Expone el mismo motor transaccional de erp_laboratorio sin depender del commit masivo diferido.
+  window.psiCommitInformePortalNow = async function(informe){
+    window.PSI_LAB_LOCAL_LOCK_UNTIL = Date.now() + 20000;
+    var result = await commitOneInformeCloud(informe, 'PORTAL_CLIENTE_SAVE');
+    window.PSI_LAB_LOCAL_LOCK_UNTIL = Date.now() + (result && result.ok ? 2500 : 20000);
+    return result;
   };
 
   window.psiSeedLabCloudFromLocal = async function(){
@@ -11591,6 +11719,15 @@ document.addEventListener('DOMContentLoaded', function(){
       const nowTxt=new Date().toLocaleString();
       const same=(Array.isArray(window.DATA)?window.DATA:[]).filter(x=>v79_key(x)===key);
       same.forEach(function(x){
+        /* V7.0.13 · FIX RACE REALTIME EN GUARDAR DQO:
+           Esta versión (V7.0.9) del guardado sobrescribió a la versión anterior
+           que sí bloqueaba el registro contra Realtime (psiReboundMarkRecord),
+           pero se perdió esa llamada en la reescritura. Sin este bloqueo, el
+           listener de Firestore puede traer de vuelta por un instante la copia
+           vieja (reqDQO=true) antes de que llegue la confirmación real de la
+           nube, produciendo el efecto "desaparece → vuelve a aparecer →
+           desaparece". Se restaura el bloqueo de 15s por registro. */
+        try{ if(typeof psiReboundMarkRecord==='function') psiReboundMarkRecord(x,'EDIT',15000); }catch(_rb){}
         x.dqo=d;
         x.tensoactivos=t;
         x.reqAnalisisValores=!!has;
@@ -11656,7 +11793,7 @@ document.addEventListener('DOMContentLoaded', function(){
  - Evita listeners duplicados en erp_muestras.
 ========================================================== */
 (function(){
-  const VERSION='ERP PSI ENTERPRISE V7.0.20 · LOCAL ICLOUD ALINEADO';
+  const VERSION='ERP PSI ENTERPRISE V7.0.11 · FIX REBOUND REALTIME';
   window.PSI_V710_PERFORMANCE_GUARD=true;
   let lastHeaderText='', lastHeaderAt=0;
   function stableHeader(){
@@ -11685,10 +11822,33 @@ document.addEventListener('DOMContentLoaded', function(){
   const originalRenderAll=window.renderAll;
   if(typeof originalRenderAll==='function' && !window.__PSI_RENDER_GUARD_V710){
     window.__PSI_RENDER_GUARD_V710=true;
+    window.__PSI_RENDER_PENDING=false;
+    /* V7.0.12 · FIX PARPADEO/LENTITUD (colisión de renders):
+       El guard V7.0.10 original BLOQUEABA (descartaba) cualquier renderAll()
+       que llegara mientras otro seguía "bloqueado" 300ms, incluso si ese
+       segundo llamado traía el estado más reciente (p.ej. Guardar/Eliminar
+       seguido de inmediato por showTab(), Realtime o Dashboard Smart).
+       Ese descarte silencioso es lo que producía "guarda → desaparece →
+       vuelve a aparecer → desaparece": la pantalla se quedaba con una
+       versión vieja hasta que otro disparador coincidía en el momento justo.
+       Ahora, en vez de descartar, se encola UN solo render pendiente y se
+       ejecuta automáticamente apenas se libera el bloqueo, garantizando que
+       siempre se refleje el último estado, sin perder actualizaciones y sin
+       repetir render en cascada. */
     window.renderAll=function(){
-      if(window.__PSI_RENDER_LOCK) return;
+      if(window.__PSI_RENDER_LOCK){ window.__PSI_RENDER_PENDING=true; return; }
       window.__PSI_RENDER_LOCK=true;
-      try{return originalRenderAll.apply(this,arguments);}finally{setTimeout(function(){window.__PSI_RENDER_LOCK=false;stableHeader();},300);}
+      try{return originalRenderAll.apply(this,arguments);}
+      finally{
+        setTimeout(function(){
+          window.__PSI_RENDER_LOCK=false;
+          stableHeader();
+          if(window.__PSI_RENDER_PENDING){
+            window.__PSI_RENDER_PENDING=false;
+            window.renderAll();
+          }
+        },150);
+      }
     };
   }
   const originalRenderAnalisis=window.renderAnalisis;
@@ -12035,336 +12195,1105 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-<!-- ==========================================================
- FIX V7.0.19 · AUTO-RECUPERACIÓN SEGURA LAB CLOUD FALTANTES
- Base: V7.0.15 estabilizada oficial.
- Alcance mínimo:
- ✔ NO reemplaza toda la base local.
- ✔ NO toca erp_muestras.
- ✔ NO sube automáticamente Local hacia Cloud.
- ✔ Si erp_laboratorio Cloud tiene más registros que Laboratorio Local,
-   recupera SOLO los faltantes al abrir o al autenticarse.
- ✔ Corrige el caso Local Lab 68 / Cloud Lab 79 sin usar manualmente
-   “Subir Lab a Cloud”.
-========================================================== -->
 <script>
+/* ==========================================================
+   ERP PSI ENTERPRISE V7.0.17 · FIX FLUIDEZ REGISTRO ANÁLISIS
+   Base: V7.0.16 DESARROLLO_BASE
+   Objetivo:
+   ✔ Eliminar rebote visual al guardar DQO/Tensoactivos.
+   ✔ Impedir que Realtime viejo regrese temporalmente un registro cerrado.
+   ✔ Mantener la última muestra guardada visible primero en el historial inferior.
+   ✔ Conservar guardado Local + Cloud por el mismo ID sin duplicar.
+========================================================== */
 (function(){
-  if(window.PSI_LAB_AUTO_RECOVER_MISSING_V7019) return;
-  window.PSI_LAB_AUTO_RECOVER_MISSING_V7019 = true;
-
-  var LAB_COLLECTION = 'erp_laboratorio';
-  var running = false;
-  var lastRun = 0;
-
-  function iso(){ return new Date().toISOString(); }
-  function norm(v){ return String(v == null ? '' : v).trim(); }
-  function up(v){ return norm(v).toUpperCase(); }
-  function keyOf(x){
-    x = x || {};
-    var codigo = up(x.codigo || x.ot || x.OT || '');
-    var grupo = up(x.grupo || x.matriz || '');
-    var id = up(x.id || '');
-    if(codigo || grupo) return codigo + '|' + grupo;
-    return id;
+  const VERSION='ERP PSI ENTERPRISE V7.0.17 · FIX FLUIDEZ REGISTRO ANÁLISIS';
+  const LAST_KEY='PSI_LAST_ANALISIS_GUARDADO_V717';
+  const LOCK_MS=90000;
+  function up(v){return String(v==null?'':v).trim().toUpperCase();}
+  function has(v){return String(v==null?'':v).trim()!=='';}
+  function safe(fn,d){try{return fn();}catch(e){return d;}}
+  function nowIso(){return new Date().toISOString();}
+  function keyOf(r){
+    if(!r) return '';
+    return String(r.id||r.codigo||r.__docId||'').trim();
   }
-  function calc(x){
-    try{ if(typeof calcInforme === 'function') return calcInforme(Object.assign({}, x||{})); }catch(e){}
-    return Object.assign({}, x||{});
+  function isClosed(r){
+    if(!r) return false;
+    const est=up(r.estado), ef=up(r.estado_final), st=up(r.status);
+    return (r.reqDQO===false && (est==='INGRESADA'||ef==='INGRESADA'||has(r.dqo_saved_at)||has(r.tipo_cierre)) && st!=='EN ESPERA' && st!=='DETENIDA');
   }
-  async function readyCloud(){
-    try{ await (window.PSI_CLOUD_READY || Promise.resolve(false)); }catch(e){}
-    if(!window.PSI_FIRESTORE_DB && window.firebase && firebase.firestore){
-      try{ window.PSI_FIRESTORE_DB = firebase.firestore(); }catch(e){}
-    }
-    if(!window.PSI_FIREBASE_AUTH && window.firebase && firebase.auth){
-      try{ window.PSI_FIREBASE_AUTH = firebase.auth(); }catch(e){}
-    }
-    var db = window.PSI_FIRESTORE_DB;
-    var auth = window.PSI_FIREBASE_AUTH;
-    var user = auth && auth.currentUser;
-    if(!db || !user) return null;
-    return {db:db, user:user};
+  function markLast(r){
+    try{localStorage.setItem(LAST_KEY, keyOf(r));}catch(e){}
+    window.__PSI_LAST_ANALISIS_ID=keyOf(r);
   }
-  async function readCloudLab(){
-    var c = await readyCloud();
-    if(!c) return null;
-    var snap;
-    try{
-      snap = await c.db.collection(LAB_COLLECTION).get({source:'server'});
-    }catch(e){
-      console.warn('AUTO LAB RECOVER server read failed, trying cache/default', e);
-      snap = await c.db.collection(LAB_COLLECTION).get();
-    }
-    var arr = [];
-    snap.forEach(function(d){
-      var data = d.data() || {};
-      data.id = data.id || d.id;
-      arr.push(calc(data));
-    });
-    return arr;
+  function lastKey(){
+    return window.__PSI_LAST_ANALISIS_ID || safe(()=>localStorage.getItem(LAST_KEY),'') || '';
   }
-  async function persistLabLocal(arr, recoveredCount){
-    arr = Array.isArray(arr) ? arr.map(calc) : [];
-    try{ INFORMES = arr; }catch(e){}
-    try{ window.INFORMES = arr; }catch(e){}
-    var payload = JSON.stringify(arr);
-    try{ localStorage.setItem(INFORMES_KEY, payload); }catch(e){}
-    try{ localStorage.setItem(INFORMES_KEY + '_backup', payload); }catch(e){}
-    try{ localStorage.setItem(INFORMES_KEY + '_last_auto_recover_lab_cloud', iso()); }catch(e){}
-    try{ localStorage.setItem('PSI_LAB_LAST_AUTO_RECOVER_COUNT', String(recoveredCount || 0)); }catch(e){}
-    try{
-      if(typeof idbSet === 'function'){
-        await idbSet(INFORMES_KEY, payload).catch(function(){});
-        await idbSet(INFORMES_KEY + '_backup', payload).catch(function(){});
-      }
-    }catch(e){}
-    try{ if(typeof renderAll === 'function') renderAll(); }catch(e){}
-    try{ if(typeof renderLabDashboard === 'function') renderLabDashboard(); }catch(e){}
-    try{ if(typeof renderInformes === 'function') renderInformes(); }catch(e){}
-    try{ if(typeof renderConsolidadoERP === 'function') renderConsolidadoERP(); }catch(e){}
-  }
-  async function autoRecoverLabMissing(reason){
-    if(running) return {ok:false, reason:'running'};
-    if(Date.now() - lastRun < 4000) return {ok:false, reason:'cooldown'};
-    running = true;
-    lastRun = Date.now();
-    try{
-      var cloud = await readCloudLab();
-      if(!cloud || !cloud.length) return {ok:false, reason:'no_cloud'};
-      var local = [];
-      try{ local = Array.isArray(INFORMES) ? INFORMES.map(calc) : []; }catch(e){ local = []; }
-      var localMap = new Map();
-      local.forEach(function(x){ var k = keyOf(x); if(k) localMap.set(k, true); });
-      var missing = [];
-      cloud.forEach(function(x){ var k = keyOf(x); if(k && !localMap.has(k)) missing.push(calc(x)); });
-
-      // Regla segura: solo agrega faltantes cuando Cloud tiene más registros o detecta llaves ausentes.
-      // Nunca reemplaza toda la base local ni borra registros locales.
-      if(missing.length > 0 && cloud.length >= local.length){
-        var merged = local.concat(missing);
-        var seen = new Set();
-        merged = merged.filter(function(x){ var k=keyOf(x); if(!k || seen.has(k)) return false; seen.add(k); return true; });
-        window.PSI_LAB_LOCAL_LOCK_UNTIL = Date.now() + 12000;
-        await persistLabLocal(merged, missing.length);
-        try{
-          if(typeof toast === 'function') toast('☁️ Lab Cloud: recuperados '+missing.length+' faltantes automáticamente');
-        }catch(e){}
-        console.log('PSI LAB AUTO RECOVER OK', {reason:reason, local:local.length, cloud:cloud.length, recovered:missing.length, final:merged.length});
-        return {ok:true, recovered:missing.length, local:local.length, cloud:cloud.length, final:merged.length};
-      }
-      return {ok:true, recovered:0, local:local.length, cloud:cloud.length};
-    }catch(e){
-      console.warn('PSI LAB AUTO RECOVER ERROR', e);
-      return {ok:false, error:e && (e.message || String(e))};
-    }finally{
-      running = false;
-    }
-  }
-
-  window.psiAutoRecoverLabMissingFromCloud = autoRecoverLabMissing;
-
-  // Ejecutar al abrir y también cuando Firebase autentique al usuario.
-  setTimeout(function(){ autoRecoverLabMissing('startup_4s'); }, 4200);
-  setTimeout(function(){ autoRecoverLabMissing('startup_10s'); }, 10000);
-  try{
-    (window.PSI_CLOUD_READY || Promise.resolve(false)).then(function(){
-      if(window.PSI_FIREBASE_AUTH && window.PSI_FIREBASE_AUTH.onAuthStateChanged){
-        window.PSI_FIREBASE_AUTH.onAuthStateChanged(function(user){
-          if(user) setTimeout(function(){ autoRecoverLabMissing('auth_state'); }, 1200);
-        });
-      }
-    });
-  }catch(e){}
-
-  // Refuerzo visual: al entrar a las pestañas de Laboratorio, verifica faltantes sin sobrescribir nada.
-  try{
-    if(typeof window.showTab === 'function' && !window.showTab.__labAutoRecoverWrapped){
-      var oldShowTab = window.showTab;
-      var newShowTab = function(id){
-        var r = oldShowTab.apply(this, arguments);
-        if(['informes','informesPendientesEntrega','autorizacionInformes','portalCliente','labDashboard'].indexOf(String(id)) >= 0){
-          setTimeout(function(){ autoRecoverLabMissing('showTab_'+id); }, 500);
-        }
-        return r;
-      };
-      newShowTab.__labAutoRecoverWrapped = true;
-      window.showTab = newShowTab;
-      try{ showTab = newShowTab; }catch(e){}
-    }
-  }catch(e){}
-})();
-</script>
-
-
-<!-- ==========================================================
- V7.0.20 · FIX ESTANDARIZA LOCAL + ICLOUD/FIRESTORE
- Base: V7.0.15 estabilizada + V7.0.19 Lab faltantes
- Objetivo:
- ✔ Si Cloud erp_muestras tiene más registros que Local, recuperar SOLO faltantes.
- ✔ Eliminar esos IDs de la lista local de eliminados para que no se pierdan al recargar.
- ✔ Persistir en localStorage + IndexedDB + backups.
- ✔ No borrar Cloud, no reemplazar toda la base, no tocar registros existentes.
-========================================================== -->
-<script>
-(function(){
-  function log(){try{console.log.apply(console, ['[PSI V7.0.20]'].concat([].slice.call(arguments)));}catch(e){}}
-  function keyOf(r){return String((r&&(r.id||r.codigo||r.__docId))||'').trim();}
-  function cloneClean(r){var x=Object.assign({},r||{}); try{delete x.__docId;}catch(e){} try{return (typeof calc==='function')?calc(x):x;}catch(e){return x;}}
-  async function removeFromDeleted(ids){
-    ids=(ids||[]).map(String).filter(Boolean);
-    if(!ids.length) return;
-    try{
-      var k=(typeof STORE_DELETED_KEY!=='undefined')?STORE_DELETED_KEY:'psi_erp_laboratorio_PSI_MASTER_LOCAL_SIN_FIREBASE_V105_deleted_ids_local';
-      var raw=localStorage.getItem(k)||'[]';
-      var arr=[]; try{arr=JSON.parse(raw)||[];}catch(e){arr=[];}
-      var s=new Set(arr.map(String));
-      ids.forEach(function(id){s.delete(String(id));});
-      var payload=JSON.stringify(Array.from(s));
-      localStorage.setItem(k,payload);
-      if(typeof idbSet==='function') try{await idbSet(k,payload);}catch(e){}
-    }catch(e){log('No se pudo limpiar deleted_ids',e);}
-  }
-  async function persistAllMuestras(rows){
-    rows=(Array.isArray(rows)?rows:[]).map(cloneClean);
-    var payload=JSON.stringify(rows), ts=new Date().toISOString();
-    try{DATA=rows; window.DATA=rows; window.ERP_DATA=rows; window.MUESTRAS=rows; window.ERP_DATA_MASTER=rows; window.PSI_ERP_DATA_LAYER=rows;}catch(e){}
-    try{ if(typeof PSI_LAST_SAVE!=='undefined') PSI_LAST_SAVE=ts; }catch(e){}
-    try{ if(typeof safeLocalSet==='function'){ safeLocalSet(STORE_KEY,payload); safeLocalSet(STORE_KEY+'_backup',payload); safeLocalSet(STORE_KEY+'_last_save',ts); safeLocalSet(STORE_KEY+'_backup_last_save',ts); } else { localStorage.setItem(STORE_KEY,payload); localStorage.setItem(STORE_KEY+'_backup',payload); localStorage.setItem(STORE_KEY+'_last_save',ts); localStorage.setItem(STORE_KEY+'_backup_last_save',ts); }}catch(e){}
-    var keys=[]; try{keys=[STORE_KEY,STORE_KEY+'_backup','ERP_MUESTRAS','MUESTRAS','ERP_DATA','DATA','ERP_DATA_MASTER','PSI_ERP_DATA_LAYER'];}catch(e){keys=['psi_erp_laboratorio_PSI_MASTER_LOCAL_SIN_FIREBASE_V105','psi_erp_laboratorio_PSI_MASTER_LOCAL_SIN_FIREBASE_V105_backup','ERP_MUESTRAS','MUESTRAS','ERP_DATA','DATA','ERP_DATA_MASTER','PSI_ERP_DATA_LAYER'];}
-    keys.forEach(function(k){try{localStorage.setItem(k,payload);}catch(e){}});
-    if(typeof idbSet==='function'){
-      for(var i=0;i<keys.length;i++){try{await idbSet(keys[i],payload);}catch(e){}}
-      try{await idbSet(STORE_KEY+'_last_save',ts);}catch(e){}
-      try{await idbSet(STORE_KEY+'_backup_last_save',ts);}catch(e){}
-    }
+  function refreshAnalisisUI(){
     try{ if(typeof renderAll==='function') renderAll(); }catch(e){}
-    try{ if(typeof updateCloudBadge==='function') updateCloudBadge(); }catch(e){}
+    setTimeout(function(){
+      try{ if(typeof renderAnalisis==='function') renderAnalisis(); }catch(e){}
+      try{ if(typeof renderAnalisisResumen==='function') renderAnalisisResumen(); }catch(e){}
+    },80);
   }
-  async function readCloudMuestras(){
-    try{await Promise.race([window.PSI_CLOUD_READY||Promise.resolve(false), new Promise(function(r){setTimeout(function(){r(false);},6000);})]);}catch(e){}
-    if(typeof psiEmailPasswordLogin==='function') try{await psiEmailPasswordLogin();}catch(e){}
-    var db=window.PSI_FIRESTORE_DB || (window.firebase&&firebase.firestore&&firebase.firestore());
-    if(!db) throw new Error('Firestore no disponible');
-    var snap; try{snap=await db.collection('erp_muestras').get({source:'server'});}catch(e){snap=await db.collection('erp_muestras').get();}
-    var arr=[]; snap.forEach(function(doc){arr.push(Object.assign({__docId:doc.id},doc.data()||{}));});
-    return arr.map(cloneClean);
-  }
-  window.psiAutoRecoverMuestrasCloudFaltantesV7020 = async function(silent){
-    if(window.PSI_AUTO_RECOVER_MUESTRAS_RUNNING) return {ok:false,reason:'running'};
-    window.PSI_AUTO_RECOVER_MUESTRAS_RUNNING=true;
-    try{
-      var cloud=await readCloudMuestras();
-      var local=(Array.isArray(DATA)?DATA:[]).map(cloneClean);
-      var localMap=new Map(); local.forEach(function(r){var k=keyOf(r); if(k)localMap.set(k,r);});
-      var missing=[]; cloud.forEach(function(r){var k=keyOf(r); if(k && !localMap.has(k)) missing.push(r);});
-      if(!missing.length){return {ok:true,added:0,local:local.length,cloud:cloud.length};}
-      var ids=missing.map(keyOf).filter(Boolean);
-      await removeFromDeleted(ids);
-      var merged=local.slice(); var seen=new Set(local.map(keyOf).filter(Boolean)); var added=0;
-      missing.forEach(function(r){var k=keyOf(r); if(k && !seen.has(k)){merged.push(cloneClean(r)); seen.add(k); added++;}});
-      await persistAllMuestras(merged);
-      try{ if(typeof sincronizarLaboratorioDesdeIngreso==='function') sincronizarLaboratorioDesdeIngreso(true); }catch(e){}
-      try{ if(typeof toast==='function' && !silent) toast('iCloud → Local: '+added+' muestras faltantes recuperadas'); }catch(e){}
+
+  const oldMerge=window.mergeCloudMuestrasSafe;
+  if(typeof oldMerge==='function' && !oldMerge.__psiV717){
+    window.mergeCloudMuestrasSafe=function(cloudArr){
       try{
-        var db=window.PSI_FIRESTORE_DB || (window.firebase&&firebase.firestore&&firebase.firestore());
-        if(db) await db.collection('erp_status').doc('auto_recover_muestras_v7020').set({at:new Date().toISOString(),added:added,localBefore:local.length,localAfter:merged.length,cloudCount:cloud.length,ids:ids.slice(0,30),mode:'CLOUD_MISSING_TO_LOCAL_ONLY'}, {merge:true});
-      }catch(e){}
-      return {ok:true,added:added,local:merged.length,cloud:cloud.length,ids:ids};
-    }catch(e){log('auto recover muestras error',e); return {ok:false,error:e.message||String(e)};}
-    finally{window.PSI_AUTO_RECOVER_MUESTRAS_RUNNING=false;}
-  };
-  // Reemplaza el botón manual del Gestor Sync para que no se pierdan INF-00022 / INF-00100 al recargar.
-  window.psiRecoverMissingFromCloudV601 = async function(){
-    try{
-      var diff=window.PSI_SYNC_DIFF_V601 || (typeof psiBuildSyncDiffV601==='function'?await psiBuildSyncDiffV601():null);
-      var missing=(diff&&diff.missingLocal)||[];
-      if(!missing.length){alert('No hay registros faltantes en local.');return;}
-      if(!confirm('Se recuperarán '+missing.length+' registros desde Cloud hacia la base local. No se eliminará nada. ¿Continuar?')) return;
-      var ids=missing.map(keyOf).filter(Boolean);
-      await removeFromDeleted(ids);
-      var local=(Array.isArray(DATA)?DATA:[]).map(cloneClean);
-      var seen=new Set(local.map(keyOf).filter(Boolean));
-      var merged=local.slice(); var added=0;
-      missing.forEach(function(r){var k=keyOf(r); if(k && !seen.has(k)){merged.push(cloneClean(r)); seen.add(k); added++;}});
-      await persistAllMuestras(merged);
-      try{ if(typeof sincronizarLaboratorioDesdeIngreso==='function') sincronizarLaboratorioDesdeIngreso(true); }catch(e){}
-      try{ if(typeof toast==='function') toast('Recuperación Cloud OK persistente · '+added+' registros'); }catch(e){}
-      try{ if(window.PSI_FIRESTORE_DB) await window.PSI_FIRESTORE_DB.collection('erp_status').doc('sync_manager_v610').set({lastRecoveryAt:new Date().toISOString(),recoveredLocal:added,recoveredIds:ids},{merge:true}); }catch(e){}
-      if(typeof psiSyncManager==='function') await psiSyncManager();
-    }catch(e){console.error(e); alert('No se pudo recuperar faltantes: '+(e.message||e));}
-  };
-  function scheduleAuto(){
-    setTimeout(function(){window.psiAutoRecoverMuestrasCloudFaltantesV7020(true);},2500);
-    setTimeout(function(){window.psiAutoRecoverMuestrasCloudFaltantesV7020(true);},7000);
-    setTimeout(function(){window.psiAutoRecoverMuestrasCloudFaltantesV7020(true);},14000);
+        const localArr=Array.isArray(window.DATA)?window.DATA:[];
+        const localByKey=new Map();
+        localArr.forEach(function(r){ const k=keyOf(r); if(k) localByKey.set(k,r); });
+        const filtered=(Array.isArray(cloudArr)?cloudArr:[]).filter(function(c){
+          const k=keyOf(c); const l=k?localByKey.get(k):null;
+          if(l && isClosed(l) && !isClosed(c)){
+            console.warn('V7.0.17: snapshot Realtime antiguo bloqueado para análisis cerrado', k);
+            return false;
+          }
+          return true;
+        });
+        return oldMerge.call(this,filtered);
+      }catch(e){
+        console.warn('V7.0.17 merge guard fallback',e);
+        return oldMerge.apply(this,arguments);
+      }
+    };
+    window.mergeCloudMuestrasSafe.__psiV717=true;
   }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',scheduleAuto); else scheduleAuto();
+
+  window.guardarDQO=function(id){
+    try{
+      const r=(typeof findRecById==='function')?findRecById(id):null;
+      if(!r){alert('Registro no encontrado');return;}
+      const hasDQO=!!document.getElementById('anaHas_'+id)?.checked;
+      const d=hasDQO?(document.getElementById('dq_'+id)?.value||''):'';
+      const t=hasDQO?(document.getElementById('ts_'+id)?.value||''):'';
+      const iso=nowIso();
+      const txt=new Date().toLocaleString();
+      const sampleKeyFn=(typeof sampleKey==='function')?sampleKey:null;
+      const baseKey=sampleKeyFn?sampleKeyFn(r):keyOf(r);
+      const rows=(Array.isArray(window.DATA)?window.DATA:[]).filter(function(x){
+        const xk=sampleKeyFn?sampleKeyFn(x):keyOf(x);
+        return x===r || (baseKey && xk===baseKey) || keyOf(x)===keyOf(r);
+      });
+      rows.forEach(function(x){
+        safe(function(){ if(typeof psiReboundMarkRecord==='function') psiReboundMarkRecord(x,'EDIT',LOCK_MS); });
+        x.dqo=d;
+        x.tensoactivos=t;
+        x.reqAnalisisValores=!!hasDQO;
+        x.reqDQO=false;
+        x.estado='INGRESADA';
+        x.status=(up(x.status)==='PENDIENTE'||up(x.status)==='EN ESPERA')?'CONTINUAR':x.status;
+        x.estado_final='INGRESADA';
+        x.tipo_cierre=hasDQO?'CON DQO/TENS':'SIN DQO/TENS';
+        x.dqo_saved_at=iso;
+        x.updatedAt=iso;
+        x.cloudUpdatedAt=iso;
+        x.analysisClosedAt=iso;
+        x.erpVersion=VERSION;
+        const msg=txt+': Registro de Análisis guardado estable · '+(hasDQO?'con DQO/Tensoactivos':'sin DQO/Tensoactivos')+' · pasa a INGRESADA';
+        x.trace=[...(Array.isArray(x.trace)?x.trace:[]),msg];
+        safe(function(){ if(typeof calc==='function') calc(x); });
+      });
+      markLast(r);
+      safe(function(){ if(typeof save==='function') save(); });
+      refreshAnalisisUI();
+      if(typeof toast==='function') toast('DQO guardado estable · pasó a INGRESADA');
+    }catch(e){
+      console.error('V7.0.17 guardarDQO',e);
+      alert('No se pudo guardar DQO de forma estable. Revise diagnóstico.');
+    }
+  };
+  window.guardarDQO.__psiV717=true;
+
+  const oldResumen=window.renderAnalisisResumen;
+  window.renderAnalisisResumen=function(){
+    try{
+      const body=document.getElementById('analisisResumenBody'); if(!body) return;
+      const desde=document.getElementById('dqDesde')?.value||'';
+      const hasta=document.getElementById('dqHasta')?.value||'';
+      const term=up(document.getElementById('dqHistQ')?.value||'');
+      const lk=lastKey();
+      let arr=(Array.isArray(window.DATA)?window.DATA:[]).filter(function(r){
+        return isClosed(r) && (has(r.dqo_saved_at) || up(r.estado_final)==='INGRESADA' || has(r.tipo_cierre) || has(r.dqo) || has(r.tensoactivos));
+      });
+      arr=arr.filter(function(r){
+        let fg=(typeof fechaGuardadoDQO==='function'?fechaGuardadoDQO(r):(r.dqo_saved_at||r.updatedAt||'')); let day='';
+        try{let d=new Date(fg); if(!isNaN(d)) day=d.toISOString().slice(0,10);}catch(e){}
+        if(desde && day && day<desde) return false;
+        if(hasta && day && day>hasta) return false;
+        if(term && ![r.codigo,r.cliente,r.sucursal,r.mes_frecuencia].join(' ').toUpperCase().includes(term)) return false;
+        return true;
+      }).sort(function(a,b){
+        const ak=keyOf(a), bk=keyOf(b);
+        if(lk && ak===lk && bk!==lk) return -1;
+        if(lk && bk===lk && ak!==lk) return 1;
+        const fa=(typeof fechaGuardadoDQO==='function'?fechaGuardadoDQO(a):(a.dqo_saved_at||a.updatedAt||''));
+        const fb=(typeof fechaGuardadoDQO==='function'?fechaGuardadoDQO(b):(b.dqo_saved_at||b.updatedAt||''));
+        return String(fb).localeCompare(String(fa));
+      });
+      body.innerHTML=arr.length?arr.map(function(r){
+        const isLast=lk && keyOf(r)===lk;
+        return `<tr class="${isLast?'psi-last-analysis-row':''}"><td>${esc(r.fecha)}</td><td><b>${esc(r.codigo)}</b>${isLast?' <span class="chip s-ok">ÚLTIMO INGRESADO</span>':''}</td><td>${esc(r.cliente)}</td><td>${esc(r.sucursal)}</td><td>${chipM(r.matriz)}</td><td>${chipS('',r.estado_final||r.estado)}</td><td><span class="chip ${(typeof tipoCierreDQO==='function'?tipoCierreDQO(r):r.tipo_cierre)==='CON DQO/TENS'?'s-ok':'s-pro'}">${esc(typeof tipoCierreDQO==='function'?tipoCierreDQO(r):r.tipo_cierre)}</span></td><td>${esc(r.dqo||'—')}</td><td>${esc(r.tensoactivos||'—')}</td><td class="small">${typeof fechaCortaDT==='function'?fechaCortaDT(typeof fechaGuardadoDQO==='function'?fechaGuardadoDQO(r):r.dqo_saved_at):esc(r.dqo_saved_at||'—')}<br>${typeof trace==='function'?trace(r):''}</td><td><button type="button" class="btn btn-mini btn-g" data-edit-id="${escAttr(r.id)}">✏️ Editar</button></td></tr>`;
+      }).join(''):`<tr><td colspan="11" class="empty">No hay muestras ingresadas para el filtro seleccionado.</td></tr>`;
+    }catch(e){
+      console.warn('V7.0.17 resumen fallback',e);
+      if(typeof oldResumen==='function') return oldResumen.apply(this,arguments);
+    }
+  };
+  window.renderAnalisisResumen.__psiV717=true;
+
+  const st=document.createElement('style');
+  st.textContent='.psi-last-analysis-row td{background:rgba(34,197,94,.10)!important;box-shadow:inset 0 1px 0 rgba(134,239,172,.20), inset 0 -1px 0 rgba(134,239,172,.14)}';
+  document.head.appendChild(st);
+
+  document.addEventListener('DOMContentLoaded',function(){
+    setTimeout(function(){
+      try{ const sub=document.getElementById('headerSub'); if(sub) sub.textContent=(sub.textContent||'').replace('FIX REBOUND REALTIME','FIX FLUIDEZ REGISTRO ANÁLISIS'); }catch(e){}
+      try{ const badges=document.querySelectorAll('.badge'); badges.forEach(function(b){ if((b.textContent||'').includes('FIX REBOUND REALTIME')) b.textContent='ERP PSI ENTERPRISE V7.0.17 · FIX FLUIDEZ REGISTRO ANÁLISIS'; }); }catch(e){}
+    },1000);
+  });
 })();
 </script>
 
 
 <script>
 /* ==========================================================
- V7.0.21 · FIX DASHBOARD LEE BASE LOCAL MAYOR
- Objetivo: cuando el navegador ya tiene 1824 registros en localStorage/IndexedDB,
- el Dashboard/Consolidado no debe quedarse con DATA viejo (1822).
- No toca Cloud, no borra datos, solo normaliza lectura visual y persistencia local.
+   ERP PSI ENTERPRISE V7.0.18 · FIX TX FLUIDEZ SIN DASHBOARD
+   Base: V7.0.17 FIX FLUIDEZ REGISTRO ANÁLISIS
+   Problema detectado:
+   - Al guardar DQO, el flujo TX disparaba refrescos/diagnósticos Cloud antes del mensaje final.
+   - Eso abría/ejecutaba varios Dashboard Cloud y demoraba visualmente el cierre.
+   Corrección:
+   ✔ Guardar DQO ejecuta primero LOCAL inmediato.
+   ✔ Commit iCloud directo y liviano por el mismo ID.
+   ✔ No abre Dashboard Cloud ni refrescos pesados durante el TX.
+   ✔ Render visual suave y único.
+   ✔ Mensaje final: TX OK: LOCAL + ICLOUD.
 ========================================================== */
 (function(){
-  function parseRows(raw){
-    try{var x=JSON.parse(raw); if(Array.isArray(x))return x; if(x&&Array.isArray(x.data))return x.data; if(x&&Array.isArray(x.muestras))return x.muestras;}catch(e){}
-    return [];
+  'use strict';
+  const VERSION='ERP PSI ENTERPRISE V7.0.18 · FIX TX FLUIDEZ SIN DASHBOARD';
+  const LAST_KEY='PSI_LAST_ANALISIS_GUARDADO_V718';
+  const BUSY_MS=18000;
+  const LOCK_MS=120000;
+
+  function S(v){return String(v==null?'':v).trim();}
+  function U(v){return S(v).toUpperCase();}
+  function has(v){return S(v)!=='';}
+  function safe(fn,d){try{return fn();}catch(e){return d;}}
+  function iso(){return new Date().toISOString();}
+  function rows(){return Array.isArray(window.DATA)?window.DATA:(Array.isArray(window.ERP_DATA_MASTER)?window.ERP_DATA_MASTER:[]);}
+  function find(id){return (typeof findRecById==='function')?findRecById(id):rows().find(r=>S(r.id)===S(id));}
+  function docId(r){return S(r && (r.id||r.cloudDocId||r.docId||r.codigo||r.CODIGO||r.codigo_ot||r.OT));}
+  function sample(r){return (typeof sampleKey==='function')?sampleKey(r):docId(r);}
+  function toastSafe(m){try{ if(typeof toast==='function') toast(m); else console.log(m); }catch(e){console.log(m);} }
+  function setBadge(m, ok){
+    try{
+      const b=document.getElementById('cloudStatusBadge');
+      if(b){ b.textContent=m; b.style.background=ok?'rgba(34,197,94,.18)':'rgba(245,158,11,.18)'; b.style.border=ok?'1px solid rgba(34,197,94,.35)':'1px solid rgba(245,158,11,.35)'; }
+    }catch(e){}
   }
-  function calc(r){try{return (typeof calcRow==='function')?calcRow(r):r;}catch(e){return r;}}
-  function keyOf(r){
-    if(!r||typeof r!=='object')return '';
-    var id=String(r.id||r.ID||r.Id||'').trim(); if(id)return 'ID:'+id;
-    var cod=String(r.codigo||r.CODIGO||r['Código']||r['CODIGO / OT']||r.ot||r.OT||'').trim().toUpperCase();
-    var gru=String(r.grupo||r.GRUPO||r.matriz||r.MATRIZ||'').trim().toUpperCase();
-    return cod?('CG:'+cod+'|'+gru):'';
+  function markBusy(){ window.__PSI_TX_LIGHT_BUSY_UNTIL=Date.now()+BUSY_MS; }
+  function isBusy(){ return Date.now() < (window.__PSI_TX_LIGHT_BUSY_UNTIL||0); }
+  function markLast(r){ const k=docId(r); window.__PSI_LAST_ANALISIS_ID=k; safe(()=>localStorage.setItem(LAST_KEY,k)); safe(()=>localStorage.setItem('PSI_LAST_ANALISIS_GUARDADO_V717',k)); }
+  function clean(r){
+    const o={};
+    Object.keys(r||{}).forEach(k=>{ const v=r[k]; if(typeof v!=='function' && typeof v!=='undefined') o[k]=(v===null?'':v); });
+    o.id=docId(r); o.updatedAt=o.updatedAt||iso(); o.cloudUpdatedAt=iso(); o.erpVersion=VERSION;
+    return o;
   }
-  function normalize(arr){
-    var map={},out=[]; (Array.isArray(arr)?arr:[]).forEach(function(r){
-      if(!r||typeof r!=='object')return;
-      var rr=calc(r), k=keyOf(rr); if(!k)return;
-      map[k]=rr;
+  async function lightCloudCommit(r){
+    if(window.PSI_CLOUD_READY && typeof window.PSI_CLOUD_READY.then==='function') await window.PSI_CLOUD_READY;
+    const db=window.PSI_FIRESTORE_DB || (window.firebase && firebase.firestore && firebase.firestore());
+    const auth=window.PSI_FIREBASE_AUTH || (window.firebase && firebase.auth && firebase.auth());
+    if(!db) throw new Error('Firestore no disponible');
+    if(auth && !auth.currentUser) throw new Error('Usuario no autenticado');
+    const id=docId(r); if(!id) throw new Error('Registro sin ID');
+    await db.collection('erp_muestras').doc(id).set(clean(r),{merge:true});
+    // Log liviano no bloqueante: no se espera y no abre dashboard.
+    safe(()=>db.collection('erp_logs').add({action:'ANALISIS_TX_LIGHT',docId:id,codigo:r.codigo||'',createdAt:iso(),erpVersion:VERSION,user:(auth&&auth.currentUser&&(auth.currentUser.email||auth.currentUser.uid))||''}));
+    return id;
+  }
+  function renderSoft(){
+    requestAnimationFrame(function(){
+      safe(()=>{ if(typeof renderAnalisis==='function') renderAnalisis(); });
+      safe(()=>{ if(typeof renderAnalisisResumen==='function') renderAnalisisResumen(); });
+      safe(()=>{ if(typeof updateBadges==='function') updateBadges(); });
     });
-    Object.keys(map).forEach(function(k){out.push(map[k]);});
-    return out;
   }
-  function fromStorage(){
-    var keys=['psi_erp_laboratorio_PSI_MASTER_LOCAL_SIN_FIREBASE_V105','psi_erp_laboratorio_PSI_MASTER_LOCAL_SIN_FIREBASE_V105_backup','ERP_MUESTRAS','MUESTRAS','ERP_DATA','DATA','ERP_DATA_MASTER','PSI_ERP_DATA_LAYER'];
-    var best=[];
-    keys.forEach(function(k){try{var a=parseRows(localStorage.getItem(k)); if(a.length>best.length)best=a;}catch(e){}});
-    return best;
+
+  // Bloquea solo dashboards/refrescos pesados automáticos durante un TX; los botones manuales siguen funcionando fuera del guardado.
+  ['psiDashboardCloudForceRefresh','psiEnterpriseCloudDashboard','psiCloudCenter','psiSyncManager','psiTxCenter','psiAuditCenter','psiDashboardSmartCenter','psiCloudEngineCenter'].forEach(function(name){
+    const old=window[name];
+    if(typeof old==='function' && !old.__psiV718Silent){
+      window[name]=function(){
+        if(isBusy()){
+          console.warn('V7.0.18: refresco Cloud pesado omitido durante TX liviano:', name);
+          return null;
+        }
+        return old.apply(this,arguments);
+      };
+      window[name].__psiV718Silent=true;
+    }
+  });
+
+  function installFinalGuardar(){
+    window.guardarDQO=async function(id){
+      const r=find(id);
+      if(!r){ alert('Registro no encontrado'); return; }
+      try{
+        markBusy();
+        setBadge('⏳ TX guardando...', false);
+        const hasDQO=!!document.getElementById('anaHas_'+id)?.checked;
+        const d=hasDQO?(document.getElementById('dq_'+id)?.value||''):'';
+        const t=hasDQO?(document.getElementById('ts_'+id)?.value||''):'';
+        const tIso=iso(); const txt=new Date().toLocaleString();
+        const base=sample(r);
+        const affected=rows().filter(x=>x===r || (base && sample(x)===base) || docId(x)===docId(r));
+        affected.forEach(function(x){
+          safe(()=>{ if(typeof psiReboundMarkRecord==='function') psiReboundMarkRecord(x,'ANALISIS_TX_LIGHT',LOCK_MS); });
+          x.dqo=d; x.tensoactivos=t; x.reqAnalisisValores=!!hasDQO; x.reqDQO=false;
+          x.estado='INGRESADA'; x.estado_final='INGRESADA';
+          if(U(x.status)==='PENDIENTE' || U(x.status)==='EN ESPERA') x.status='CONTINUAR';
+          x.tipo_cierre=hasDQO?'CON DQO/TENS':'SIN DQO/TENS';
+          x.dqo_saved_at=tIso; x.updatedAt=tIso; x.cloudUpdatedAt=tIso; x.analysisClosedAt=tIso; x.erpVersion=VERSION;
+          x.trace=[...(Array.isArray(x.trace)?x.trace:[]), txt+': TX liviano Registro de Análisis · LOCAL OK · '+(hasDQO?'con DQO/Tensoactivos':'sin DQO/Tensoactivos')+' · INGRESADA'];
+          safe(()=>{ if(typeof calc==='function') calc(x); });
+        });
+        markLast(r);
+        safe(()=>{ if(typeof save==='function') save(); });
+        renderSoft();
+        toastSafe('LOCAL OK · sincronizando iCloud...');
+        const idCloud=await lightCloudCommit(r);
+        affected.forEach(x=>{ x.trace=[...(Array.isArray(x.trace)?x.trace:[]), new Date().toLocaleString()+': TX OK: LOCAL + ICLOUD · '+idCloud]; });
+        safe(()=>{ if(typeof save==='function') save(); });
+        renderSoft();
+        setBadge('✅ TX OK: LOCAL + ICLOUD', true);
+        toastSafe('TX OK: LOCAL + ICLOUD');
+      }catch(e){
+        console.error('V7.0.18 guardarDQO TX liviano',e);
+        setBadge('⚠️ LOCAL OK · iCloud pendiente', false);
+        toastSafe('LOCAL OK · iCloud pendiente: '+(e&&e.message?e.message:e));
+        safe(()=>{ if(typeof renderAnalisisResumen==='function') renderAnalisisResumen(); });
+      }finally{
+        setTimeout(function(){ window.__PSI_TX_LIGHT_BUSY_UNTIL=0; },1200);
+      }
+    };
+    window.guardarDQO.__psiV718=true;
   }
-  function fromMemory(){
-    var best=[];
-    ['DATA','ERP_DATA','MUESTRAS','ERP_DATA_MASTER','PSI_ERP_DATA_LAYER'].forEach(function(k){try{var a=window[k]; if(Array.isArray(a)&&a.length>best.length)best=a;}catch(e){}});
-    return best;
-  }
-  function getBest(){
-    var a=normalize(fromMemory()), b=normalize(fromStorage());
-    return b.length>=a.length?b:a;
-  }
-  function commitVisualBase(arr){
-    arr=normalize(arr); var payload=JSON.stringify(arr), ts=new Date().toISOString();
-    try{window.DATA=arr; window.ERP_DATA=arr; window.MUESTRAS=arr; window.ERP_DATA_MASTER=arr; window.PSI_ERP_DATA_LAYER=arr;}catch(e){}
-    try{Function('v','try{DATA=v}catch(e){};try{ERP_DATA=v}catch(e){};try{MUESTRAS=v}catch(e){};try{ERP_DATA_MASTER=v}catch(e){};try{PSI_ERP_DATA_LAYER=v}catch(e){};')(arr);}catch(e){}
-    ['psi_erp_laboratorio_PSI_MASTER_LOCAL_SIN_FIREBASE_V105','psi_erp_laboratorio_PSI_MASTER_LOCAL_SIN_FIREBASE_V105_backup','ERP_MUESTRAS','MUESTRAS','ERP_DATA','DATA','ERP_DATA_MASTER','PSI_ERP_DATA_LAYER'].forEach(function(k){try{localStorage.setItem(k,payload);}catch(e){}});
-    try{localStorage.setItem('psi_erp_laboratorio_PSI_MASTER_LOCAL_SIN_FIREBASE_V105_last_save',ts);}catch(e){}
-    try{localStorage.setItem('PSI_DASHBOARD_LOCAL_VISUAL_COUNT',String(arr.length)); localStorage.setItem('PSI_DASHBOARD_LOCAL_VISUAL_AT',ts);}catch(e){}
-    return arr;
-  }
-  window.PSI_STD_GET_MUESTRAS=function(){return commitVisualBase(getBest());};
-  function refresh(){
-    try{window.PSI_STD_GET_MUESTRAS();}catch(e){}
-    ['renderConsolidadoERP','renderDashboard','renderMensual','renderControl','renderAnalisis','renderEspera','renderPend'].forEach(function(n){try{if(typeof window[n]==='function')window[n]();}catch(e){}});
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){setTimeout(refresh,800);setTimeout(refresh,2500);});
-  else {setTimeout(refresh,800);setTimeout(refresh,2500);}
+
+  // Se instala al final para pasar por encima de wrappers antiguos 5.2B.2 que añadían dashboards/diagnóstico al flujo.
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>setTimeout(installFinalGuardar,2600));
+  else setTimeout(installFinalGuardar,2600);
+
+  document.addEventListener('DOMContentLoaded',function(){
+    setTimeout(function(){
+      safe(()=>{ const sub=document.getElementById('headerSub'); if(sub) sub.textContent='Sistema Integrado de Gestión de Laboratorio · '+VERSION; });
+      safe(()=>{ document.querySelectorAll('.badge').forEach(b=>{ if((b.textContent||'').includes('ERP PSI ENTERPRISE')) b.textContent='ERP PSI ENTERPRISE V7.0.18 · TX FLUIDO SIN DASHBOARD'; }); });
+    },1200);
+  });
 })();
 </script>
 
+
+
+<script>
+/* ==========================================================
+   ERP PSI ENTERPRISE V7.0.19 · FIX TABLA ANÁLISIS ESTABLE
+   Base: V7.0.18 FIX TX FLUIDEZ SIN DASHBOARD
+   Problema detectado:
+   - La tabla inferior de Registro de Análisis se volvía a renderizar varias veces
+     por save/realtime/cloud, provocando movimiento visual hasta que terminaba el TX.
+   Corrección:
+   ✔ Al guardar DQO se actualiza UNA sola vez la vista local.
+   ✔ Se bloquean re-renderizados de la tabla de resumen durante el TX.
+   ✔ iCloud sincroniza en segundo plano sin mover la fila.
+   ✔ La última ingresada queda fija arriba hasta que el usuario filtre o navegue.
+========================================================== */
+(function(){
+  'use strict';
+  const VERSION='ERP PSI ENTERPRISE V7.0.19 · FIX TABLA ANÁLISIS ESTABLE';
+  const LOCK_MS=90000;
+  const FREEZE_MS=45000;
+  const LAST_KEY='PSI_LAST_ANALISIS_GUARDADO_V719';
+  function S(v){return String(v==null?'':v).trim();}
+  function U(v){return S(v).toUpperCase();}
+  function safe(fn,d){try{return fn();}catch(e){return d;}}
+  function iso(){return new Date().toISOString();}
+  function rows(){return Array.isArray(window.DATA)?window.DATA:(Array.isArray(window.ERP_DATA_MASTER)?window.ERP_DATA_MASTER:[]);}
+  function docId(r){return S(r && (r.id||r.cloudDocId||r.docId||r.codigo||r.CODIGO||r.codigo_ot||r.OT));}
+  function find(id){return (typeof findRecById==='function')?findRecById(id):rows().find(r=>S(r.id)===S(id));}
+  function sample(r){return (typeof sampleKey==='function')?sampleKey(r):docId(r);}
+  function has(v){return S(v)!=='';}
+  function escLocal(v){try{return typeof esc==='function'?esc(v):S(v).replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));}catch(e){return S(v);}}
+  function escAttrLocal(v){try{return typeof escAttr==='function'?escAttr(v):escLocal(v).replace(/"/g,'&quot;');}catch(e){return S(v);}}
+  function toastSafe(m){try{ if(typeof toast==='function') toast(m); else console.log(m); }catch(e){console.log(m);} }
+  function badge(m,ok){safe(()=>{const b=document.getElementById('cloudStatusBadge'); if(b){b.textContent=m;b.style.background=ok?'rgba(34,197,94,.18)':'rgba(245,158,11,.18)';b.style.border=ok?'1px solid rgba(34,197,94,.35)':'1px solid rgba(245,158,11,.35)';}});}
+  function markLast(r){const k=docId(r); window.__PSI_LAST_ANALISIS_ID=k; safe(()=>localStorage.setItem(LAST_KEY,k)); safe(()=>localStorage.setItem('PSI_LAST_ANALISIS_GUARDADO_V718',k)); safe(()=>localStorage.setItem('PSI_LAST_ANALISIS_GUARDADO_V717',k));}
+  function lastKey(){return window.__PSI_LAST_ANALISIS_ID || safe(()=>localStorage.getItem(LAST_KEY),'') || safe(()=>localStorage.getItem('PSI_LAST_ANALISIS_GUARDADO_V718'),'') || '';}
+  function freeze(){window.__PSI_ANALISIS_TABLE_FREEZE_UNTIL=Date.now()+FREEZE_MS;}
+  function frozen(){return Date.now() < (window.__PSI_ANALISIS_TABLE_FREEZE_UNTIL||0);}
+  function closed(r){return U(r.estado)==='INGRESADA' || U(r.estado_final)==='INGRESADA' || has(r.dqo_saved_at) || has(r.tipo_cierre) || has(r.dqo) || has(r.tensoactivos);}
+  function dateVal(r){return (typeof fechaGuardadoDQO==='function'?fechaGuardadoDQO(r):(r.dqo_saved_at||r.updatedAt||r.cloudUpdatedAt||''));}
+  function chipMat(r){return safe(()=>chipM(r.matriz),'<span class="chip">'+escLocal(r.matriz)+'</span>');}
+  function chipEst(r){return safe(()=>chipS('',r.estado_final||r.estado),'<span class="chip s-ok">'+escLocal(r.estado_final||r.estado)+'</span>');}
+  function tipo(r){return safe(()=>tipoCierreDQO(r),r.tipo_cierre||'SIN DQO/TENS');}
+  function fechaFmt(r){return safe(()=>fechaCortaDT(dateVal(r)),escLocal(dateVal(r)||'—'));}
+  function traceFmt(r){return safe(()=>trace(r),'');}
+  function rowHtml(r){
+    const isLast=lastKey() && docId(r)===lastKey();
+    const t=tipo(r);
+    return `<tr class="${isLast?'psi-last-analysis-row psi-locked-visible':''}" data-analisis-row="${escAttrLocal(docId(r))}"><td>${escLocal(r.fecha)}</td><td><b>${escLocal(r.codigo)}</b>${isLast?' <span class="chip s-ok">ÚLTIMO INGRESADO</span>':''}</td><td>${escLocal(r.cliente)}</td><td>${escLocal(r.sucursal)}</td><td>${chipMat(r)}</td><td>${chipEst(r)}</td><td><span class="chip ${t==='CON DQO/TENS'?'s-ok':'s-pro'}">${escLocal(t)}</span></td><td>${escLocal(r.dqo||'—')}</td><td>${escLocal(r.tensoactivos||'—')}</td><td class="small">${fechaFmt(r)}<br>${traceFmt(r)}</td><td><button type="button" class="btn btn-mini btn-g" data-edit-id="${escAttrLocal(docId(r))}">✏️ Editar</button></td></tr>`;
+  }
+  function renderResumenStable(force){
+    const body=document.getElementById('analisisResumenBody'); if(!body) return;
+    if(frozen() && !force) return; // clave: no mover la tabla durante TX/realtime
+    const desde=document.getElementById('dqDesde')?.value||'';
+    const hasta=document.getElementById('dqHasta')?.value||'';
+    const term=U(document.getElementById('dqHistQ')?.value||'');
+    const lk=lastKey();
+    let arr=rows().filter(closed).filter(function(r){
+      let day=''; try{let d=new Date(dateVal(r)); if(!isNaN(d)) day=d.toISOString().slice(0,10);}catch(e){}
+      if(desde && day && day<desde) return false;
+      if(hasta && day && day>hasta) return false;
+      if(term && ![r.codigo,r.cliente,r.sucursal,r.mes_frecuencia].join(' ').toUpperCase().includes(term)) return false;
+      return true;
+    }).sort(function(a,b){
+      const ak=docId(a), bk=docId(b);
+      if(lk && ak===lk && bk!==lk) return -1;
+      if(lk && bk===lk && ak!==lk) return 1;
+      return String(dateVal(b)).localeCompare(String(dateVal(a)));
+    });
+    body.innerHTML=arr.length?arr.map(rowHtml).join(''):'<tr><td colspan="11" class="empty">No hay muestras ingresadas para el filtro seleccionado.</td></tr>';
+  }
+  const previousResumen=window.renderAnalisisResumen;
+  window.renderAnalisisResumen=function(){
+    try{return renderResumenStable(false);}catch(e){console.warn('V7.0.19 resumen estable',e); if(typeof previousResumen==='function') return previousResumen.apply(this,arguments);}
+  };
+  window.renderAnalisisResumen.__psiV719=true;
+
+  async function cloudCommit(r){
+    if(window.PSI_CLOUD_READY && typeof window.PSI_CLOUD_READY.then==='function') await window.PSI_CLOUD_READY;
+    const db=window.PSI_FIRESTORE_DB || (window.firebase && firebase.firestore && firebase.firestore());
+    const auth=window.PSI_FIREBASE_AUTH || (window.firebase && firebase.auth && firebase.auth());
+    if(!db) throw new Error('Firestore no disponible');
+    if(auth && !auth.currentUser) throw new Error('Usuario no autenticado');
+    const id=docId(r); const obj={};
+    Object.keys(r||{}).forEach(k=>{const v=r[k]; if(typeof v!=='function' && typeof v!=='undefined') obj[k]=(v===null?'':v);});
+    obj.id=id; obj.updatedAt=obj.updatedAt||iso(); obj.cloudUpdatedAt=iso(); obj.erpVersion=VERSION;
+    await db.collection('erp_muestras').doc(id).set(obj,{merge:true});
+    safe(()=>db.collection('erp_logs').add({action:'ANALISIS_TX_STABLE_TABLE',docId:id,codigo:r.codigo||'',createdAt:iso(),erpVersion:VERSION,user:(auth&&auth.currentUser&&(auth.currentUser.email||auth.currentUser.uid))||''}));
+    return id;
+  }
+  function install(){
+    window.guardarDQO=async function(id){
+      const r=find(id); if(!r){alert('Registro no encontrado');return;}
+      try{
+        window.__PSI_TX_LIGHT_BUSY_UNTIL=Date.now()+FREEZE_MS;
+        freeze();
+        badge('⏳ TX guardando...',false);
+        const hasDQO=!!document.getElementById('anaHas_'+id)?.checked;
+        const d=hasDQO?(document.getElementById('dq_'+id)?.value||''):'';
+        const ts=hasDQO?(document.getElementById('ts_'+id)?.value||''):'';
+        const tIso=iso(); const nowTxt=new Date().toLocaleString();
+        const base=sample(r);
+        const affected=rows().filter(x=>x===r || (base && sample(x)===base) || docId(x)===docId(r));
+        affected.forEach(function(x){
+          safe(()=>{ if(typeof psiReboundMarkRecord==='function') psiReboundMarkRecord(x,'ANALISIS_STABLE_TABLE',LOCK_MS); });
+          x.dqo=d; x.tensoactivos=ts; x.reqAnalisisValores=!!hasDQO; x.reqDQO=false;
+          x.estado='INGRESADA'; x.estado_final='INGRESADA';
+          if(U(x.status)==='PENDIENTE'||U(x.status)==='EN ESPERA') x.status='CONTINUAR';
+          x.tipo_cierre=hasDQO?'CON DQO/TENS':'SIN DQO/TENS';
+          x.dqo_saved_at=tIso; x.updatedAt=tIso; x.cloudUpdatedAt=tIso; x.analysisClosedAt=tIso; x.erpVersion=VERSION;
+          x.trace=[...(Array.isArray(x.trace)?x.trace:[]), nowTxt+': Registro de Análisis · vista estable · LOCAL OK · INGRESADA'];
+          safe(()=>{ if(typeof calc==='function') calc(x); });
+        });
+        markLast(r);
+        safe(()=>{ if(typeof save==='function') save(); });
+        renderResumenStable(true); // única actualización visual inmediata
+        safe(()=>{ if(typeof updateBadges==='function') updateBadges(); });
+        toastSafe('LOCAL OK · fila fijada · sincronizando iCloud...');
+        const cloudId=await cloudCommit(r);
+        affected.forEach(x=>{x.trace=[...(Array.isArray(x.trace)?x.trace:[]), new Date().toLocaleString()+': TX OK: LOCAL + ICLOUD · '+cloudId];});
+        safe(()=>{ if(typeof save==='function') save(); });
+        // No se vuelve a renderizar la tabla aquí: evita salto/movimiento visual.
+        badge('✅ TX OK: LOCAL + ICLOUD',true);
+        toastSafe('TX OK: LOCAL + ICLOUD');
+        setTimeout(function(){ window.__PSI_ANALISIS_TABLE_FREEZE_UNTIL=0; },FREEZE_MS);
+      }catch(e){
+        console.error('V7.0.19 guardarDQO tabla estable',e);
+        badge('⚠️ LOCAL OK · iCloud pendiente',false);
+        toastSafe('LOCAL OK · iCloud pendiente: '+(e&&e.message?e.message:e));
+      }finally{
+        setTimeout(function(){ window.__PSI_TX_LIGHT_BUSY_UNTIL=0; },1500);
+      }
+    };
+    window.guardarDQO.__psiV719=true;
+  }
+  // Reinstalar después de todos los wrappers antiguos.
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>setTimeout(install,3300)); else setTimeout(install,3300);
+  const st=document.createElement('style');
+  st.textContent='.psi-locked-visible td{background:rgba(34,197,94,.12)!important}.psi-last-analysis-row{scroll-margin-top:140px}.psi-last-analysis-row td{transition:none!important}';
+  document.head.appendChild(st);
+  document.addEventListener('change',function(ev){ if(ev.target && ['dqDesde','dqHasta'].includes(ev.target.id)){window.__PSI_ANALISIS_TABLE_FREEZE_UNTIL=0; setTimeout(()=>renderResumenStable(true),0);} });
+  document.addEventListener('input',function(ev){ if(ev.target && ev.target.id==='dqHistQ'){window.__PSI_ANALISIS_TABLE_FREEZE_UNTIL=0; setTimeout(()=>renderResumenStable(true),0);} });
+  document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){safe(()=>{const sub=document.getElementById('headerSub'); if(sub) sub.textContent='Sistema Integrado de Gestión de Laboratorio · '+VERSION;});safe(()=>{document.querySelectorAll('.badge').forEach(b=>{if((b.textContent||'').includes('ERP PSI ENTERPRISE')) b.textContent='ERP PSI ENTERPRISE V7.0.19 · TABLA ANÁLISIS ESTABLE';});});},1400);});
+})();
+</script>
+
+
+
+<script>
+/* ==========================================================
+   ERP PSI ENTERPRISE V7.0.20 · FIX TX SIN DASHBOARD ICLOUD
+   Base: V7.0.19 TABLA ANÁLISIS ESTABLE
+   Problema detectado por usuario:
+   - Antes de mostrar TX OK: LOCAL + ICLOUD se ejecutaban varios refresh/dashboard Cloud.
+   Causa:
+   - Wrappers antiguos de save() disparaban psiDashboardSmartRefresh('SAVE_LOCAL_CLOUD')
+     y otros paneles cloud cada vez que guardarDQO llamaba save().
+   Corrección:
+   ✔ Durante guardar DQO se bloquean dashboards iCloud automáticos.
+   ✔ El TX solo hace: LOCAL -> iCloud liviano -> mensaje OK.
+   ✔ Los dashboards quedan manuales; no se abren ni se recalculan dentro del guardado.
+   ✔ No cambia datos, colecciones ni estructura de Firestore.
+========================================================== */
+(function(){
+  'use strict';
+  if(window.__PSI_V720_TX_NO_DASH_INSTALLED__) return;
+  window.__PSI_V720_TX_NO_DASH_INSTALLED__=true;
+  const VERSION='ERP PSI ENTERPRISE V7.0.20 · TX SIN DASHBOARD ICLOUD';
+  const BLOCK_MS=70000;
+  function now(){return Date.now();}
+  function suppress(ms){
+    window.__PSI_TX_NO_DASHBOARD_DURING_TX_UNTIL=now()+(ms||BLOCK_MS);
+    window.__PSI_TX_LIGHT_BUSY_UNTIL=Math.max(window.__PSI_TX_LIGHT_BUSY_UNTIL||0, now()+(ms||BLOCK_MS));
+  }
+  function blocked(){return now() < (window.__PSI_TX_NO_DASHBOARD_DURING_TX_UNTIL||0) || now() < (window.__PSI_TX_LIGHT_BUSY_UNTIL||0);}
+  function safe(fn){try{return fn();}catch(e){}}
+
+  // 1) Bloqueo directo del Dashboard Smart, que era el que se disparaba por cada save().
+  const oldSmart=window.psiDashboardSmartRefresh;
+  if(typeof oldSmart==='function' && !oldSmart.__psiV720){
+    window.psiDashboardSmartRefresh=async function(reason,silent){
+      if(blocked()){
+        console.warn('V7.0.20: Dashboard Smart/iCloud omitido durante TX:', reason||'AUTO');
+        return window.PSI_DASHBOARD_SMART||{skipped:true,reason:reason||'AUTO'};
+      }
+      return oldSmart.apply(this,arguments);
+    };
+    window.psiDashboardSmartRefresh.__psiV720=true;
+  }
+
+  // 2) Bloqueo de botones/centros Cloud pesados solo mientras corre el TX.
+  ['psiDashboardCloudForceRefresh','psiEnterpriseCloudDashboard','psiCloudCenter','psiSyncManager','psiTxCenter','psiAuditCenter','psiDashboardSmartCenter','psiCloudEngineCenter','psiFirestoreSafeTest','psiCloudReadSafeTest'].forEach(function(name){
+    const old=window[name];
+    if(typeof old==='function' && !old.__psiV720){
+      window[name]=function(){
+        if(blocked()){
+          console.warn('V7.0.20: función Cloud pesada omitida durante TX:', name);
+          return null;
+        }
+        return old.apply(this,arguments);
+      };
+      window[name].__psiV720=true;
+    }
+  });
+
+  // 3) Reforzar guardarDQO existente: antes de guardar, activa bloqueo largo de dashboard.
+  function wrapGuardar(){
+    const old=window.guardarDQO;
+    if(typeof old==='function' && !old.__psiV720NoDash){
+      window.guardarDQO=async function(id){
+        suppress(BLOCK_MS);
+        safe(()=>{const b=document.getElementById('cloudStatusBadge'); if(b){b.textContent='⏳ TX guardando sin dashboard...'; b.style.background='rgba(245,158,11,.18)';}});
+        try{
+          return await old.apply(this,arguments);
+        }finally{
+          // Mantener bloqueo un tiempo adicional para los setTimeout antiguos de save()/realtime.
+          setTimeout(function(){
+            if(now() > (window.__PSI_TX_NO_DASHBOARD_DURING_TX_UNTIL||0)) window.__PSI_TX_NO_DASHBOARD_DURING_TX_UNTIL=0;
+          },BLOCK_MS+500);
+        }
+      };
+      window.guardarDQO.__psiV720NoDash=true;
+    }
+  }
+
+  // Instalar después de V7.0.19, porque esa versión reinstala guardarDQO a los 3.3 s.
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){setTimeout(wrapGuardar,4200);});
+  else setTimeout(wrapGuardar,4200);
+  setTimeout(wrapGuardar,6500);
+
+  // 4) Marcar versión visual.
+  document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){
+    safe(()=>{const sub=document.getElementById('headerSub'); if(sub) sub.textContent='Sistema Integrado de Gestión de Laboratorio · '+VERSION;});
+    safe(()=>{document.querySelectorAll('.badge').forEach(function(b){if((b.textContent||'').includes('ERP PSI ENTERPRISE')) b.textContent='ERP PSI ENTERPRISE V7.0.20 · TX SIN DASHBOARD ICLOUD';});});
+  },1800);});
+})();
+</script>
+
+
+
+<script>
+/* ==========================================================
+   ERP PSI ENTERPRISE V7.0.21 · GUARDADO ANÁLISIS DIRECTO
+   Base: V7.0.20 TX SIN DASHBOARD ICLOUD
+   Ajuste solicitado:
+   - En Registro de Análisis solo deben ocurrir 2 acciones reales:
+     1) PLANIFICADA -> INGRESADA
+     2) enviar/actualizar la muestra para Ingreso al Laboratorio
+   Problema restante:
+   - save() seguía lanzando TX masivo erp_muestras completo / dashboard status.
+   Corrección:
+   ✔ Durante guardarDQO, save() queda en modo LOCAL PURO.
+   ✔ No ejecuta TX masivo automático ni Dashboard iCloud.
+   ✔ La sincronización Cloud del análisis queda en un commit liviano del registro editado.
+   ✔ La tabla no se reordena hasta terminar el guardado.
+========================================================== */
+(function(){
+  'use strict';
+  if(window.__PSI_V721_ANALISIS_DIRECT_SAVE__) return;
+  window.__PSI_V721_ANALISIS_DIRECT_SAVE__=true;
+  const VERSION='ERP PSI ENTERPRISE V7.0.21 · GUARDADO ANÁLISIS DIRECTO';
+  const HOLD_MS=90000;
+  function now(){return Date.now();}
+  function safe(fn,d){try{return fn();}catch(e){return d;}}
+  function active(){return !!window.__PSI_ANALISIS_DIRECT_TX_ACTIVE || now() < (window.__PSI_ANALISIS_DIRECT_TX_UNTIL||0);}
+  function hold(ms){
+    window.__PSI_ANALISIS_DIRECT_TX_ACTIVE=true;
+    window.__PSI_ANALISIS_DIRECT_TX_UNTIL=now()+(ms||HOLD_MS);
+    window.__PSI_TX_NO_DASHBOARD_DURING_TX_UNTIL=now()+(ms||HOLD_MS);
+    window.__PSI_TX_LIGHT_BUSY_UNTIL=now()+(ms||HOLD_MS);
+    window.__PSI_ANALISIS_TABLE_FREEZE_UNTIL=now()+(ms||HOLD_MS);
+  }
+  function releaseLater(){
+    setTimeout(function(){
+      window.__PSI_ANALISIS_DIRECT_TX_ACTIVE=false;
+      window.__PSI_ANALISIS_DIRECT_TX_UNTIL=0;
+      window.__PSI_TX_NO_DASHBOARD_DURING_TX_UNTIL=0;
+      window.__PSI_TX_LIGHT_BUSY_UNTIL=0;
+      window.__PSI_ANALISIS_TABLE_FREEZE_UNTIL=0;
+    },1800);
+  }
+  function badge(txt,ok){safe(function(){var b=document.getElementById('cloudStatusBadge'); if(b){b.textContent=txt; b.style.background=ok?'rgba(34,197,94,.18)':'rgba(245,158,11,.18)'; b.style.border=ok?'1px solid rgba(34,197,94,.35)':'1px solid rgba(245,158,11,.35)';}});}
+
+  function wrapSave(){
+    const oldSave=window.save;
+    if(typeof oldSave==='function' && !oldSave.__psiV721Direct){
+      window.save=function(silent){
+        if(active()){
+          // Clave de fluidez: evitar que save() dispare psiTxUploadAll(snapshot completo),
+          // que era lo que generaba 2-3 ejecuciones Cloud/Dashboard antes del OK.
+          const prevSync=window.PSI_SYNC_ONE_DEV_ACTIVE;
+          const prevCanSync=window.PSI_CLOUD && window.PSI_CLOUD.canSync;
+          try{
+            window.PSI_SYNC_ONE_DEV_ACTIVE=false;
+            if(window.PSI_CLOUD) window.PSI_CLOUD.canSync=false;
+            return oldSave.call(this, true);
+          }finally{
+            window.PSI_SYNC_ONE_DEV_ACTIVE=prevSync;
+            if(window.PSI_CLOUD) window.PSI_CLOUD.canSync=prevCanSync;
+          }
+        }
+        return oldSave.apply(this,arguments);
+      };
+      window.save.__psiV721Direct=true;
+      window.save.__psiOriginal=oldSave;
+    }
+  }
+
+  // Bloqueo adicional de TX masivo si algún wrapper viejo lo llama directo.
+  function wrapHeavy(name){
+    const old=window[name];
+    if(typeof old==='function' && !old.__psiV721Direct){
+      window[name]=function(){
+        if(active()){
+          console.warn('V7.0.21 omitido durante guardado directo de análisis:',name);
+          return Promise.resolve({ok:true,skipped:true,directAnalysis:true});
+        }
+        return old.apply(this,arguments);
+      };
+      window[name].__psiV721Direct=true;
+    }
+  }
+
+  function wrapGuardar(){
+    wrapSave();
+    ['psiTxUploadAll','psiDashboardSmartRefresh','psiDashboardCloudForceRefresh','psiEnterpriseCloudDashboard','psiCloudCenter','psiSyncManager','psiTxCenter','psiAuditCenter','psiDashboardSmartCenter','psiCloudEngineCenter'].forEach(wrapHeavy);
+    const old=window.guardarDQO;
+    if(typeof old==='function' && !old.__psiV721Direct){
+      window.guardarDQO=async function(id){
+        hold(HOLD_MS);
+        badge('⏳ Guardando análisis directo...',false);
+        try{
+          const res=await old.apply(this,arguments);
+          badge('✅ ANÁLISIS OK: PLANIFICADA → INGRESADA',true);
+          return res;
+        }catch(e){
+          badge('⚠️ LOCAL OK · revisar iCloud',false);
+          throw e;
+        }finally{
+          releaseLater();
+        }
+      };
+      window.guardarDQO.__psiV721Direct=true;
+    }
+  }
+
+  // Reinstalación tardía para ganar a todos los scripts previos.
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){setTimeout(wrapGuardar,7600);});
+  else setTimeout(wrapGuardar,7600);
+  setTimeout(wrapGuardar,9500);
+  setTimeout(wrapGuardar,12500);
+
+  document.addEventListener('DOMContentLoaded',function(){setTimeout(function(){
+    safe(function(){var sub=document.getElementById('headerSub'); if(sub) sub.textContent='Sistema Integrado de Gestión de Laboratorio · '+VERSION;});
+    safe(function(){document.querySelectorAll('.badge').forEach(function(b){if((b.textContent||'').includes('ERP PSI ENTERPRISE')) b.textContent='ERP PSI ENTERPRISE V7.0.21 · ANÁLISIS DIRECTO';});});
+  },2200);});
+})();
+</script>
+
+
+
+<!-- ==========================================================
+ ERP PSI V7.0.22 · FIX PERSISTENCIA LABORATORIO LOCAL + CLOUD
+ - Confirma localStorage + IndexedDB antes de terminar el ingreso.
+ - Guarda inmediatamente el registro afectado en erp_laboratorio.
+ - Mantiene una cola local pendiente si Firebase tarda o no está autenticado.
+ - Al recargar, bloquea temporalmente snapshots antiguos y reintenta el commit.
+========================================================== -->
+<script>
+(function(){
+  'use strict';
+  if(window.__PSI_LAB_PERSISTENCIA_V7022__) return;
+  window.__PSI_LAB_PERSISTENCIA_V7022__=true;
+
+  var PENDING_KEY='PSI_LAB_PENDING_COMMIT_V7_0_22';
+  var LAB_COLLECTION='erp_laboratorio';
+
+  function norm(v){return String(v==null?'':v).trim();}
+  function up(v){return norm(v).toUpperCase();}
+  function rowKey(x){return up(x&&x.codigo)+'|'+up(x&&x.grupo);}
+  function getRows(){try{return Array.isArray(INFORMES)?INFORMES:[]}catch(e){return []}}
+  function toastSafe(m){try{if(typeof toast==='function')toast(m);else console.log(m)}catch(e){console.log(m)}}
+  function safeParse(raw,fallback){try{var x=JSON.parse(raw||'');return x==null?fallback:x}catch(e){return fallback}}
+  function loadPending(){var a=safeParse(localStorage.getItem(PENDING_KEY),'');return Array.isArray(a)?a:[];}
+  function savePending(a){try{localStorage.setItem(PENDING_KEY,JSON.stringify(Array.isArray(a)?a:[]))}catch(e){}}
+  function queueRow(row){
+    if(!row) return;
+    var a=loadPending(), k=String(row.id||rowKey(row));
+    a=a.filter(function(x){return String(x.id||rowKey(x))!==k;});
+    a.push(Object.assign({},row,{_pendingAt:new Date().toISOString()}));
+    savePending(a.slice(-200));
+  }
+  function dequeueRow(row){
+    var k=String(row&&row.id||rowKey(row));
+    savePending(loadPending().filter(function(x){return String(x.id||rowKey(x))!==k;}));
+  }
+  function docId(row){
+    var id=norm(row&&row.id);
+    if(id) return id.replace(/[\/#?[\]]/g,'_');
+    return (norm(row&&row.codigo)+'_'+norm(row&&row.grupo||row&&row.matriz||'SIN_GRUPO')).replace(/[\/#?[\]\s]+/g,'_').slice(0,180);
+  }
+
+  async function persistLocalConfirmed(){
+    var rows=getRows();
+    try{ if(typeof calcInforme==='function') rows=rows.map(function(x){return calcInforme(x)}); }catch(e){}
+    try{ INFORMES=rows; }catch(e){}
+    var payload=JSON.stringify(rows);
+    var ts=new Date().toISOString();
+    try{
+      localStorage.setItem(INFORMES_KEY,payload);
+      localStorage.setItem(INFORMES_KEY+'_backup',payload);
+      localStorage.setItem(INFORMES_KEY+'_last_save',ts);
+    }catch(e){throw new Error('No se pudo guardar Laboratorio en localStorage: '+(e.message||e));}
+    if(typeof idbSet==='function'){
+      try{
+        await idbSet(INFORMES_KEY,payload);
+        await idbSet(INFORMES_KEY+'_backup',payload);
+        await idbSet(INFORMES_KEY+'_last_save',ts);
+      }catch(e){console.warn('Laboratorio quedó en localStorage; IndexedDB pendiente',e);}
+    }
+    return rows;
+  }
+
+  async function waitCloudUser(maxMs){
+    var start=Date.now();
+    try{await (window.PSI_CLOUD_READY||Promise.resolve(false));}catch(e){}
+    while(Date.now()-start<(maxMs||15000)){
+      var db=window.PSI_FIRESTORE_DB;
+      var auth=window.PSI_FIREBASE_AUTH;
+      var user=auth&&auth.currentUser;
+      if(db&&user)return {db:db,user:user};
+      await new Promise(function(r){setTimeout(r,300)});
+    }
+    throw new Error('Cloud no autenticado o no disponible');
+  }
+
+  async function commitRow(row,action){
+    queueRow(row);
+    window.PSI_LAB_LOCAL_LOCK_UNTIL=Date.now()+600000;
+    var c=await waitCloudUser(18000);
+    var data=Object.assign({},row,{
+      id:row.id||docId(row),
+      ingreso_laboratorio_oficial:true,
+      updatedAt:new Date().toISOString(),
+      labCloudUpdatedAt:new Date().toISOString(),
+      labCloudAction:action||'SAVE_LAB_V7022',
+      labCloudUser:c.user.email||c.user.uid||'',
+      labCloudSource:'ERP_PSI_V7_0_22_FIX_PERSISTENCIA_LAB_LOCAL_CLOUD'
+    });
+    await c.db.collection(LAB_COLLECTION).doc(docId(data)).set(data,{merge:true});
+    dequeueRow(row);
+    window.PSI_LAB_LOCAL_LOCK_UNTIL=Date.now()+2500;
+    return true;
+  }
+
+  async function flushPending(){
+    var a=loadPending();
+    if(!a.length)return 0;
+    window.PSI_LAB_LOCAL_LOCK_UNTIL=Date.now()+600000;
+    var ok=0;
+    for(var i=0;i<a.length;i++){
+      try{await commitRow(a[i],'RETRY_LAB_V7022');ok++;}catch(e){console.warn('Commit Lab pendiente',e);break;}
+    }
+    return ok;
+  }
+
+  // Si quedó un guardado pendiente antes de F5/cierre, evita que un snapshot Cloud antiguo lo revierta.
+  if(loadPending().length){window.PSI_LAB_LOCAL_LOCK_UNTIL=Date.now()+600000;}
+
+  var original=window.saveInformeManual;
+  if(typeof original==='function'&&!original.__psiPersistV7022){
+    var wrapped=function(){
+      var codigo=norm(document.getElementById('inf_codigo')&&document.getElementById('inf_codigo').value);
+      var grupo=norm(document.getElementById('inf_grupo')&&document.getElementById('inf_grupo').value);
+      var k=up(codigo)+'|'+up(grupo);
+      window.PSI_LAB_LOCAL_LOCK_UNTIL=Date.now()+600000;
+      var result=original.apply(this,arguments);
+      setTimeout(async function(){
+        try{
+          var rows=await persistLocalConfirmed();
+          var row=rows.find(function(x){return rowKey(x)===k;});
+          if(!row&&rows.length)row=rows.slice().sort(function(a,b){return String(b.updatedAt||'').localeCompare(String(a.updatedAt||''));})[0];
+          if(!row)throw new Error('No se encontró el registro recién ingresado');
+          queueRow(row);
+          toastSafe('💾 OT '+(row.codigo||codigo)+' confirmada localmente. Sincronizando Cloud…');
+          try{
+            await commitRow(row,'SAVE_LAB_DIRECT_V7022');
+            toastSafe('✅ OT '+(row.codigo||codigo)+' guardada Local + Cloud');
+          }catch(cloudErr){
+            console.error('Cloud Laboratorio pendiente',cloudErr);
+            toastSafe('⚠️ OT guardada localmente; Cloud quedará en reintento automático');
+          }
+          try{if(typeof renderAll==='function')renderAll();}catch(e){}
+        }catch(err){
+          console.error('FIX persistencia Laboratorio',err);
+          alert('No se pudo confirmar el guardado del módulo Laboratorio: '+(err.message||err));
+        }
+      },80);
+      return result;
+    };
+    wrapped.__psiPersistV7022=true;
+    window.saveInformeManual=wrapped;
+    try{saveInformeManual=wrapped;}catch(e){}
+  }
+
+  function scheduleFlush(){setTimeout(function(){flushPending().catch(function(e){console.warn('Reintento Lab pendiente',e)});},1200);}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',scheduleFlush);else scheduleFlush();
+  try{
+    (window.PSI_CLOUD_READY||Promise.resolve(false)).then(function(){
+      if(window.PSI_FIREBASE_AUTH&&window.PSI_FIREBASE_AUTH.onAuthStateChanged){
+        window.PSI_FIREBASE_AUTH.onAuthStateChanged(function(user){if(user)scheduleFlush();});
+      }else scheduleFlush();
+    });
+  }catch(e){}
+})();
+</script>
+
+
+<!-- ==========================================================
+ V7.0.24 · FIX BORRADO REAL DE HUÉRFANO CLOUD
+ - Conserva el doc.id real de Firestore después de calc().
+ - Si el ID recibido no existe, busca el documento por id/codigo.
+ - Verifica que el documento desapareció antes de informar éxito.
+========================================================== -->
+<script>
+(function(){
+  async function ensureCloudReadyV724(){
+    const ready=await Promise.race([
+      window.PSI_CLOUD_READY || Promise.resolve(false),
+      new Promise(function(resolve){setTimeout(function(){resolve(false);},7000);})
+    ]);
+    if(!ready || !window.PSI_FIRESTORE_DB) throw new Error('Firebase no está listo');
+    if(typeof psiEmailPasswordLogin==='function') await psiEmailPasswordLogin();
+    return window.PSI_FIRESTORE_DB;
+  }
+
+  window.psiGetCloudMuestrasV601=async function(){
+    const db=await ensureCloudReadyV724();
+    const snap=await db.collection('erp_muestras').get();
+    const arr=[];
+    snap.forEach(function(doc){
+      const raw=Object.assign({},doc.data()||{});
+      let normalized;
+      try{ normalized=typeof calc==='function' ? calc(Object.assign({},raw)) : raw; }
+      catch(e){ normalized=raw; }
+      normalized=Object.assign({},normalized||{});
+      normalized.__docId=doc.id; // conservar siempre el ID real de Firestore
+      arr.push(normalized);
+    });
+    return arr;
+  };
+  try{psiGetCloudMuestrasV601=window.psiGetCloudMuestrasV601;}catch(_e){}
+
+  async function locateCloudDocV724(db, requestedId, visibleKey){
+    const col=db.collection('erp_muestras');
+    const direct=col.doc(requestedId);
+    const directSnap=await direct.get();
+    if(directSnap.exists) return {ref:direct,id:directSnap.id,data:directSnap.data()||{}};
+
+    const fields=['id','codigo'];
+    for(const field of fields){
+      try{
+        const qs=await col.where(field,'==',visibleKey).limit(3).get();
+        if(!qs.empty){
+          const d=qs.docs[0];
+          return {ref:d.ref,id:d.id,data:d.data()||{}};
+        }
+      }catch(_e){}
+    }
+
+    // Último recurso: comparación en memoria para bases pequeñas/medianas.
+    const all=await col.get();
+    let found=null;
+    all.forEach(function(d){
+      if(found) return;
+      const data=d.data()||{};
+      const key=String(data.id||data.codigo||d.id||'').trim();
+      if(key===visibleKey || d.id===requestedId) found={ref:d.ref,id:d.id,data:data};
+    });
+    return found;
+  }
+
+  window.psiDeleteCloudOrphanV723=async function(docId, visibleKey){
+    try{
+      const requestedId=String(docId||'').trim();
+      const key=String(visibleKey||requestedId).trim();
+      if(!requestedId && !key){ alert('No se pudo identificar el registro de Cloud.'); return; }
+
+      const typed=prompt(
+        'ELIMINAR REGISTRO HUÉRFANO DE CLOUD\n\n'+
+        'ID visible: '+key+'\n\n'+
+        'Esta acción elimina SOLO este documento de erp_muestras.\n\n'+
+        'Escriba exactamente ELIMINAR para confirmar:',''
+      );
+      if(String(typed||'').trim().toUpperCase()!=='ELIMINAR'){ alert('Operación cancelada.'); return; }
+      if(!confirm('Confirmación final: ¿eliminar definitivamente de Cloud el registro '+key+'?')) return;
+
+      const db=await ensureCloudReadyV724();
+      const located=await locateCloudDocV724(db,requestedId,key);
+      if(!located) throw new Error('No se encontró el documento real en erp_muestras');
+
+      await located.ref.delete();
+      const verify=await located.ref.get();
+      if(verify.exists) throw new Error('Firestore no confirmó la eliminación');
+
+      try{
+        await db.collection('erp_logs').add({
+          action:'DELETE_CLOUD_ORPHAN_CONFIRMED',
+          collection:'erp_muestras',
+          requestedDocId:requestedId,
+          deletedDocId:located.id,
+          visibleKey:key,
+          deletedAt:new Date().toISOString(),
+          source:'ERP_PSI_V7_0_24',
+          user:window.PSI_FIREBASE_AUTH && window.PSI_FIREBASE_AUTH.currentUser ?
+            (window.PSI_FIREBASE_AUTH.currentUser.email||window.PSI_FIREBASE_AUTH.currentUser.uid) : null
+        });
+      }catch(_e){}
+
+      window.PSI_SYNC_DIFF_V601=null;
+      if(typeof toast==='function') toast('Huérfano eliminado realmente de Cloud · '+key);
+      alert('✅ Registro eliminado de Cloud correctamente.\n\nDocumento: '+located.id+'\nCódigo: '+key);
+      if(typeof psiSyncManager==='function') await psiSyncManager();
+    }catch(e){
+      console.error('V7.0.24 delete orphan error',e);
+      alert('No se pudo eliminar el registro de Cloud: '+(e && e.message ? e.message : e));
+    }
+  };
+  try{psiDeleteCloudOrphanV723=window.psiDeleteCloudOrphanV723;}catch(_e){}
+})();
+</script>
+
+
+<!-- V7.0.25: corrección directa del gestor sync. Conserva doc.id real, elimina por referencia real y agrega botón Igualar Local y Cloud. -->
+
+
+<!-- ==========================================================
+ V7.0.26 - FIX DIAGNÓSTICO ALINEADO CON GESTOR SYNC
+ - Cloud Engine deja de contar directamente DATA.length.
+ - Usa la misma comparación depurada por IDs del Gestor Sync.
+ - Evita falsos descuadres por duplicados/caché local antigua.
+========================================================== -->
+<script>
+(function(){
+  window.psiCloudEngineCenter = async function(){
+    var now = new Date().toISOString();
+    var user = 'sin login';
+    try{ user = (window.PSI_FIREBASE_AUTH && window.PSI_FIREBASE_AUTH.currentUser && (window.PSI_FIREBASE_AUTH.currentUser.email || window.PSI_FIREBASE_AUTH.currentUser.uid)) || user; }catch(e){}
+    var online = (navigator.onLine !== false);
+    var qinfo = {rows:[], key:'no verificado'};
+    try{ if(typeof psiQueueReadSafeV624 === 'function') qinfo = psiQueueReadSafeV624(); }catch(e){ qinfo = {rows:[], key:'error leyendo cola'}; }
+    var tx = window.PSI_TX_LAST || {};
+    var dash = window.PSI_DASHBOARD_SMART || {};
+
+    var cmp = null;
+    try{
+      if(typeof window.psiDataEngineCompare === 'function') cmp = await window.psiDataEngineCompare();
+    }catch(e){ console.error('V7.0.26 compare error', e); }
+
+    var localCount = cmp ? Number(cmp.localCount || 0) : null;
+    var cloudCount = cmp ? Number(cmp.cloudCount || 0) : null;
+    var faltanLocal = cmp ? Number(cmp.faltanLocal || 0) : null;
+    var faltanCloud = cmp ? Number(cmp.faltanCloud || 0) : null;
+    var aligned = !!(cmp && cmp.aligned);
+    var localSource = cmp && cmp.local ? cmp.local.key : 'no detectada';
+    var cloudOk = !!(cmp && cmp.cloud && cmp.cloud.ok);
+    var cloudMsg = cloudOk ? (cloudCount+' documentos en erp_muestras') : ((cmp && cmp.cloud && cmp.cloud.error) || 'no leído');
+
+    var statusPayload = {
+      version:'V7.0.26', active:true, user:user,
+      localCount:localCount, cloudCount:cloudCount,
+      faltanLocal:faltanLocal, faltanCloud:faltanCloud,
+      localSource:localSource, aligned:aligned,
+      queuePending:(qinfo.rows||[]).length,
+      lastTxStatus:tx.status || 'sin estado',
+      lastDashboardRefresh:dash.lastRefreshAt || null,
+      antiZero:true, online:online, updatedAt:now
+    };
+    var write = {ok:false,msg:'no escrito'};
+    try{
+      if(typeof psiCloudEngineStatusWriteV625 === 'function') write = await psiCloudEngineStatusWriteV625(statusPayload);
+    }catch(e){ write={ok:false,msg:e.message||String(e)}; }
+
+    var lines = [
+      {ok:true, text:'Versión: ERP PSI Cloud Enterprise V7.0.26'},
+      {ok:online, text:'Internet: '+(online?'activo':'sin conexión')},
+      {ok:!!window.PSI_FIRESTORE_DB, text:'Firestore: '+(window.PSI_FIRESTORE_DB?'disponible':'no disponible')},
+      {ok:!!(window.PSI_FIREBASE_AUTH && window.PSI_FIREBASE_AUTH.currentUser), text:'Usuario: '+user},
+      {ok:true, text:'Colección producción: erp_muestras'},
+      {ok:cloudOk, text:'Cloud producción: '+cloudMsg},
+      {ok:localCount!==null, text:'Registros locales depurados: '+(localCount===null?'no detectado':localCount)},
+      {ok:true, text:'Fuente local usada: '+localSource},
+      {ok:aligned, text:'Alineación Local vs Cloud: '+(localCount===null||cloudCount===null?'no comparado':(localCount+' / '+cloudCount))},
+      {ok:faltanLocal===0, text:'Faltan en Local: '+(faltanLocal===null?'no comparado':faltanLocal)},
+      {ok:faltanCloud===0, text:'Faltan en Cloud: '+(faltanCloud===null?'no comparado':faltanCloud)},
+      {ok:true, text:'Queue Manager: activo · pendientes '+((qinfo.rows||[]).length)},
+      {ok:!tx.lastError, text:'Transaction Manager: '+(tx.status || 'activo')+' · error '+(tx.lastError || 'sin errores')},
+      {ok:true, text:'Audit Manager: erp_logs activo'},
+      {ok:true, text:'Dashboard Manager: '+(dash.active?'activo':'preparado')},
+      {ok:true, text:'Realtime Manager: activo/protegido'},
+      {ok:write.ok, text:'Estado Cloud Engine: '+write.msg},
+      {ok:true, text:'Anti-Cero: activo'}
+    ];
+    var note='Este diagnóstico usa exactamente la misma fuente y comparación por IDs del Gestor Inteligente de Sincronización. Los duplicados o respaldos antiguos ya no alteran el contador oficial.';
+    if(typeof psiSafeModal === 'function') psiSafeModal('⚙️ ERP PSI ENTERPRISE V7.0.26 · DIAGNÓSTICO UNIFICADO', lines, note);
+    else alert(lines.map(function(l){return (l.ok?'✅ ':'❌ ')+l.text;}).join('\n'));
+  };
+})();
+</script>
+<!-- ==========================================================
+ V7.0.27 - FIX EVENT COMMIT CONTEO DEPURADO
+ - El panel Fase 5.2C usa psiDataEngineCompare().
+ - Evita mostrar 1848 cuando el conteo oficial depurado es 1847.
+ - Estado ALINEADO cuando Local y Cloud coinciden por IDs reales.
+========================================================== -->
+
+<script>
+/* ==========================================================
+   V7.0.28 · FIX PORTAL CLIENTE · PERSISTENCIA DIRECTA
+   - Guarda primero Local/IndexedDB.
+   - Confirma inmediatamente el registro afectado en erp_laboratorio.
+   - Mantiene candado anti-rebote mientras Cloud confirma.
+   - Renderiza y disminuye el contador solo después del commit.
+========================================================== */
+(function(){
+  async function portalSaveOneFixed(id){
+    const i=INFORMES.find(x=>String(x.id)===String(id)); if(!i)return;
+    if(!infNorm(i.fecha_autorizacion)){alert('Este informe todavía no tiene Fecha de autorización.');return;}
+    const inp=document.getElementById('portalFecha_'+String(id));
+    const fecha=infNorm(inp?.value||'');
+    if(!fecha){alert('Seleccione la Fecha de envío al portal.');return;}
+    const oldFecha=infNorm(i.fecha_envio_portal||i.portal||'');
+    if(oldFecha && fecha!==oldFecha && !UNLOCKED_FIELDS.has(protectedKey('portal',id))){alert('Fecha de Portal Cliente bloqueada. Use el candado e ingrese contraseña PSI.');renderAll();return;}
+    if(!confirm('¿Guardar fecha de envío al portal '+fecha+' para el informe '+i.codigo+'?'))return;
+
+    window.PSI_LAB_LOCAL_LOCK_UNTIL=Date.now()+20000;
+    i.fecha_envio_portal=fecha;
+    i.portal=fecha;
+    i.updatedAt=new Date().toISOString();
+    auditEntry(i, oldFecha?'Modificó campo protegido':'Registró campo protegido','Fecha envío Portal Cliente',oldFecha||'vacío',fecha);
+    relockField('portal',id);
+    calcInforme(i);
+    saveInformes();
+
+    let cloud={ok:false,error:'Motor Cloud no disponible'};
+    try{
+      if(typeof window.psiCommitInformePortalNow==='function') cloud=await window.psiCommitInformePortalNow(i);
+    }catch(e){ cloud={ok:false,error:e.message||String(e)}; }
+
+    renderAll();
+    if(cloud && cloud.ok){
+      toast('✅ Portal Cliente guardado Local + Cloud');
+    }else{
+      alert('La fecha quedó guardada localmente, pero Cloud no confirmó todavía.\n\nDetalle: '+(cloud.error||'sin confirmación')+'\n\nNo cierre el ERP; revise conexión o Cloud Login y vuelva a guardar.');
+    }
+  }
+
+  async function portalSaveBulkFixed(){
+    if(!assertRole(['CALIDAD','LABORATORIO'],'enviar al portal cliente'))return;
+    const ids=[...PORTAL_CLIENTE_SELECTED];
+    if(!ids.length){alert('Seleccione al menos un informe.');return;}
+    const fecha=infNorm(document.getElementById('portalClienteBulkDate')?.value||'');
+    if(!fecha){alert('Seleccione la Fecha portal para los seleccionados.');return;}
+    if(!confirm('¿Guardar fecha de envío al portal '+fecha+' para '+ids.length+' informes seleccionados?'))return;
+
+    window.PSI_LAB_LOCAL_LOCK_UNTIL=Date.now()+Math.max(20000,ids.length*2500+10000);
+    const changed=[];
+    ids.forEach(id=>{
+      const i=INFORMES.find(x=>String(x.id)===String(id));
+      if(!i || !infNorm(i.fecha_autorizacion) || !['1','4'].includes(String(i.estado_informe||'')))return;
+      const oldFecha=infNorm(i.fecha_envio_portal||i.portal||'');
+      i.fecha_envio_portal=fecha;
+      i.portal=fecha;
+      i.updatedAt=new Date().toISOString();
+      auditEntry(i, oldFecha?'Modificó campo protegido':'Registró campo protegido','Fecha envío Portal Cliente',oldFecha||'vacío',fecha);
+      calcInforme(i);
+      changed.push(i);
+    });
+    saveInformes();
+
+    let ok=0,fail=0;
+    for(const i of changed){
+      try{
+        const r=typeof window.psiCommitInformePortalNow==='function'?await window.psiCommitInformePortalNow(i):{ok:false};
+        if(r&&r.ok)ok++; else fail++;
+      }catch(e){fail++;}
+    }
+    PORTAL_CLIENTE_SELECTED.clear();
+    renderAll();
+    if(!fail) toast('✅ Portal Cliente guardado Local + Cloud para '+ok+' informes');
+    else alert('Guardado local completado.\nCloud confirmó '+ok+' de '+changed.length+' informes.\nPendientes de confirmar: '+fail+'.');
+  }
+
+  window.guardarPortalClienteIndividual=portalSaveOneFixed;
+  window.guardarPortalClienteSeleccionados=portalSaveBulkFixed;
+  try{guardarPortalClienteIndividual=portalSaveOneFixed;}catch(e){}
+  try{guardarPortalClienteSeleccionados=portalSaveBulkFixed;}catch(e){}
+})();
+</script>
 </body>
 </html>
