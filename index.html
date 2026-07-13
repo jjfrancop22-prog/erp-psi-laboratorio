@@ -146,7 +146,7 @@ AJUSTE V1.0.5 - 03/07/2026
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ERP PSI V7.0.58 · RECEPTOR MONOTÓNICO AUTORIZACIÓN–PORTAL</title>
+<title>ERP PSI V7.0.60 · DASHBOARD MES DESDE FECHA</title>
 <style>
 :root{--bg:#0f1117;--surface:#1a1d27;--surface2:#22263a;--border:#2e3350;--accent:#4f8ef7;--green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--cyan:#06b6d4;--text:#e2e8f0;--muted:#94a3b8;--card:#1e2235}
 *{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;min-height:100vh}.hdr{background:linear-gradient(135deg,#1a1d27,#16213e);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.hdr h1{font-size:18px}.sub{color:var(--muted);font-size:11px;margin-top:4px}.badge{background:#334155;color:#fff;padding:4px 10px;border-radius:18px;font-size:11px;font-weight:700}nav{background:var(--surface);border-bottom:1px solid var(--border);display:flex;overflow-x:auto}nav button{background:none;border:none;color:var(--muted);padding:13px 18px;cursor:pointer;font-weight:600;border-bottom:3px solid transparent;white-space:nowrap}nav button.active{color:var(--accent);border-bottom-color:var(--accent)}section{display:none;padding:20px 24px}section.active{display:block}.btn{border:none;border-radius:8px;padding:8px 13px;font-weight:700;cursor:pointer;color:#fff;display:inline-flex;gap:6px;align-items:center}.btn:hover{opacity:.86}.btn-p{background:var(--accent)}.btn-s{background:var(--green)}.btn-d{background:var(--red)}.btn-w{background:var(--yellow);color:#111}.btn-g{background:var(--surface2);border:1px solid var(--border);color:var(--text)}.btn-mini{padding:5px 9px;font-size:11px}.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:14px;margin-bottom:22px}.kc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;position:relative;overflow:hidden}.kc:before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--c,var(--accent))}.kc .lbl{color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-size:11px;margin-bottom:8px}.kc .val{font-size:34px;font-weight:900;color:var(--c,var(--text))}.blue{--c:var(--accent)}.green{--c:var(--green)}.yellow{--c:var(--yellow)}.red{--c:var(--red)}.cyan{--c:var(--cyan)}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:14px}input,select{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:7px;outline:none}input:focus,select:focus{border-color:var(--accent)}.twrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;background:#11131b}table{width:100%;border-collapse:collapse}th{background:var(--surface2);color:var(--muted);text-transform:uppercase;font-size:11px;letter-spacing:1px;text-align:left;padding:11px 12px;border-bottom:2px solid var(--border);white-space:nowrap}td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle}tr:last-child td{border-bottom:none}.chip{display:inline-block;padding:3px 9px;border-radius:10px;font-size:10px;font-weight:900;white-space:nowrap}.m-res{background:rgba(239,68,68,.18);color:#fca5a5}.m-nat{background:rgba(34,197,94,.15);color:#86efac}.m-con{background:rgba(6,182,212,.15);color:#67e8f9}.m-sue{background:rgba(245,158,11,.15);color:#fcd34d}.s-pen,.s-esp{background:rgba(245,158,11,.18);color:#fcd34d}.s-det{background:rgba(239,68,68,.2);color:#fca5a5}.s-ok{background:rgba(34,197,94,.15);color:#86efac}.s-pro{background:rgba(79,142,247,.15);color:#93c5fd}.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:50;align-items:center;justify-content:center}.modal-bg.open{display:flex}.modal{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px;width:min(760px,96vw);max-height:92vh;overflow:auto}.modal h2{font-size:16px;margin-bottom:16px}.fg{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fgr{display:flex;flex-direction:column;gap:5px}.fgr.full{grid-column:1/-1}.fgr label{font-size:10px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.8px}.act{display:flex;justify-content:flex-end;gap:8px;margin-top:18px;padding-top:14px;border-top:1px solid var(--border)}.toast{position:fixed;right:20px;bottom:20px;z-index:100;background:var(--surface2);border:1px solid var(--accent);border-radius:10px;padding:12px 16px;opacity:0;transform:translateY(10px);transition:.2s}.toast.show{opacity:1;transform:translateY(0)}.danger-note{display:inline-flex;gap:8px;align-items:center;background:rgba(239,68,68,.11);border:1px solid rgba(239,68,68,.35);color:#fca5a5;border-radius:20px;padding:8px 14px;margin-bottom:16px;font-weight:800}.empty{color:var(--muted);text-align:center;padding:24px!important}.small{font-size:11px;color:var(--muted)}@media(max-width:700px){.fg{grid-template-columns:1fr}.fgr.full{grid-column:1}.hdr{padding:14px}section{padding:14px}.kpi-grid{grid-template-columns:repeat(2,1fr)}}
@@ -924,6 +924,20 @@ function psiRenderActiveLabSectionDeferred(){
     <button class="btn btn-p" onclick="previewInfEntregaRealExcel()">👁 Vista previa Excel</button>
     <button class="btn btn-s" onclick="exportInfEntregaRealExcel()">📥 Descargar Excel Entrega Real</button>
     <span class="small" id="infEntregaExcelCount" style="margin-left:auto">0 registros</span>
+  </div>
+
+  <div class="toolbar" id="infAutorizacionExcelToolbar" style="margin-top:12px">
+    <b>✅ Excel por Fecha de Autorización</b>
+    <span class="small">Filtra únicamente los informes que tengan Fecha de autorización.</span>
+    <input id="infAutorizacionExcelQ" placeholder="Buscar código/cliente/sucursal" oninput="updateInfAutorizacionExcelCount()" style="min-width:240px">
+    <label class="small">F. autorización desde</label>
+    <input type="date" id="infAutorizacionExcelDesde" onchange="updateInfAutorizacionExcelCount()" title="Desde fecha de autorización">
+    <label class="small">hasta</label>
+    <input type="date" id="infAutorizacionExcelHasta" onchange="updateInfAutorizacionExcelCount()" title="Hasta fecha de autorización">
+    <button class="btn btn-g" onclick="clearInfAutorizacionExcelFilters()">✕ Limpiar</button>
+    <button class="btn btn-p" onclick="previewInfAutorizacionExcel()">👁 Vista previa Excel</button>
+    <button class="btn btn-s" onclick="exportInfAutorizacionExcel()">📥 Descargar Excel Autorización</button>
+    <span class="small" id="infAutorizacionExcelCount" style="margin-left:auto">0 registros autorizados</span>
   </div>
 
   <h2 style="margin:22px 0 12px">✅ Informes ingresados / control final</h2>
@@ -2371,8 +2385,24 @@ function renderDashboard(){
   headerSub.textContent=`${fmtNum(total)} muestras registradas · Último guardado: ${PSI_LAST_SAVE||'sin cambios'}`
 }
 
+/* ==========================================================
+   V7.0.60 · DASHBOARD MENSUAL DERIVADO EXCLUSIVAMENTE DE FECHA
+   El período mensual ya no depende de r.mes ni r.mes_dashboard.
+   Ejemplo:
+     fecha = 2026-01-06  → período = 2026-01
+========================================================== */
+function dashboardMesDesdeFecha(registro){
+  const f=fechaISO(registro?.fecha||'');
+  return /^\d{4}-\d{2}-\d{2}$/.test(f) ? f.slice(0,7) : '';
+}
+
+function dashboardAnioDesdeFecha(registro){
+  const periodo=dashboardMesDesdeFecha(registro);
+  return periodo ? periodo.slice(0,4) : '';
+}
+
 function yearsFromData(){
-  const ys=[...new Set(DATA.map(r=>anioKey(r)).filter(Boolean))].sort();
+  const ys=[...new Set(DATA.map(r=>dashboardAnioDesdeFecha(r)).filter(Boolean))].sort();
   return ys.length?ys:[String(new Date().getFullYear())];
 }
 function ensureYearOptions(){
@@ -2392,7 +2422,8 @@ function monthlyRows(){
   const rows=[];
   for(let mi=1; mi<=12; mi++){
     const mm=String(mi).padStart(2,'0');
-    let arr=DATA.filter(r=>mesKey(r)===`${y}-${mm}` && (!matFilter || r.matriz===matFilter));
+    // Conteo mensual basado únicamente en la fecha real del registro.
+    let arr=DATA.filter(r=>dashboardMesDesdeFecha(r)===`${y}-${mm}` && (!matFilter || r.matriz===matFilter));
     const counts={}; mats.forEach(m=>counts[m]=arr.filter(r=>r.matriz===m).length);
     const nums=arr.map(r=>dqoNum(r.dqo)).filter(n=>n!==null);
     const total=arr.length, meta=320, pct=meta?(total/meta*100):0, st=monthStatus(pct);
@@ -2496,7 +2527,7 @@ function faltaTxt(r){let f=[];if(!norm(r.dqo))f.push('DQO');if(!norm(r.tensoacti
 function renderEspera(){let arr=DATA.filter(r=>r.status==='EN ESPERA');if(typeof esperaBadge!=='undefined') esperaBadge.textContent=arr.length?`(${arr.length})`:'';if(typeof esperaWarn!=='undefined') esperaWarn.textContent=`⏳ ${arr.length} muestras EN ESPERA`;if(!document.getElementById('esperaBody'))return;esperaBody.innerHTML=arr.length?arr.map(r=>`<tr><td>${esc(r.fecha)}</td><td><b>${esc(r.codigo)}</b></td><td>${esc(r.grupo)}</td><td>${chipM(r.matriz)}</td><td>${esc(r.cliente)}</td><td>${esc(r.sucursal)}</td><td>${chipS('',r.estado)}</td><td>${esc(faltaTxt(r))}</td><td>${esc(r.dqo||'—')}</td><td>${esc(r.tensoactivos||'—')}</td><td>${chipS('PENDIENTE','')}</td><td><button class="btn btn-mini btn-s" onclick="continuarEspera('${r.id}')">▶ Continuar</button> <button class="btn btn-mini btn-d" onclick="detenerEspera('${r.id}')">⛔ Detenida</button> <button type="button" class="btn btn-mini btn-g" data-edit-id="${escAttr(r.id)}">✏️ Editar</button></td></tr>`).join(''):`<tr><td colspan="12" class="empty">No hay muestras en espera</td></tr>`}
 function renderPend(){let pend=DATA.filter(r=>['PENDIENTE','EN ESPERA'].includes(r.status));let det=DATA.filter(r=>r.status==='DETENIDA');let reing=DATA.filter(r=>r.status==='REINGRESADA').length;let cont=DATA.filter(r=>r.status==='CONTINUAR').length;pendWarn.textContent=`⚠️ ${pend.length} pendientes/en espera y ${det.length} detenidas`;pendBadge.textContent=pend.length+det.length?`(${pend.length+det.length})`:'';pendKpis.innerHTML=`<div class="kc yellow"><div class="lbl">Pendientes</div><div class="val">${pend.length}</div></div><div class="kc red"><div class="lbl">Detenidas</div><div class="val">${det.length}</div></div><div class="kc blue"><div class="lbl">Reingresadas</div><div class="val">${reing}</div></div><div class="kc green"><div class="lbl">Continuadas</div><div class="val">${cont}</div></div><div class="kc cyan"><div class="lbl">Total alerta</div><div class="val">${pend.length+det.length}</div></div>`;pendBody.innerHTML=pend.length?pend.map(r=>`<tr><td><b>${esc(r.codigo)}</b></td><td>${esc(r.cliente)}</td><td>${esc(r.sucursal)}</td><td>${chipM(r.matriz)}</td><td>${esc(r.mes_frecuencia)}</td><td>${chipS(r.status,r.estado)}</td><td class="small">${trace(r)}</td><td><button class="btn btn-mini btn-s" onclick="reingresar('${r.id}')">↩ Reingresar</button> <button class="btn btn-mini btn-d" onclick="setStatus('${r.id}','DETENIDA','INGRESADA')">🛑 Detenida</button> <button class="btn btn-mini btn-s" onclick="setStatus('${r.id}','CONTINUAR','INGRESADA')">▶ Continuar</button> <button type="button" class="btn btn-mini btn-g" data-edit-id="${escAttr(r.id)}">✏️ Editar</button></td></tr>`).join(''):`<tr><td colspan="8" class="empty">No hay pendientes ni en espera.</td></tr>`;detBody.innerHTML=det.length?det.map(r=>`<tr><td><b>${esc(r.codigo)}</b></td><td>${esc(r.cliente)}</td><td>${esc(r.sucursal)}</td><td>${chipM(r.matriz)}</td><td>${esc(r.mes_frecuencia)}</td><td>${chipS(r.status,r.estado)}</td><td class="small">${trace(r)}</td></tr>`).join(''):`<tr><td colspan="7" class="empty">No hay detenidas.</td></tr>`}
 function renderCat(){let map={};DATA.forEach(r=>{if(!r.cliente)return;map[r.cliente]=map[r.cliente]||{s:new Set(),f:new Set(),n:0};if(r.sucursal)map[r.cliente].s.add(r.sucursal);if(r.mes_frecuencia)map[r.cliente].f.add(r.mes_frecuencia);map[r.cliente].n++});let rows=Object.entries(map).sort((a,b)=>a[0].localeCompare(b[0]));catBody.innerHTML=rows.length?rows.map(([c,o])=>`<tr><td><b>${esc(c)}</b></td><td>${esc([...o.s].join(', '))}</td><td>${esc([...o.f].join(', '))}</td><td>${o.n}</td></tr>`).join(''):`<tr><td colspan="4" class="empty">Catálogo vacío.</td></tr>`}
-function renderAll(){renderConsolidadoERP();renderDashboard();renderMensual();renderControl();renderAnalisis();renderAnalisisResumen();renderEspera();renderPend();renderLabDashboard();renderInformes();updateInfEntregaExcelCount();renderAutorizacionInformes();renderPortalCliente();renderFacturacion();renderAudit();renderCat();keyName.textContent=STORE_KEY}
+function renderAll(){renderConsolidadoERP();renderDashboard();renderMensual();renderControl();renderAnalisis();renderAnalisisResumen();renderEspera();renderPend();renderLabDashboard();renderInformes();updateInfEntregaExcelCount();updateInfAutorizacionExcelCount();renderAutorizacionInformes();renderPortalCliente();renderFacturacion();renderAudit();renderCat();keyName.textContent=STORE_KEY}
 function exportExcel(){let cols=['fecha','codigo','matriz','grupo','cliente','sucursal','mes_frecuencia','dqo','tensoactivos','status','estado'];let html='<table><tr>'+cols.map(c=>`<th>${c}</th>`).join('')+'</tr>'+DATA.map(r=>'<tr>'+cols.map(c=>`<td>${esc(r[c])}</td>`).join('')+'</tr>').join('')+'</table>';let blob=new Blob(['\ufeff',html],{type:'application/vnd.ms-excel;charset=utf-8'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='CONTROL_MUESTRAS_LOCAL_'+today()+'.xls';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
 function backupJSON(){
   const meta=setBackupMeta('RESPALDO GENERAL MANUAL');
@@ -3958,6 +3989,104 @@ function exportInfEntregaRealExcel(){
   const h=document.getElementById('infEntregaExcelHasta')?.value||d;
   XLSX.writeFile(wb, `INFORMES_ENTREGA_REAL_COMERCIAL_${d}_a_${h}.xlsx`);
   toast('Excel Entrega Real descargado: '+rows.length+' informes');
+}
+
+
+/* ==========================================================
+   V7.0.59 · EXCEL POR FECHA DE AUTORIZACIÓN
+   Función de consulta/exportación únicamente.
+   No modifica INFORMES, Firebase, Firestore ni persistencia.
+========================================================== */
+function getInfAutorizacionExcelRows(){
+  const q=infUp(document.getElementById('infAutorizacionExcelQ')?.value||'');
+  const desde=infNorm(document.getElementById('infAutorizacionExcelDesde')?.value||'');
+  const hasta=infNorm(document.getElementById('infAutorizacionExcelHasta')?.value||'');
+
+  let arr=psiCanonicalLabRows()
+    .map(calcInforme)
+    .filter(i=>infNorm(i.fecha_autorizacion||i.cobranza||''));
+
+  arr=arr.filter(i=>{
+    const fa=infNorm(i.fecha_autorizacion||i.cobranza||'');
+    if(desde && fa<desde)return false;
+    if(hasta && fa>hasta)return false;
+    if(q && ![i.id,i.codigo,i.cliente,i.sucursal,i.analista,i.matriz,i.tipo]
+      .join(' ').toUpperCase().includes(q))return false;
+    return true;
+  }).sort((a,b)=>{
+    const fa=infNorm(a.fecha_autorizacion||a.cobranza||'');
+    const fb=infNorm(b.fecha_autorizacion||b.cobranza||'');
+    return fb.localeCompare(fa)||String(a.codigo||'').localeCompare(String(b.codigo||''));
+  });
+
+  return arr.map(i=>({
+    'ID': i.id||'',
+    'CODIGO / OT': i.codigo||'',
+    'CLIENTE': i.cliente||'',
+    'SUCURSAL': i.sucursal||'',
+    'MATRIZ': i.matriz||'',
+    'GRUPO': i.grupo||'',
+    'TIPO': i.tipo||'',
+    'ANALISTA': i.analista||'',
+    'FECHA RECEPCION': i.fecha_recepcion||'',
+    'FECHA ENTREGA REAL': i.fecha_entrega_real||'',
+    'ESTADO INFORME': i.estado_informe
+      ? (i.estado_informe+' - '+authEstadoLabel(i.estado_informe))
+      : '',
+    'FECHA AUTORIZACION': i.fecha_autorizacion||i.cobranza||'',
+    'FECHA ENVIO PORTAL': i.fecha_envio_portal||i.portal||'',
+    'OBSERVACIONES': i.observaciones||''
+  }));
+}
+
+function updateInfAutorizacionExcelCount(){
+  const c=document.getElementById('infAutorizacionExcelCount');
+  if(!c)return;
+  c.textContent=getInfAutorizacionExcelRows().length+' registros autorizados';
+}
+
+function clearInfAutorizacionExcelFilters(){
+  ['infAutorizacionExcelQ','infAutorizacionExcelDesde','infAutorizacionExcelHasta']
+    .forEach(id=>{
+      const e=document.getElementById(id);
+      if(e)e.value='';
+    });
+  updateInfAutorizacionExcelCount();
+}
+
+function previewInfAutorizacionExcel(){
+  const rows=getInfAutorizacionExcelRows();
+  if(!rows.length){
+    alert('No hay informes con Fecha de autorización para previsualizar con esos filtros.');
+    return;
+  }
+  psiShowPreviewTable('Vista previa Excel por Fecha de Autorización',rows,12);
+}
+
+function exportInfAutorizacionExcel(){
+  const rows=getInfAutorizacionExcelRows();
+  if(!rows.length){
+    alert('No hay informes con Fecha de autorización para exportar con esos filtros.');
+    return;
+  }
+
+  const ws=XLSX.utils.json_to_sheet(rows);
+  ws['!cols']=[
+    {wch:12},{wch:14},{wch:42},{wch:32},{wch:14},{wch:12},{wch:14},
+    {wch:22},{wch:16},{wch:18},{wch:42},{wch:20},{wch:18},{wch:30}
+  ];
+
+  const wb=XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb,ws,'Autorizados');
+
+  const d=document.getElementById('infAutorizacionExcelDesde')?.value||'todos';
+  const h=document.getElementById('infAutorizacionExcelHasta')?.value||d;
+
+  XLSX.writeFile(
+    wb,
+    `INFORMES_POR_FECHA_AUTORIZACION_${d}_a_${h}.xlsx`
+  );
+  toast('Excel por Fecha de Autorización descargado: '+rows.length+' informes');
 }
 
 /* === V6.5 MASTER CLEAN FASE 1.1 · Vista previa segura sin document.write/window.open === */
@@ -15582,6 +15711,49 @@ document.addEventListener('DOMContentLoaded', function(){
  - Si un navegador receptor observa un avance de etapa, lo conserva 60 s.
  - Un snapshot posterior con etapa inferior no puede devolver el mismo ID.
  - No modifica Firebase, colecciones ni datos persistidos en Cloud.
+========================================================== -->
+
+
+<!-- ==========================================================
+ V7.0.59 · DESARROLLO
+ Se agrega únicamente exportación Excel por Fecha de Autorización.
+ No modifica datos, flujo, Firebase, sincronización ni producción congelada.
+========================================================== -->
+
+
+<script>
+/* V7.0.60 · Diagnóstico mensual de solo lectura */
+window.PSI_DASHBOARD_MENSUAL_DIAGNOSTICO=function(){
+  try{
+    const resumen={};
+    const inconsistencias=[];
+    (Array.isArray(DATA)?DATA:[]).forEach(function(r){
+      const real=dashboardMesDesdeFecha(r);
+      if(real) resumen[real]=(resumen[real]||0)+1;
+
+      const guardado=String(r&&r.mes||'').trim();
+      if(real && guardado && real!==guardado){
+        inconsistencias.push({
+          id:r.id||'',
+          codigo:r.codigo||'',
+          fecha:r.fecha||'',
+          mes_guardado:guardado,
+          mes_calculado:real
+        });
+      }
+    });
+    return {resumen:resumen,inconsistencias:inconsistencias};
+  }catch(e){
+    return {resumen:{},inconsistencias:[],error:String(e&&e.message||e)};
+  }
+};
+</script>
+
+
+<!-- ==========================================================
+ V7.0.60 · DESARROLLO
+ Dashboard mensual calculado exclusivamente desde registro.fecha.
+ No modifica muestras, Firebase, Firestore, sincronización ni producción.
 ========================================================== -->
 
 </body>
