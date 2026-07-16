@@ -150,12 +150,23 @@ AJUSTE V1.0.5 - 03/07/2026
  - No modifica Firebase, persistencia, secuencias ni datos existentes.
 ==========================================================
 -->
+<!--
+==========================================================
+ ERP PSI V7.0.62 · AUTORIZACIÓN SOLO PENDIENTES
+ - En Autorización de Informes solo se muestran:
+   · Sin estado
+   · 2 · Informes retenidos
+   · 3 · OT sin OC / seguimiento comercial
+ - Se ocultan de esta bandeja los estados 1 y 4.
+ - No modifica estados, guardado, Firebase, filtros ni otros módulos.
+==========================================================
+-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ERP PSI V7.0.61 · FILTRO RANGO FECHAS EXCEL</title>
+<title>ERP PSI V7.0.62 · AUTORIZACIÓN SOLO PENDIENTES</title>
 <style>
 :root{--bg:#0f1117;--surface:#1a1d27;--surface2:#22263a;--border:#2e3350;--accent:#4f8ef7;--green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--cyan:#06b6d4;--text:#e2e8f0;--muted:#94a3b8;--card:#1e2235}
 *{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;min-height:100vh}.hdr{background:linear-gradient(135deg,#1a1d27,#16213e);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.hdr h1{font-size:18px}.sub{color:var(--muted);font-size:11px;margin-top:4px}.badge{background:#334155;color:#fff;padding:4px 10px;border-radius:18px;font-size:11px;font-weight:700}nav{background:var(--surface);border-bottom:1px solid var(--border);display:flex;overflow-x:auto}nav button{background:none;border:none;color:var(--muted);padding:13px 18px;cursor:pointer;font-weight:600;border-bottom:3px solid transparent;white-space:nowrap}nav button.active{color:var(--accent);border-bottom-color:var(--accent)}section{display:none;padding:20px 24px}section.active{display:block}.btn{border:none;border-radius:8px;padding:8px 13px;font-weight:700;cursor:pointer;color:#fff;display:inline-flex;gap:6px;align-items:center}.btn:hover{opacity:.86}.btn-p{background:var(--accent)}.btn-s{background:var(--green)}.btn-d{background:var(--red)}.btn-w{background:var(--yellow);color:#111}.btn-g{background:var(--surface2);border:1px solid var(--border);color:var(--text)}.btn-mini{padding:5px 9px;font-size:11px}.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:14px;margin-bottom:22px}.kc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;position:relative;overflow:hidden}.kc:before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--c,var(--accent))}.kc .lbl{color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-size:11px;margin-bottom:8px}.kc .val{font-size:34px;font-weight:900;color:var(--c,var(--text))}.blue{--c:var(--accent)}.green{--c:var(--green)}.yellow{--c:var(--yellow)}.red{--c:var(--red)}.cyan{--c:var(--cyan)}.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:14px}input,select{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:7px;outline:none}input:focus,select:focus{border-color:var(--accent)}.twrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;background:#11131b}table{width:100%;border-collapse:collapse}th{background:var(--surface2);color:var(--muted);text-transform:uppercase;font-size:11px;letter-spacing:1px;text-align:left;padding:11px 12px;border-bottom:2px solid var(--border);white-space:nowrap}td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle}tr:last-child td{border-bottom:none}.chip{display:inline-block;padding:3px 9px;border-radius:10px;font-size:10px;font-weight:900;white-space:nowrap}.m-res{background:rgba(239,68,68,.18);color:#fca5a5}.m-nat{background:rgba(34,197,94,.15);color:#86efac}.m-con{background:rgba(6,182,212,.15);color:#67e8f9}.m-sue{background:rgba(245,158,11,.15);color:#fcd34d}.s-pen,.s-esp{background:rgba(245,158,11,.18);color:#fcd34d}.s-det{background:rgba(239,68,68,.2);color:#fca5a5}.s-ok{background:rgba(34,197,94,.15);color:#86efac}.s-pro{background:rgba(79,142,247,.15);color:#93c5fd}.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:50;align-items:center;justify-content:center}.modal-bg.open{display:flex}.modal{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px;width:min(760px,96vw);max-height:92vh;overflow:auto}.modal h2{font-size:16px;margin-bottom:16px}.fg{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fgr{display:flex;flex-direction:column;gap:5px}.fgr.full{grid-column:1/-1}.fgr label{font-size:10px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.8px}.act{display:flex;justify-content:flex-end;gap:8px;margin-top:18px;padding-top:14px;border-top:1px solid var(--border)}.toast{position:fixed;right:20px;bottom:20px;z-index:100;background:var(--surface2);border:1px solid var(--accent);border-radius:10px;padding:12px 16px;opacity:0;transform:translateY(10px);transition:.2s}.toast.show{opacity:1;transform:translateY(0)}.danger-note{display:inline-flex;gap:8px;align-items:center;background:rgba(239,68,68,.11);border:1px solid rgba(239,68,68,.35);color:#fca5a5;border-radius:20px;padding:8px 14px;margin-bottom:16px;font-weight:800}.empty{color:var(--muted);text-align:center;padding:24px!important}.small{font-size:11px;color:var(--muted)}@media(max-width:700px){.fg{grid-template-columns:1fr}.fgr.full{grid-column:1}.hdr{padding:14px}section{padding:14px}.kpi-grid{grid-template-columns:repeat(2,1fr)}}
@@ -4164,7 +4175,7 @@ function getAutorizacionInformesFiltrados(){
   const filtro=document.getElementById('authInfEstadoFiltro')?.value||'';
   const desde=infNorm(document.getElementById('authInfDesde')?.value||'');
   const hasta=infNorm(document.getElementById('authInfHasta')?.value||'');
-  let arr=psiCanonicalLabRows().map(calcInforme).filter(i=>infNorm(i.fecha_entrega_real));
+  let arr=psiCanonicalLabRows().map(calcInforme).filter(i=>infNorm(i.fecha_entrega_real) && ['', '2', '3'].includes(String(i.estado_informe||'')));
   return arr.filter(i=>{
     const fa=infNorm(i.fecha_autorizacion||i.cobranza||'');
     if(desde && fa<desde)return false;
@@ -4215,7 +4226,7 @@ function renderAutorizacionInformes(){
   const filtro=document.getElementById('authInfEstadoFiltro')?.value||'';
   const desde=infNorm(document.getElementById('authInfDesde')?.value||'');
   const hasta=infNorm(document.getElementById('authInfHasta')?.value||'');
-  let arr=psiCanonicalLabRows().map(calcInforme).filter(i=>infNorm(i.fecha_entrega_real));
+  let arr=psiCanonicalLabRows().map(calcInforme).filter(i=>infNorm(i.fecha_entrega_real) && ['', '2', '3'].includes(String(i.estado_informe||'')));
   arr=arr.filter(i=>{
     const fa=infNorm(i.fecha_autorizacion||i.cobranza||'');
     if(desde && fa<desde)return false;
